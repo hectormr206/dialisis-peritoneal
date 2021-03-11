@@ -57,7 +57,7 @@ module.exports = {
         ]
       }
     ]
-  }
+  },
   plugins: [
     new MiniCSSExtractPlugin({
       filename: 'css/[name].css'
