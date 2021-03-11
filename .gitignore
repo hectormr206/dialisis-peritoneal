@@ -1,5 +1,8 @@
 # Node template
 
+# dist
+dist/
+
 # Logs
 logs
 *.log
