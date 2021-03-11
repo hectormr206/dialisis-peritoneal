@@ -4,7 +4,7 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: {
-    bundle: path.join(__dirname,'src/index.js')
+    bundle: path.join(__dirname, 'src/index.js')
   },
   output: {
     path: path.join(__dirname, 'dist'),
@@ -26,12 +26,12 @@ module.exports = {
             loader: MiniCSSExtractPlugin.loader
           },
           {
-            loader: "css-loader",
+            loader: 'css-loader',
             options: {
               importLoaders: 1
             }
           },
-          "postcss-loader"
+          'postcss-loader'
         ]
       },
       {
@@ -40,8 +40,8 @@ module.exports = {
           {
             loader: MiniCSSExtractPlugin.loader
           },
-          "css-loader",
-          "sass-loader"
+          'css-loader',
+          'sass-loader'
         ]
       },
       {
@@ -50,8 +50,8 @@ module.exports = {
           {
             loader: MiniCSSExtractPlugin.loader
           },
-          "css-loader",
-          "less-loader"
+          'css-loader',
+          'less-loader'
         ]
       },
       {
@@ -60,8 +60,8 @@ module.exports = {
           {
             loader: MiniCSSExtractPlugin.loader
           },
-          "css-loader",
-          "stylus-loader"
+          'css-loader',
+          'stylus-loader'
         ]
       },
       {
@@ -74,7 +74,7 @@ module.exports = {
         use: {
           loader: 'url-loader',
           options: {
-            limit: 90000,
+            limit: 90000
           }
         }
       }
@@ -82,8 +82,8 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: "@hectormr206",
-      template: path.join(__dirname, "src/index.html")
+      title: '@hectormr206',
+      template: path.join(__dirname, 'src/index.html')
     }),
     new MiniCSSExtractPlugin({
       filename: 'css/[name].css'

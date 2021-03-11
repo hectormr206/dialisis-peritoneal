@@ -19,6 +19,7 @@ export const Nav = styled.nav`
   border-radius: 6px;
   z-index: 1000;
 `
+
 export const NavLink = styled(NavLinkRouter)`
   display: inline-flex;
   align-items: center;
