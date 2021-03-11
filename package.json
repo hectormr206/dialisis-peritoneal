@@ -1,0 +1,11 @@
+{
+  "name": "dialisis-peritoneal",
+  "version": "1.0.0",
+  "description": "Application using Webpack, Babel, GraphQL, React Hooks, React Router, SEO, PWAs and Vercel.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "@hectormr206",
+  "license": "ISC"
+}
