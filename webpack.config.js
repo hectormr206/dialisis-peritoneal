@@ -17,11 +17,47 @@ module.exports = {
           {
             loader: MiniCSSExtractPlugin.loader
           },
-          'css-loader'
+          {
+            loader: "css-loader",
+            options: {
+              importLoaders: 1
+            }
+          },
+          "postcss-loader"
+        ]
+      },
+      {
+        test: /\.scss$/,
+        use: [
+          {
+            loader: MiniCSSExtractPlugin.loader
+          },
+          "css-loader",
+          "sass-loader"
+        ]
+      },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: MiniCSSExtractPlugin.loader
+          },
+          "css-loader",
+          "less-loader"
+        ]
+      },
+      {
+        test: /\.styl$/,
+        use: [
+          {
+            loader: MiniCSSExtractPlugin.loader
+          },
+          "css-loader",
+          "stylus-loader"
         ]
       }
     ]
-  },
+  }
   plugins: [
     new MiniCSSExtractPlugin({
       filename: 'css/[name].css'
