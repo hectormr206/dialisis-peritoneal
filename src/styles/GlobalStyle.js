@@ -1,14 +1,26 @@
 import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
-  html {
-    height: 100%;
-    box-sizing: border-box;
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  :root {
+    --body-background: #181818;
+    --color-primary: #fff;
+    --color-secondary: #909090;
+    --font-family-primary: 'Noto Sans JP';
+    --font-size: 16px;
+    --header-height: 60px;
+    --footer-height: 60px;
   }
 
   *, *::before, *::after {
+    font-family: var(--font-family-primary), sans-serif;
+    font-size: var(--font-size);
     box-sizing: inherit;
+  }
+  
+  html {
+    height: 100%;
+    color: var(--color-primary);
+    box-sizing: border-box;
   }
 
   ul, li, h1, h2, h3, p, button {
@@ -27,18 +39,15 @@ export const GlobalStyle = createGlobalStyle`
   }
 
   body {
-    background: #fefefe;
-    height: 100%;
     margin: 0 auto;
-    max-width: 500px;
-    overscroll-behavior: none;
+    height: 100%;
     width: 100%;
+    background: var(--body-background);
+    overscroll-behavior: none;
   }
 
   #app {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+    height: 100%;
     overflow-x: hidden;
-    min-height: 100%;
-    padding-bottom: 10px;
   }
 `

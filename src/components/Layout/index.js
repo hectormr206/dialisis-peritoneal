@@ -1,19 +1,25 @@
 import React from 'react'
 import { Helmet } from 'react-helmet'
-import { Div, Title, Subtitle } from './styles'
+import { Header } from '../Header'
+import { Content, Title } from './styles'
+import { Footer } from '../Footer'
 
-export const Layout = ({ children, title, subtitle }) => {
+export const Layout = ({ children, title, description }) => {
   return (
     <>
       <Helmet>
-        {title && <title>{title} | @hectormr206</title>}
-        {subtitle && <meta name='description' content={subtitle} />}
+        {title && <title>{title} | 😉 @hectormr206</title>}
+        {description && <meta name='description' content={description} />}
       </Helmet>
-      <Div>
-        {title && <Title>{title}</Title>}
-        {subtitle && <Subtitle>{subtitle}</Subtitle>}
-        {children}
-      </Div>
+      <>
+        <Header>
+          {title && <Title>{title}</Title>}
+        </Header>
+        <Content>
+          {children}
+        </Content>
+        <Footer />
+      </>
     </>
   )
 }

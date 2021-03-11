@@ -12,11 +12,8 @@ export const Nav = styled.nav`
   margin: 0 auto;
   padding: 3px 4px;
   justify-content: space-around;
-  width: 94%;
-  height: 60px;
-  box-shadow: -1px -1px 3px rgba(255,255,255,0.9),
-              2px 2px 6px rgba(184,185,190,0.8);
-  border-radius: 6px;
+  width: 100%;
+  height: var(--footer-height);
   z-index: 1000;
 `
 
@@ -24,25 +21,19 @@ export const NavLink = styled(NavLinkRouter)`
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 100%;
+  padding: 20px;
   height: 96%;
-  color: rgba(79, 91, 98, 0.3);
   text-decoration: none;
   &[aria-current] {
-    color: rgba(79, 91, 98, 0.9);
+    color: #909090;
+    border: 1px solid #909090;
     border-radius: 6px;
-    box-shadow: inset -1px -1px 3px rgba(255,255,255,0.9),
-                inset 2px 2px 6px rgba(184,185,190,0.8);
     &:after {
       position: absolute;
       bottom: 0;
       ${fadeIn({ time: '0.5s' })};
-      content: '-';
-      font-size: 34px;
+      color: #fff;
       line-height: 20px;
     }
-  }
-  &:hover {
-    color: rgba(79, 91, 98, 0.2);
   }
 `

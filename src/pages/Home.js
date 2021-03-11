@@ -3,6 +3,8 @@ import { Layout } from '../components/Layout'
 
 export default () => {
   return (
-    <Layout title='Bienvenido' subtitle='@hectormr206' />
+    <Layout title='Welcome to React!' description='😉 @hectormr206'>
+      Content of Home
+    </Layout>
   )
 }
