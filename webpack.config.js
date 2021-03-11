@@ -8,7 +8,14 @@ module.exports = {
   },
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: '[name].js'
+    filename: '[name].js',
+    publicPath: '/'
+  },
+  devServer: {
+    historyApiFallback: {
+      disableDotRule: true
+    },
+    liveReload: true
   },
   module: {
     rules: [
