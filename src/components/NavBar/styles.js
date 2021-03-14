@@ -6,7 +6,7 @@ export const Nav = styled.nav`
   position: fixed;
   left: 0;
   right: 0;
-  bottom: 8px;
+  bottom: 0;
   display: flex;
   align-items: center;
   margin: 0 auto;
@@ -14,6 +14,7 @@ export const Nav = styled.nav`
   justify-content: space-around;
   width: 100%;
   height: var(--footer-height);
+  background: rgba(0,0,0,0.2);
   z-index: 1000;
 `
 
@@ -23,16 +24,17 @@ export const NavLink = styled(NavLinkRouter)`
   justify-content: center;
   padding: 20px;
   height: 96%;
+  color: var(--color-secondary);
   text-decoration: none;
+  border: 1px solid transparent;
   &[aria-current] {
-    color: #909090;
-    border: 1px solid #909090;
+    border-color: var(--color-primary);
     border-radius: 6px;
+    color: var(--color-primary);
     &:after {
       position: absolute;
       bottom: 0;
       ${fadeIn({ time: '0.5s' })};
-      color: #fff;
       line-height: 20px;
     }
   }

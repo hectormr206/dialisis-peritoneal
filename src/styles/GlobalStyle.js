@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
   *, *::before, *::after {
     font-family: var(--font-family-primary), sans-serif;
     font-size: var(--font-size);
+    line-height: 2rem;
     box-sizing: inherit;
   }
   

@@ -9,13 +9,12 @@ module.exports = {
   output: {
     path: path.join(__dirname, 'dist'),
     filename: '[name].js',
-    publicPath: '/'
+    publicPath: './'
   },
   devServer: {
-    historyApiFallback: {
-      disableDotRule: true
-    },
-    liveReload: true
+    historyApiFallback: true,
+    contentBase: './',
+    hot: true
   },
   module: {
     rules: [
@@ -83,7 +82,9 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       title: '@hectormr206',
-      template: path.join(__dirname, 'src/index.html')
+      template: path.join(__dirname, 'public/index.html'),
+      filename: 'index.html',
+      favicon: 'public/favicon.ico'
     }),
     new MiniCSSExtractPlugin({
       filename: 'css/[name].css'

@@ -1,5 +1,5 @@
 import React from 'react'
 
-export default () => (
+export const NoMatch = () => (
   <h1>Esta página no existe! 😬</h1>
 )

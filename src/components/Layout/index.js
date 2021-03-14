@@ -8,7 +8,7 @@ export const Layout = ({ children, title, description }) => {
   return (
     <>
       <Helmet>
-        {title && <title>{title} | 😉 @hectormr206</title>}
+        {title && <title>{title} | Diálisis peritoneal</title>}
         {description && <meta name='description' content={description} />}
       </Helmet>
       <>
