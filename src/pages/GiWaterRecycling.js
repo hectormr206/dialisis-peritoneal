@@ -10,7 +10,7 @@ export const GiWaterRecycling = () => {
         {description}
       </Card>
       <Card>
-        Nunca hacer la diálisis si presentas cortadas o lesiones en las manos, ya que podemos infectar a nuestro paciente.
+        Nunca hacer la diálisis si presentas agrietaduras, cortadas o lesiones en las manos, ya que podemos infectar a nuestro paciente.
       </Card>
       <Card>
         !Si la presión está baja no sacar más de 200 ml, si la presión está normal sacar más líquido y compensar en lo que toma!
@@ -45,37 +45,19 @@ export const GiWaterRecycling = () => {
                 <span>4.1</span> Mojar las manos
               </li>
               <li>
-                <span>4.2</span> Frotar palma con palma 10 veces
+                <span>4.2</span> Frotar palmas 10 veces
               </li>
               <li>
-                <span>4.3</span> Frotar dorso de mano no dominante con palma de mano dominante 10 veces
+                <span>4.3</span> Frotar dorsos 10 veces
               </li>
               <li>
-                <span>4.4</span> Frotar dorso de mano dominante con palma de mano no dominante 10 veces
+                <span>4.4</span> Enganchar manos y frotar nudillos 10 veces
               </li>
               <li>
-                <span>4.5</span> Frotar nudillos de mano no dominante con dedo pulgar de mano dominante 10 veces
+                <span>4.5</span> Frotar pulgares 10 veces
               </li>
               <li>
-                <span>4.6</span> Frotar nudillos de mano dominante con dedo pulgar de mano no dominante 10 veces
-              </li>
-              <li>
-                <span>4.7</span> Enganchar manos y frotar nudillos de la mano no dominante con el pulgar de la mano dominante 10 veces
-              </li>
-              <li>
-                <span>4.8</span> Enganchar manos y frotar nudillos de la mano dominante con el pulgar de la mano no dominante 10 veces
-              </li>
-              <li>
-                <span>4.9</span> Abrazar pulgar de la mano no dominante con la mano dominante y realizar giros. Al mismo tiempo con el pulgar de la mano dominante frotamos parte del dorso de la mano no dominante. 10 veces
-              </li>
-              <li>
-                <span>4.10</span> Abrazar pulgar de la mano dominante con la mano no dominante y realizar giros. Al mismo tiempo con el pulgar de la mano no dominante frotamos parte del dorso de la mano dominante. 10 veces
-              </li>
-              <li>
-                <span>4.11</span> Frotamos las uñas de la mano no dominante en la palma de la mano dominante 10 veces
-              </li>
-              <li>
-                <span>4.12</span> Frotamos las uñas de la mano dominante en la palma de la mano no dominante 10 veces
+                <span>4.6</span> Frotamos las uñas 10 veces
               </li>
             </ul>
           </li>
@@ -90,7 +72,7 @@ export const GiWaterRecycling = () => {
                 <span>5.1</span> Tomamos la toalla y abrazamos nuestras palmas
               </li>
               <li>
-                <span>5.2</span> Secamos los dedos de la mano no dominante, uno a uno presionando solamente
+                <span>5.2</span> Secamos los dedos de la mano
               </li>
               <li>
                 <span>5.3</span> Con ligeros toques secamos el dorso de la mano
@@ -233,10 +215,10 @@ export const GiWaterRecycling = () => {
                 <span>14.1</span> Tomamos la toalla y abrazamos nuestras palmas
               </li>
               <li>
-                <span>14.2</span> Secamos los dedos de la mano no dominante, uno a uno presionando solamente
+                <span>14.2</span> Secamos los dedos de la mano
               </li>
               <li>
-                <span>14.3</span> Con ligeros toques secamos el dorso de la mano
+                <span>14.3</span> Con ligeros toques secamos el dorso de la mano y el brazo hasta llegar al codo
               </li>
               <li>
                 <span>14.4</span> Así como está doblada la toalla la giramos, ahora secaremos con la parte de abajo
@@ -245,13 +227,10 @@ export const GiWaterRecycling = () => {
                 <span>14.5</span> Repetimos abrazo de palmas y secado uno a uno de los dedos
               </li>
               <li>
-                <span>14.6</span> Con ligeros toques secamos el dorso de la mano
+                <span>14.6</span> Con ligeros toques secamos el dorso de la mano y el brazo hasta llegar al codo
               </li>
               <li>
-                <span>14.7</span> Con ligeros toques secamos el brazo hasta llegar al codo
-              </li>
-              <li>
-                <span>14.8</span> Con la mano no dominante y sin soltar la toalla, la tiramos en el cesto de toallas sucias
+                <span>14.7</span> Depositamos la toalla en el cesto de toallas sucias
               </li>
             </ul>
           </li>

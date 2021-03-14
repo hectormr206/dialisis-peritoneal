@@ -10,19 +10,19 @@ export const GeneralCleaning = () => {
         {description}
       </Card>
       <Card>
-        Usar una toalla chica para secarse las manos, solo se usará para el aseo general.
+        Asignar una toalla chica para secar las manos, solo se usará para el aseo general.
       </Card>
       <Card>
         <ul>
           <li>
-            <span>1</span> Preparar agua clorada (con agua de garrafón, 450ml de agua y 50 ml de cloro)
+            <span>1</span> Preparar agua clorada (Con agua de garrafón y 10% de cloro, ejemplo: 450ml de agua y 50 ml de cloro)
           </li>
         </ul>
       </Card>
       <Card>
         <ul>
           <li>
-            <span>2</span> Colocar la toalla (doblada a la mitad por lo largo)
+            <span>2</span> Colocar la toalla (Doblada a la mitad por lo largo)
           </li>
         </ul>
       </Card>
@@ -35,37 +35,19 @@ export const GeneralCleaning = () => {
                 <span>3.1</span> Mojar las manos
               </li>
               <li>
-                <span>3.2</span> Frotar palma con palma 10 veces
+                <span>3.2</span> Frotar palmas 10 veces
               </li>
               <li>
-                <span>3.3</span> Frotar dorso de mano no dominante con palma de mano dominante 10 veces
+                <span>3.3</span> Frotar dorsos 10 veces
               </li>
               <li>
-                <span>3.4</span> Frotar dorso de mano dominante con palma de mano no dominante 10 veces
+                <span>3.4</span> Enganchar manos y frotar nudillos 10 veces
               </li>
               <li>
-                <span>3.5</span> Frotar nudillos de mano no dominante con dedo pulgar de mano dominante 10 veces
+                <span>3.5</span> Frotar pulgares 10 veces
               </li>
               <li>
-                <span>3.6</span> Frotar nudillos de mano dominante con dedo pulgar de mano no dominante 10 veces
-              </li>
-              <li>
-                <span>3.7</span> Enganchar manos y frotar nudillos de la mano no dominante con el pulgar de la mano dominante 10 veces
-              </li>
-              <li>
-                <span>3.8</span> Enganchar manos y frotar nudillos de la mano dominante con el pulgar de la mano no dominante 10 veces
-              </li>
-              <li>
-                <span>3.9</span> Abrazar pulgar de la mano no dominante con la mano dominante y realizar giros. Al mismo tiempo con el pulgar de la mano dominante frotamos parte del dorso de la mano no dominante. 10 veces
-              </li>
-              <li>
-                <span>3.10</span> Abrazar pulgar de la mano dominante con la mano no dominante y realizar giros. Al mismo tiempo con el pulgar de la mano no dominante frotamos parte del dorso de la mano dominante. 10 veces
-              </li>
-              <li>
-                <span>3.11</span> Frotamos las uñas de la mano no dominante en la palma de la mano dominante 10 veces
-              </li>
-              <li>
-                <span>3.12</span> Frotamos las uñas de la mano dominante en la palma de la mano no dominante 10 veces
+                <span>3.6</span> Frotamos las uñas 10 veces
               </li>
             </ul>
           </li>
@@ -80,7 +62,7 @@ export const GeneralCleaning = () => {
                 <span>4.1</span> Tomamos la toalla y abrazamos nuestras palmas
               </li>
               <li>
-                <span>4.2</span> Secamos los dedos de la mano no dominante, uno a uno presionando solamente
+                <span>4.2</span> Secamos los dedos uno a uno presionando solamente
               </li>
               <li>
                 <span>4.3</span> Con ligeros toques secamos el dorso de la mano
@@ -89,7 +71,7 @@ export const GeneralCleaning = () => {
                 <span>4.4</span> Así como está doblada la toalla la giramos, ahora secaremos con la parte de abajo
               </li>
               <li>
-                <span>4.5</span> Repetimos abrazo de palmas y secado uno a uno de los dedos
+                <span>4.5</span> Repetimos abrazo de palmas y secamos uno a uno los dedos
               </li>
               <li>
                 <span>4.6</span> Con ligeros toques secamos el dorso de la mano
@@ -104,7 +86,7 @@ export const GeneralCleaning = () => {
       <Card>
         <ul>
           <li>
-            <span>5</span> Limpiar mesa de trabajo (con agua clorada al 10% o except):
+            <span>5</span> Limpiar mesa de trabajo (Con agua clorada al 10% o Except):
             <ul>
               <li>
                 <span>5.1</span> Colocar chorrito de agua clorada en las esquinas de la mesa y en el centro
@@ -113,7 +95,7 @@ export const GeneralCleaning = () => {
                 <span>5.2</span> Impregnar compresa con los chorritos de cloro puestos en la mesa y limpiar de frente hacia atrás (hacer presión con la compresa para que la mesa quede bien seca)
               </li>
               <li>
-                <span>5.3</span> Doblar compresa y limpiar los lados de la mesa (cuidar que nuestra ropa no toque la mesa)
+                <span>5.3</span> Doblar compresa y limpiar los lados de la mesa (Cuidar que nuestra ropa no toque la mesa)
               </li>
             </ul>
           </li>
@@ -193,37 +175,19 @@ export const GeneralCleaning = () => {
                 <span>8.1</span> Mojar las manos
               </li>
               <li>
-                <span>8.2</span> Frotar palma con palma 10 veces
+                <span>8.2</span> Frotar palmas 10 veces
               </li>
               <li>
-                <span>8.3</span> Frotar dorso de mano no dominante con palma de mano dominante 10 veces
+                <span>8.3</span> Frotar dorsos 10 veces
               </li>
               <li>
-                <span>8.4</span> Frotar dorso de mano dominante con palma de mano no dominante 10 veces
+                <span>8.4</span> Enganchar manos y frotar nudillos 10 veces
               </li>
               <li>
-                <span>8.5</span> Frotar nudillos de mano no dominante con dedo pulgar de mano dominante 10 veces
+                <span>8.5</span> Frotar pulgares 10 veces
               </li>
               <li>
-                <span>8.6</span> Frotar nudillos de mano dominante con dedo pulgar de mano no dominante 10 veces
-              </li>
-              <li>
-                <span>8.7</span> Enganchar manos y frotar nudillos de la mano no dominante con el pulgar de la mano dominante 10 veces
-              </li>
-              <li>
-                <span>8.8</span> Enganchar manos y frotar nudillos de la mano dominante con el pulgar de la mano no dominante 10 veces
-              </li>
-              <li>
-                <span>8.9</span> Abrazar pulgar de la mano no dominante con la mano dominante y realizar giros. Al mismo tiempo con el pulgar de la mano dominante frotamos parte del dorso de la mano no dominante. 10 veces
-              </li>
-              <li>
-                <span>8.10</span> Abrazar pulgar de la mano dominante con la mano no dominante y realizar giros. Al mismo tiempo con el pulgar de la mano no dominante frotamos parte del dorso de la mano dominante. 10 veces
-              </li>
-              <li>
-                <span>8.11</span> Frotamos las uñas de la mano no dominante en la palma de la mano dominante 10 veces
-              </li>
-              <li>
-                <span>8.12</span> Frotamos las uñas de la mano dominante en la palma de la mano no dominante 10 veces
+                <span>8.6</span> Frotar uñas 10 veces
               </li>
             </ul>
           </li>
@@ -238,7 +202,7 @@ export const GeneralCleaning = () => {
                 <span>9.1</span> Tomamos la toalla y abrazamos nuestras palmas
               </li>
               <li>
-                <span>9.2</span> Secamos los dedos de la mano no dominante, uno a uno presionando solamente
+                <span>9.2</span> Secamos los dedos de la mano
               </li>
               <li>
                 <span>9.3</span> Con ligeros toques secamos el dorso de la mano
@@ -253,7 +217,7 @@ export const GeneralCleaning = () => {
                 <span>9.6</span> Con ligeros toques secamos el dorso de la mano
               </li>
               <li>
-                <span>9.7</span> Con la mano no dominante y sin soltar la toalla, la tiramos en el cesto de toallas sucias
+                <span>9.7</span> Depositamos la toalla en el cesto de toallas sucias
               </li>
             </ul>
           </li>
@@ -317,7 +281,7 @@ export const GeneralCleaning = () => {
                 <span>12.5</span> Limpiamos los dedos de ambas manos antes de colocarla en la caja
               </li>
               <li>
-                <span>12.6</span> Colocar la bolsa en la caja grande  (lavar las cajas cada 8 días con agua y con jabón)
+                <span>12.6</span> Colocar la bolsa en la caja grande (Lavar las cajas cada 8 días con agua y con jabón)
               </li>
               <li>
                 <span>12.7</span> Quitamos la manta, la doblamos y guardamos para la siguiente limpieza
