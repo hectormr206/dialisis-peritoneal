@@ -3,9 +3,9 @@ import { Layout } from '../components/Layout'
 import { Card } from '../components/Card'
 
 export const GiWaterRecycling = () => {
-  const description = 'Proceso para realizar la diálisis.'
+  const description = 'Proceso para realizar la diálisis peritoneal.'
   return (
-    <Layout title='Proceso para realizar la diálisis.' description={description}>
+    <Layout title='Proceso para realizar la diálisis' description={description}>
       <Card>
         {description}
       </Card>

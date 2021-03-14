@@ -4,17 +4,17 @@ const MiniCSSExtractPlugin = require('mini-css-extract-plugin')
 
 module.exports = {
   entry: {
-    bundle: path.join(__dirname, 'src/index.js')
+    entry: './src/index.js'
   },
   output: {
-    path: path.join(__dirname, 'dist'),
-    filename: '[name].js',
-    publicPath: './'
+    path: path.resolve(__dirname, 'dist'),
+    filename: 'bundle.js'
   },
   devServer: {
-    historyApiFallback: true,
-    contentBase: './',
-    hot: true
+    historyApiFallback: true
+  },
+  resolve: {
+    extensions: ['.js', '.jsx']
   },
   module: {
     rules: [
@@ -69,6 +69,14 @@ module.exports = {
         exclude: /node_modules/
       },
       {
+        test: /\.html$/,
+        use: [
+          {
+            loader: 'html-loader'
+          }
+        ]
+      },
+      {
         test: /\.jpg|png|gif|woff|eot|ttf|svg|mp4|webm$/,
         use: {
           loader: 'url-loader',
@@ -81,8 +89,7 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      title: '@hectormr206',
-      template: path.join(__dirname, 'public/index.html'),
+      template: 'public/index.html',
       filename: 'index.html',
       favicon: 'public/favicon.ico'
     }),

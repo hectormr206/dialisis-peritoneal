@@ -2,9 +2,14 @@ import { createGlobalStyle } from 'styled-components'
 
 export const GlobalStyle = createGlobalStyle`
   :root {
-    --body-background: #181818;
-    --color-primary: #fff;
-    --color-secondary: #909090;
+    --body-background: #f7f7f7;
+    --body-header: #fff;
+    --body-footer: #fff;
+    --body-card: #fff;
+    --color-primary: #181818;
+    --color-secondary: #d7d7d7;
+    --color-actived: #f7931a;
+    --color-inactived: #4285f4;
     --font-family-primary: 'Noto Sans JP';
     --font-size: 16px;
     --header-height: 60px;

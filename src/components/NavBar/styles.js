@@ -14,7 +14,8 @@ export const Nav = styled.nav`
   justify-content: space-around;
   width: 100%;
   height: var(--footer-height);
-  background: rgba(0,0,0,0.2);
+  border-top: 1px solid var(--color-secondary);
+  background-color: var(--body-footer);
   z-index: 1000;
 `
 
@@ -24,13 +25,11 @@ export const NavLink = styled(NavLinkRouter)`
   justify-content: center;
   padding: 20px;
   height: 96%;
-  color: var(--color-secondary);
+  color: var(--color-inactived);
   text-decoration: none;
-  border: 1px solid transparent;
   &[aria-current] {
-    border-color: var(--color-primary);
     border-radius: 6px;
-    color: var(--color-primary);
+    color: var(--color-actived);
     &:after {
       position: absolute;
       bottom: 0;

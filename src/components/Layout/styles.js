@@ -6,7 +6,6 @@ export const Content = styled.div`
 `
 
 export const Title = styled.h1`
-  padding-bottom: 8px;
   font-size: 1.2rem;
   font-weight: 700;
 `
