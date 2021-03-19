@@ -26,10 +26,12 @@ export const NavLink = styled(NavLinkRouter)`
   padding: 20px;
   height: 96%;
   color: var(--color-inactived);
+  border-bottom: 2px solid transparent;
   text-decoration: none;
   &[aria-current] {
-    border-radius: 6px;
     color: var(--color-actived);
+    border-bottom: 2px solid var(--color-actived);
+    border-radius: 6px;
     &:after {
       position: absolute;
       bottom: 0;

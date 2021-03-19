@@ -11,11 +11,16 @@ export const CardComponent = styled.div`
   border: 1px solid var(--color-secondary);
 
   ul {
-    padding-inline-start: 1.6rem;
+    padding-inline-start: 1rem;
   }
 
   ul li {
     font-size: 0.9rem;
+  }
+  
+  ul li input {
+    height: 1.6rem;
+    width: 1.6rem;
   }
 
   ul li span {
@@ -23,5 +28,9 @@ export const CardComponent = styled.div`
     color: #3ea6ff;
     font-size: 0.9rem;
     font-weight: 500;
+  }
+
+  ul li strong {
+    color: var(--color-actived);
   }
 `

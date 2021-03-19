@@ -11,7 +11,7 @@ export const GlobalStyle = createGlobalStyle`
     --color-actived: #f7931a;
     --color-inactived: #4285f4;
     --font-family-primary: 'Noto Sans JP';
-    --font-size: 16px;
+    --font-size: 20px;
     --header-height: 60px;
     --footer-height: 60px;
   }

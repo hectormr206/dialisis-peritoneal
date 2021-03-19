@@ -8,7 +8,8 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname, 'dist'),
-    filename: 'bundle.js'
+    filename: '[name].[contenthash].js',
+    clean: true
   },
   devServer: {
     historyApiFallback: true
@@ -96,5 +97,18 @@ module.exports = {
     new MiniCSSExtractPlugin({
       filename: 'css/[name].css'
     })
-  ]
+  ],
+  optimization: {
+    moduleIds: 'deterministic',
+    runtimeChunk: 'single',
+    splitChunks: {
+      cacheGroups: {
+        vendor: {
+          test: /[\\/]node_modules[\\/]/,
+          name: 'vendors',
+          chunks: 'all'
+        }
+      }
+    }
+  }
 }
