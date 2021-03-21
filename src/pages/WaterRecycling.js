@@ -2,7 +2,7 @@ import React from 'react'
 import { Layout } from '../components/Layout'
 import { Card } from '../components/Card'
 
-export const GiWaterRecycling = () => {
+export const WaterRecycling = () => {
   const description = 'Proceso para realizar la diálisis peritoneal.'
   return (
     <Layout title='Diálisis peritoneal' description={description}>
