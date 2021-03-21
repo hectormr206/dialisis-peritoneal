@@ -1,6 +1,6 @@
-# Demo ⚛️
+# Diálisis peritoneal
 
-Application using Webpack, Babel, GraphQL, React Hooks, React Router, SEO, PWAs and Vercel.
+Conoce todo acerca de la diálisis peritoneal, la alimentación y los cuidados que debes tener paso a paso.
 
 🟢 **Live Frontend:**
 
@@ -8,23 +8,23 @@ Application using Webpack, Babel, GraphQL, React Hooks, React Router, SEO, PWAs 
 
 ## 🚀 Getting Started
 
-### 🟡 Pre-requirements
+### 🟡 Pre-requisitos
 
 -   node
 
-### 🔥 Installation
+### 🔥 Instalación
 
-1. Clone this repo.
-2. Install dependencies: `npm install`
-3. Start the server: `npm start dev`
+1. Clonar este repo.
+2. Instalar dependencias: `npm install`
+3. Iniciar el servidor: `npm start dev`
 
-> Note: this project runs in **localhost:8080**
+> Notas: este proyecto corre en: **localhost:3002**
 
-### Production
+### Producción
 
-1. Once the dependencies are installed, you can do the build: `npm run build`
+1. Una vez instaladas las dependencias, puede realizar la compilación: `npm run build`
 
-## 🖥️ Technologies
+## 🖥️ Tecnologías
 
 -   Webpack
 -   Babel
@@ -32,6 +32,6 @@ Application using Webpack, Babel, GraphQL, React Hooks, React Router, SEO, PWAs 
 -   Styled components
 -   React Router
 
-## 📘 License
+## 📘 Licencia
 
-The (MIT) License
+La licencia (MIT)
