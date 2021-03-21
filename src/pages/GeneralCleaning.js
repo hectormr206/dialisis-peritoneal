@@ -302,6 +302,27 @@ export const GeneralCleaning = () => {
           </li>
         </ul>
       </Card>
+      <Card>
+        <ul>
+          <li>
+            <input type='checkbox' /> <span>13</span> Trapear <strong>(Recordar que el cuarto de diálisis no se barre)</strong>
+          </li>
+        </ul>
+      </Card>
+      <Card>
+        <ul>
+          <li>
+            <input type='checkbox' /> <span>14</span> Sacar botes con basura y lavarlos
+          </li>
+        </ul>
+      </Card>
+      <Card>
+        <ul>
+          <li>
+            <input type='checkbox' /> <span>15</span> Desechar bolsa al drenaje
+          </li>
+        </ul>
+      </Card>
     </Layout>
   )
 }
