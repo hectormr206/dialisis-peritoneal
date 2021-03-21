@@ -583,7 +583,7 @@ export const WaterRecycling = () => {
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>57</span> <strong>Doblamos la compresa y la guardamos. Recordar que siempre se utiliza la misma compresa</strong>
+            <input type='checkbox' /> <span>57</span> <strong>Doblamos la compresa y la guardamos. Recordar que siempre se utiliza la misma compresa en todo el día.</strong>
           </li>
         </ul>
       </Card>
