@@ -113,10 +113,10 @@ export const GeneralCleaning = () => {
                 <input type='checkbox' /> <span>6.2</span> Pinzas sobre la compresa y poner agua clorada al 10%, las pinzas deben estar abiertas
               </li>
               <li>
-                <input type='checkbox' /> <span>6.3</span> Tijeras sobre la compresa y poner agua clorada al 10%, las pinzas deben estar abiertas
+                <input type='checkbox' /> <span>6.3</span> Tijeras sobre la compresa y poner agua clorada al 10%, las tijeras deben estar abiertas
               </li>
               <li>
-                <input type='checkbox' /> <span>6.4</span> Pomada Mupirocina sobre la compresa y poner agua clorada al 10%, las pinzas deben estar abiertas
+                <input type='checkbox' /> <span>6.4</span> Pomada Mupirocina sobre la compresa y poner agua clorada al 10%
               </li>
               <li>
                 <input type='checkbox' /> <span>6.5</span> Cinta micropore sobre la compresa y <strong>frotar con la compresa ya humeda</strong>
