@@ -2,7 +2,7 @@
 
 Conoce todo acerca de la diálisis peritoneal, la alimentación y los cuidados que debes tener paso a paso.
 
-🟢 **Live Frontend:**
+🟢 **Live Frontend:** https://dialisis.hectormr.com/
 
 🟢 **Live Backend:**
 
