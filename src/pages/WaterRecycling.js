@@ -25,7 +25,7 @@ export const WaterRecycling = () => {
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>2</span> Ingresar al paciente
+            <input type='checkbox' /> <span>2</span> <strong>Pesar al paciente antes de la primera diálisis del día</strong>
           </li>
         </ul>
       </Card>
@@ -110,7 +110,7 @@ export const WaterRecycling = () => {
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>8</span> Sacar el catéter del paciente y ponerlo sobre la compresa limpia <strong>(Marcar una compresa para usarla exclusivamente para el catéter)</strong>
+            <input type='checkbox' /> <span>8</span> Sacar el catéter del paciente y cubrirlo con la compresa limpia <strong>(Marcar una compresa para usarla exclusivamente para el catéter)</strong>
           </li>
         </ul>
       </Card>

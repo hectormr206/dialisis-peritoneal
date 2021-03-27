@@ -20,9 +20,6 @@ export const Home = () => {
             <span>09:00 am</span> Preparar agua estéril
           </li>
           <li>
-            <span>09:30 am</span> Realizar curación
-          </li>
-          <li>
             <span>10:00 am</span> <strong>Egreso:</strong> 2000 ml o más, <strong>Ingreso:</strong> 2000 ml
           </li>
           <li>
@@ -38,7 +35,7 @@ export const Home = () => {
             <span>06:00 pm</span> <strong>Egreso:</strong> 2000 ml o más, <strong>Ingreso:</strong> 2000 ml
           </li>
           <li>
-            <span>10:00 pm</span> <strong>Egreso:</strong> 2000 ml o más, <strong>Ingreso:</strong> 150 - 200 ml
+            <span>10:00 pm</span> <strong>Egreso:</strong> 2000 ml o más, <strong>Ingreso:</strong> 0 ml
           </li>
         </ul>
       </Card>
