@@ -583,7 +583,7 @@ export const WaterRecycling = () => {
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>57</span> <strong>Doblamos la compresa y la guardamos. Recordar que siempre se utiliza la misma compresa en todo el día. En la ultima diálisis deposítela en el cesto de toallas sucias.</strong>
+            <input type='checkbox' /> <span>57</span> Doblamos la compresa y la guardamos. Recordar que siempre se utiliza la misma compresa en todo el día. <strong>En la ultima diálisis deposítela en el cesto de toallas sucias.</strong>
           </li>
         </ul>
       </Card>

@@ -11,6 +11,32 @@ export const Home = () => {
         {description}
       </Card>
       <Card>
+        Horario sugerido diario para 3 recambios de 5 horas al día:
+        <ul>
+          <li>
+            <span>06:00 am</span> <strong>Egreso:</strong> 0 ml o más, <strong>Ingreso:</strong> 2000 ml
+          </li>
+          <li>
+            <span>11:00 am</span> <strong>Egreso:</strong> 2000 ml o más, <strong>Ingreso:</strong> 2000 ml
+          </li>
+          <li>
+            <span>11:30 am</span> Realizar Aseo general
+          </li>
+          <li>
+            <span>02:30 pm</span> Preparar agua estéril
+          </li>
+          <li>
+            <span>03:30 pm</span> Realizar curación
+          </li>
+          <li>
+            <span>04:00 pm</span> <strong>Egreso:</strong> 2000 ml o más, <strong>Ingreso:</strong> 2000 ml
+          </li>
+          <li>
+            <span>09:00 pm</span> <strong>Egreso:</strong> 2000 ml o más, <strong>Ingreso:</strong> 0 ml
+          </li>
+        </ul>
+      </Card>
+      <Card>
         Horario sugerido diario para 4 recambios de 4 horas al día:
         <ul>
           <li>

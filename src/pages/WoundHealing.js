@@ -156,14 +156,14 @@ export const WoundHealing = () => {
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>11</span> Sacar aproximadamente 14 gasas si vamos a realizar curación de catéter y operación o menos si sólo es la curación de catéter
+            <input type='checkbox' /> <span>11</span> Sacar aproximadamente 7 gasas o más
           </li>
         </ul>
       </Card>
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>12</span> Cortar 4 - 6 cintas micropore y pegarlas en la mesa para tomarlas más fácilmente al colocar la gasa limpia en la herida
+            <input type='checkbox' /> <span>12</span> Cortar 3 o 4 cintas micropore y pegarlas en la mesa para tomarlas más fácilmente al colocar la gasa limpia en la herida
           </li>
         </ul>
       </Card>
