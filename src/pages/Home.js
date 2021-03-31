@@ -11,7 +11,7 @@ export const Home = () => {
         {description}
       </Card>
       <Card>
-        Horario sugerido diario para 3 recambios de 5 horas al día:
+        Horario sugerido diario para <strong>3</strong> recambios de <strong>5</strong> horas al día:
         <ul>
           <li>
             <span>06:00 am</span> <strong>Egreso:</strong> 0 ml o más, <strong>Ingreso:</strong> 2000 ml
@@ -37,7 +37,7 @@ export const Home = () => {
         </ul>
       </Card>
       <Card>
-        Horario sugerido diario para 4 recambios de 4 horas al día:
+        Horario sugerido diario para <strong>4</strong> recambios de <strong>4</strong> horas al día:
         <ul>
           <li>
             <span>06:00 am</span> <strong>Egreso:</strong> 0 ml o más, <strong>Ingreso:</strong> 2000 ml
