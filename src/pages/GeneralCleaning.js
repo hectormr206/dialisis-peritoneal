@@ -1,6 +1,45 @@
 import React from 'react'
 import { Layout } from '../components/Layout'
 import { Card } from '../components/Card'
+import { Video } from '../components/Video'
+
+import ColocarToalla from '../assets/video/webm/ColocarToalla.webm'
+import ColocarToallaImage from '../assets/image/jpg/ColocarToalla.jpg'
+
+import LavarManosJabon from '../assets/video/webm/LavarManosJabon.webm'
+import LavarManosJabonImage from '../assets/image/jpg/LavarManosJabon.jpg'
+import LavarManosPalmas from '../assets/video/webm/LavarManosPalmas.webm'
+import LavarManosPalmasImage from '../assets/image/jpg/LavarManosPalmas.jpg'
+import LavarManosDorso from '../assets/video/webm/LavarManosDorso.webm'
+import LavarManosDorsoImage from '../assets/image/jpg/LavarManosDorso.jpg'
+import LavarManosNudillos from '../assets/video/webm/LavarManosNudillos.webm'
+import LavarManosNudillosImage from '../assets/image/jpg/LavarManosNudillos.jpg'
+import LavarManosPulgares from '../assets/video/webm/LavarManosPulgares.webm'
+import LavarManosPulgaresImage from '../assets/image/jpg/LavarManosPulgares.jpg'
+import LavarManosUnas from '../assets/video/webm/LavarManosUnas.webm'
+import LavarManosUnasImage from '../assets/image/jpg/LavarManosUnas.jpg'
+
+import SecadoManoTomarToalla from '../assets/video/webm/SecadoManoTomarToalla.webm'
+import SecadoManoTomarToallaImage from '../assets/image/jpg/SecadoManoTomarToalla.jpg'
+import SecadoManoDedos from '../assets/video/webm/SecadoManoDedos.webm'
+import SecadoManoDedosImage from '../assets/image/jpg/SecadoManoDedos.jpg'
+import SecadoManoDorso from '../assets/video/webm/SecadoManoDorso.webm'
+import SecadoManoDorsoImage from '../assets/image/jpg/SecadoManoDorso.jpg'
+import SecadoManoGiroToalla from '../assets/video/webm/SecadoManoGiroToalla.webm'
+import SecadoManoGiroToallaImage from '../assets/image/jpg/SecadoManoGiroToalla.jpg'
+import SecadoManoAbrazoPalmas from '../assets/video/webm/SecadoManoAbrazoPalmas.webm'
+import SecadoManoAbrazoPalmasImage from '../assets/image/jpg/SecadoManoAbrazoPalmas.jpg'
+import SecadoManoDorsoContrario from '../assets/video/webm/SecadoManoDorsoContrario.webm'
+import SecadoManoDorsoContrarioImage from '../assets/image/jpg/SecadoManoDorsoContrario.jpg'
+import SecadoManoDobladoToalla from '../assets/video/webm/SecadoManoDobladoToalla.webm'
+import SecadoManoDobladoToallaImage from '../assets/image/jpg/SecadoManoDobladoToalla.jpg'
+
+import LimpiarMesaCincoPuntos from '../assets/video/webm/LimpiarMesaCincoPuntos.webm'
+import LimpiarMesaCincoPuntosImage from '../assets/image/jpg/LimpiarMesaCincoPuntos.jpg'
+import LimpiarMesaCompresa from '../assets/video/webm/LimpiarMesaCompresa.webm'
+import LimpiarMesaCompresaImage from '../assets/image/jpg/LimpiarMesaCompresa.jpg'
+import LimpiarMesaCompresaLaterales from '../assets/video/webm/LimpiarMesaCompresaLaterales.webm'
+import LimpiarMesaCompresaLateralesImage from '../assets/image/jpg/LimpiarMesaCompresaLaterales.jpg'
 
 export const GeneralCleaning = () => {
   const description = 'Proceso para realizar el aseo general una vez al día, de preferencia a la misma hora.'
@@ -22,7 +61,8 @@ export const GeneralCleaning = () => {
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>2</span> Colocar la toalla <strong>(Doblada a la mitad por lo largo)</strong>
+            <input type='checkbox' /> <span>2</span> Colocar toalla para el secado de manos <strong>(Doblada a la mitad por lo largo)</strong>
+            <Video src={ColocarToalla} poster={ColocarToallaImage} />
           </li>
         </ul>
       </Card>
@@ -33,21 +73,27 @@ export const GeneralCleaning = () => {
             <ul>
               <li>
                 <input type='checkbox' /> <span>3.1</span> Mojar las manos y aplicar jabón
+                <Video src={LavarManosJabon} poster={LavarManosJabonImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>3.2</span> Frotar palmas 10 veces
+                <Video src={LavarManosPalmas} poster={LavarManosPalmasImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>3.3</span> Frotar dorsos 10 veces
+                <Video src={LavarManosDorso} poster={LavarManosDorsoImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>3.4</span> Enganchar manos y frotar nudillos 10 veces
+                <Video src={LavarManosNudillos} poster={LavarManosNudillosImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>3.5</span> Frotar pulgares 10 veces
+                <Video src={LavarManosPulgares} poster={LavarManosPulgaresImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>3.6</span> Frotar las uñas 10 veces
+                <Video src={LavarManosUnas} poster={LavarManosUnasImage} />
               </li>
             </ul>
           </li>
@@ -60,24 +106,31 @@ export const GeneralCleaning = () => {
             <ul>
               <li>
                 <input type='checkbox' /> <span>4.1</span> Tomamos la toalla y abrazamos nuestras palmas
+                <Video src={SecadoManoTomarToalla} poster={SecadoManoTomarToallaImage} />
               </li>
               <li>
-                <input type='checkbox' /> <span>4.2</span> Secamos los dedos uno a uno presionando solamente
+                <input type='checkbox' /> <span>4.2</span> Secamos los dedos de la mano
+                <Video src={SecadoManoDedos} poster={SecadoManoDedosImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>4.3</span> Con ligeros toques secamos el dorso de la mano
+                <Video src={SecadoManoDorso} poster={SecadoManoDorsoImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>4.4</span> Así como está doblada la toalla la giramos, ahora secaremos con la parte de abajo
+                <Video src={SecadoManoGiroToalla} poster={SecadoManoGiroToallaImage} />
               </li>
               <li>
-                <input type='checkbox' /> <span>4.5</span> Repetimos abrazo de palmas y secamos uno a uno los dedos
+                <input type='checkbox' /> <span>4.5</span> Repetimos abrazo de palmas y secado uno a uno de los dedos
+                <Video src={SecadoManoAbrazoPalmas} poster={SecadoManoAbrazoPalmasImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>4.6</span> Con ligeros toques secamos el dorso de la mano
+                <Video src={SecadoManoDorsoContrario} poster={SecadoManoDorsoContrarioImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>4.7</span> Doblamos la toalla por el lado seco y la dejamos acomodada para el siguiente lavado de manos
+                <Video src={SecadoManoDobladoToalla} poster={SecadoManoDobladoToallaImage} />
               </li>
             </ul>
           </li>
@@ -86,16 +139,19 @@ export const GeneralCleaning = () => {
       <Card>
         <ul>
           <li>
-            <span>5</span> Limpiar mesa de trabajo <strong>(Con agua clorada al 10% o Except)</strong>:
+            <span>5</span>  Limpiar mesa de trabajo (Con agua clorada al 10% o Exsept):
             <ul>
               <li>
                 <input type='checkbox' /> <span>5.1</span> Colocar chorrito de agua clorada en las esquinas de la mesa y en el centro
+                <Video src={LimpiarMesaCincoPuntos} poster={LimpiarMesaCincoPuntosImage} />
               </li>
               <li>
-                <input type='checkbox' /> <span>5.2</span> Impregnar compresa con los chorritos de cloro puestos en la mesa y limpiar de frente hacia atrás <strong>(Hacer presión con la compresa para que la mesa quede bien seca)</strong>
+                <input type='checkbox' /> <span>5.2</span> Impregnar compresa con los chorritos de cloro puestos en la mesa y limpiar de frente hacia atrás (Hacer presión con la compresa para que la mesa quede bien seca)
+                <Video src={LimpiarMesaCompresa} poster={LimpiarMesaCompresaImage} />
               </li>
               <li>
-                <input type='checkbox' /> <span>5.3</span> Doblar compresa y limpiar los lados de la mesa <strong>(Cuidar que nuestra ropa no toque la mesa)</strong>
+                <input type='checkbox' /> <span>5.3</span> Doblar compresa y limpiar los lados de la mesa (Cuidar que nuestra ropa no toque la mesa)
+                <Video src={LimpiarMesaCompresaLaterales} poster={LimpiarMesaCompresaLateralesImage} />
               </li>
             </ul>
           </li>
@@ -107,7 +163,7 @@ export const GeneralCleaning = () => {
             <span>6</span> Usar la compresa e ir doblándose  por sus diferentes lados limpios colocando agua clorada al 10% para limpiar lo siguiente, e ir colocándolos en la mesa de trabajo:
             <ul>
               <li>
-                <input type='checkbox' /> <span>6.1</span> Except con tapa sobre la compresa y poner agua clorada al 10%
+                <input type='checkbox' /> <span>6.1</span> Exsept con tapa sobre la compresa y poner agua clorada al 10%
               </li>
               <li>
                 <input type='checkbox' /> <span>6.2</span> Pinzas sobre la compresa y poner agua clorada al 10%, las pinzas deben estar abiertas
@@ -185,21 +241,27 @@ export const GeneralCleaning = () => {
             <ul>
               <li>
                 <input type='checkbox' /> <span>8.1</span> Mojar las manos y aplicar jabón
+                <Video src={LavarManosJabon} poster={LavarManosJabonImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>8.2</span> Frotar palmas 10 veces
+                <Video src={LavarManosPalmas} poster={LavarManosPalmasImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>8.3</span> Frotar dorsos 10 veces
+                <Video src={LavarManosDorso} poster={LavarManosDorsoImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>8.4</span> Enganchar manos y frotar nudillos 10 veces
+                <Video src={LavarManosNudillos} poster={LavarManosNudillosImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>8.5</span> Frotar pulgares 10 veces
+                <Video src={LavarManosPulgares} poster={LavarManosPulgaresImage} />
               </li>
               <li>
-                <input type='checkbox' /> <span>8.6</span> Frotar uñas 10 veces
+                <input type='checkbox' /> <span>8.6</span> Frotar las uñas 10 veces
+                <Video src={LavarManosUnas} poster={LavarManosUnasImage} />
               </li>
             </ul>
           </li>
@@ -212,21 +274,27 @@ export const GeneralCleaning = () => {
             <ul>
               <li>
                 <input type='checkbox' /> <span>9.1</span> Tomamos la toalla y abrazamos nuestras palmas
+                <Video src={SecadoManoTomarToalla} poster={SecadoManoTomarToallaImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>9.2</span> Secamos los dedos de la mano
+                <Video src={SecadoManoDedos} poster={SecadoManoDedosImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>9.3</span> Con ligeros toques secamos el dorso de la mano
+                <Video src={SecadoManoDorso} poster={SecadoManoDorsoImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>9.4</span> Así como está doblada la toalla la giramos, ahora secaremos con la parte de abajo
+                <Video src={SecadoManoGiroToalla} poster={SecadoManoGiroToallaImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>9.5</span> Repetimos abrazo de palmas y secado uno a uno de los dedos
+                <Video src={SecadoManoAbrazoPalmas} poster={SecadoManoAbrazoPalmasImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>9.6</span> Con ligeros toques secamos el dorso de la mano
+                <Video src={SecadoManoDorsoContrario} poster={SecadoManoDorsoContrarioImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>9.7</span> Depositamos la toalla en el cesto de toallas sucias

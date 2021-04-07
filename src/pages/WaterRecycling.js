@@ -1,6 +1,55 @@
 import React from 'react'
 import { Layout } from '../components/Layout'
 import { Card } from '../components/Card'
+import { Video } from '../components/Video'
+
+import ColocarToalla from '../assets/video/webm/ColocarToalla.webm'
+import ColocarToallaImage from '../assets/image/jpg/ColocarToalla.jpg'
+
+import LavarManosJabon from '../assets/video/webm/LavarManosJabon.webm'
+import LavarManosJabonImage from '../assets/image/jpg/LavarManosJabon.jpg'
+import LavarManosPalmas from '../assets/video/webm/LavarManosPalmas.webm'
+import LavarManosPalmasImage from '../assets/image/jpg/LavarManosPalmas.jpg'
+import LavarManosDorso from '../assets/video/webm/LavarManosDorso.webm'
+import LavarManosDorsoImage from '../assets/image/jpg/LavarManosDorso.jpg'
+import LavarManosNudillos from '../assets/video/webm/LavarManosNudillos.webm'
+import LavarManosNudillosImage from '../assets/image/jpg/LavarManosNudillos.jpg'
+import LavarManosPulgares from '../assets/video/webm/LavarManosPulgares.webm'
+import LavarManosPulgaresImage from '../assets/image/jpg/LavarManosPulgares.jpg'
+import LavarManosUnas from '../assets/video/webm/LavarManosUnas.webm'
+import LavarManosUnasImage from '../assets/image/jpg/LavarManosUnas.jpg'
+
+import SecadoManoTomarToalla from '../assets/video/webm/SecadoManoTomarToalla.webm'
+import SecadoManoTomarToallaImage from '../assets/image/jpg/SecadoManoTomarToalla.jpg'
+import SecadoManoDedos from '../assets/video/webm/SecadoManoDedos.webm'
+import SecadoManoDedosImage from '../assets/image/jpg/SecadoManoDedos.jpg'
+import SecadoManoDorso from '../assets/video/webm/SecadoManoDorso.webm'
+import SecadoManoDorsoImage from '../assets/image/jpg/SecadoManoDorso.jpg'
+import SecadoManoGiroToalla from '../assets/video/webm/SecadoManoGiroToalla.webm'
+import SecadoManoGiroToallaImage from '../assets/image/jpg/SecadoManoGiroToalla.jpg'
+import SecadoManoAbrazoPalmas from '../assets/video/webm/SecadoManoAbrazoPalmas.webm'
+import SecadoManoAbrazoPalmasImage from '../assets/image/jpg/SecadoManoAbrazoPalmas.jpg'
+import SecadoManoDorsoContrario from '../assets/video/webm/SecadoManoDorsoContrario.webm'
+import SecadoManoDorsoContrarioImage from '../assets/image/jpg/SecadoManoDorsoContrario.jpg'
+import SecadoManoDobladoToalla from '../assets/video/webm/SecadoManoDobladoToalla.webm'
+import SecadoManoDobladoToallaImage from '../assets/image/jpg/SecadoManoDobladoToalla.jpg'
+
+import LimpiarMesaCincoPuntos from '../assets/video/webm/LimpiarMesaCincoPuntos.webm'
+import LimpiarMesaCincoPuntosImage from '../assets/image/jpg/LimpiarMesaCincoPuntos.jpg'
+import LimpiarMesaCompresa from '../assets/video/webm/LimpiarMesaCompresa.webm'
+import LimpiarMesaCompresaImage from '../assets/image/jpg/LimpiarMesaCompresa.jpg'
+import LimpiarMesaCompresaLaterales from '../assets/video/webm/LimpiarMesaCompresaLaterales.webm'
+import LimpiarMesaCompresaLateralesImage from '../assets/image/jpg/LimpiarMesaCompresaLaterales.jpg'
+
+import LimpiarArticuloExsept from '../assets/video/webm/LimpiarArticuloExsept.webm'
+import LimpiarArticuloExseptImage from '../assets/image/jpg/LimpiarArticuloExsept.jpg'
+import LimpiarArticuloHeparina from '../assets/video/webm/LimpiarArticuloHeparina.webm'
+import LimpiarArticuloHeparinaImage from '../assets/image/jpg/LimpiarArticuloHeparina.jpg'
+
+import AbrirGasa from '../assets/video/webm/AbrirGasa.webm'
+import AbrirGasaImage from '../assets/image/jpg/AbrirGasa.jpg'
+import AbrirJeringa from '../assets/video/webm/AbrirJeringa.webm'
+import AbrirJeringaImage from '../assets/image/jpg/AbrirJeringa.jpg'
 
 export const WaterRecycling = () => {
   const description = 'Proceso para realizar la diálisis peritoneal.'
@@ -39,7 +88,8 @@ export const WaterRecycling = () => {
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>4</span> Colocar toalla para el secado de manos
+            <input type='checkbox' /> <span>4</span> Colocar toalla para el secado de manos <strong>(Doblada a la mitad por lo largo)</strong>
+            <Video src={ColocarToalla} poster={ColocarToallaImage} />
           </li>
         </ul>
       </Card>
@@ -57,21 +107,27 @@ export const WaterRecycling = () => {
             <ul>
               <li>
                 <input type='checkbox' /> <span>6.1</span> Mojar las manos y aplicar jabón
+                <Video src={LavarManosJabon} poster={LavarManosJabonImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>6.2</span> Frotar palmas 10 veces
+                <Video src={LavarManosPalmas} poster={LavarManosPalmasImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>6.3</span> Frotar dorsos 10 veces
+                <Video src={LavarManosDorso} poster={LavarManosDorsoImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>6.4</span> Enganchar manos y frotar nudillos 10 veces
+                <Video src={LavarManosNudillos} poster={LavarManosNudillosImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>6.5</span> Frotar pulgares 10 veces
+                <Video src={LavarManosPulgares} poster={LavarManosPulgaresImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>6.6</span> Frotar las uñas 10 veces
+                <Video src={LavarManosUnas} poster={LavarManosUnasImage} />
               </li>
             </ul>
           </li>
@@ -84,24 +140,31 @@ export const WaterRecycling = () => {
             <ul>
               <li>
                 <input type='checkbox' /> <span>7.1</span> Tomamos la toalla y abrazamos nuestras palmas
+                <Video src={SecadoManoTomarToalla} poster={SecadoManoTomarToallaImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>7.2</span> Secamos los dedos de la mano
+                <Video src={SecadoManoDedos} poster={SecadoManoDedosImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>7.3</span> Con ligeros toques secamos el dorso de la mano
+                <Video src={SecadoManoDorso} poster={SecadoManoDorsoImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>7.4</span> Así como está doblada la toalla la giramos, ahora secaremos con la parte de abajo
+                <Video src={SecadoManoGiroToalla} poster={SecadoManoGiroToallaImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>7.5</span> Repetimos abrazo de palmas y secado uno a uno de los dedos
+                <Video src={SecadoManoAbrazoPalmas} poster={SecadoManoAbrazoPalmasImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>7.6</span> Con ligeros toques secamos el dorso de la mano
+                <Video src={SecadoManoDorsoContrario} poster={SecadoManoDorsoContrarioImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>7.7</span> Doblamos la toalla por el lado seco y la dejamos acomodada para el siguiente lavado de manos
+                <Video src={SecadoManoDobladoToalla} poster={SecadoManoDobladoToallaImage} />
               </li>
             </ul>
           </li>
@@ -124,16 +187,19 @@ export const WaterRecycling = () => {
       <Card>
         <ul>
           <li>
-            <span>10</span> Limpiar mesa de trabajo (Con agua clorada al 10% o Except):
+            <span>10</span> Limpiar mesa de trabajo (Con agua clorada al 10% o Exsept):
             <ul>
               <li>
                 <input type='checkbox' /> <span>10.1</span> Colocar chorrito de agua clorada en las esquinas de la mesa y en el centro
+                <Video src={LimpiarMesaCincoPuntos} poster={LimpiarMesaCincoPuntosImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>10.2</span> Impregnar compresa con los chorritos de cloro puestos en la mesa y limpiar de frente hacia atrás (Hacer presión con la compresa para que la mesa quede bien seca)
+                <Video src={LimpiarMesaCompresa} poster={LimpiarMesaCompresaImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>10.3</span> Doblar compresa y limpiar los lados de la mesa (Cuidar que nuestra ropa no toque la mesa)
+                <Video src={LimpiarMesaCompresaLaterales} poster={LimpiarMesaCompresaLateralesImage} />
               </li>
             </ul>
           </li>
@@ -145,22 +211,26 @@ export const WaterRecycling = () => {
             <span>11</span>Usar la misma compresa e ir doblándose  por sus diferentes lados limpios para limpiar lo siguiente, e ir colocándolos en la mesa de trabajo:
             <ul>
               <li>
-                <input type='checkbox' /> <span>11.1</span> Pinzas abiertas sobre la compresa y poner agua clorada al 10%
+                <input type='checkbox' /> <span>11.1</span> Exsept sin tapa sobre la compresa y poner agua clorada al 10%
+                <Video src={LimpiarArticuloExsept} poster={LimpiarArticuloExseptImage} />
               </li>
               <li>
-                <input type='checkbox' /> <span>11.2</span> Except sin tapa sobre la compresa y poner agua clorada al 10%
+                <input type='checkbox' /> <span>11.2</span> Pinzas abiertas sobre la compresa y poner agua clorada al 10%
               </li>
               <li>
                 <input type='checkbox' /> <span>11.3</span> Gasa sin tocar
+                <Video src={AbrirGasa} poster={AbrirGasaImage} />
               </li>
               <li>
                 <span>11.4</span> Lo siguiente solo se limpia si se llegara a inyectar algún medicamento a la bolsa o heparina (Que se inyecta cuando hay fibrina):
                 <ul>
                   <li>
                     <input type='checkbox' /> <span>11.4.1</span> Heparina o medicamento indicado (Poniendo agua clorada en el tapón y comenzar a limpiar hacia abajo, <strong>punta de Heparina hacia nosotros</strong>)
+                    <Video src={LimpiarArticuloHeparina} poster={LimpiarArticuloHeparinaImage} />
                   </li>
                   <li>
                     <input type='checkbox' /> <span>11.4.2</span> Jeringa sacarla sin tocarla y colocarla en la mesa <strong>(Se abre jalando las puntas del empaque)</strong>
+                    <Video src={AbrirJeringa} poster={AbrirJeringaImage} />
                   </li>
                 </ul>
               </li>
@@ -264,14 +334,14 @@ export const WaterRecycling = () => {
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>17</span> Poner <strong>medio</strong> push de Except en nuestra mano y frotar ligeramente nuestras palmas, entre dedos y uñas
+            <input type='checkbox' /> <span>17</span> Poner <strong>medio</strong> push de Exsept en nuestra mano y frotar ligeramente nuestras palmas, entre dedos y uñas
           </li>
         </ul>
       </Card>
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>18</span> Poner <strong>2</strong> push de Except en la línea de transferencia (Donde es la desconexión entre área verde y azul)
+            <input type='checkbox' /> <span>18</span> Poner <strong>2</strong> push de Exsept en la línea de transferencia (Donde es la desconexión entre área verde y azul)
           </li>
         </ul>
       </Card>
@@ -380,14 +450,14 @@ export const WaterRecycling = () => {
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>27</span> Quitamos tapón de la bolsa y ponemos <strong>dos push</strong> de Except
+            <input type='checkbox' /> <span>27</span> Quitamos tapón de la bolsa y ponemos <strong>dos push</strong> de Exsept
           </li>
         </ul>
       </Card>
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>28</span> Quitamos tapón del catéter y ponemos <strong>dos push</strong> de Except
+            <input type='checkbox' /> <span>28</span> Quitamos tapón del catéter y ponemos <strong>dos push</strong> de Exsept
           </li>
         </ul>
       </Card>

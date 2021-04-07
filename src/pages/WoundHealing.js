@@ -1,6 +1,66 @@
 import React from 'react'
 import { Layout } from '../components/Layout'
 import { Card } from '../components/Card'
+import { Video } from '../components/Video'
+
+import ColocarToalla from '../assets/video/webm/ColocarToalla.webm'
+import ColocarToallaImage from '../assets/image/jpg/ColocarToalla.jpg'
+
+import LavarManosJabon from '../assets/video/webm/LavarManosJabon.webm'
+import LavarManosJabonImage from '../assets/image/jpg/LavarManosJabon.jpg'
+import LavarManosPalmas from '../assets/video/webm/LavarManosPalmas.webm'
+import LavarManosPalmasImage from '../assets/image/jpg/LavarManosPalmas.jpg'
+import LavarManosDorso from '../assets/video/webm/LavarManosDorso.webm'
+import LavarManosDorsoImage from '../assets/image/jpg/LavarManosDorso.jpg'
+import LavarManosNudillos from '../assets/video/webm/LavarManosNudillos.webm'
+import LavarManosNudillosImage from '../assets/image/jpg/LavarManosNudillos.jpg'
+import LavarManosPulgares from '../assets/video/webm/LavarManosPulgares.webm'
+import LavarManosPulgaresImage from '../assets/image/jpg/LavarManosPulgares.jpg'
+import LavarManosUnas from '../assets/video/webm/LavarManosUnas.webm'
+import LavarManosUnasImage from '../assets/image/jpg/LavarManosUnas.jpg'
+
+import SecadoManoTomarToalla from '../assets/video/webm/SecadoManoTomarToalla.webm'
+import SecadoManoTomarToallaImage from '../assets/image/jpg/SecadoManoTomarToalla.jpg'
+import SecadoManoDedos from '../assets/video/webm/SecadoManoDedos.webm'
+import SecadoManoDedosImage from '../assets/image/jpg/SecadoManoDedos.jpg'
+import SecadoManoDorso from '../assets/video/webm/SecadoManoDorso.webm'
+import SecadoManoDorsoImage from '../assets/image/jpg/SecadoManoDorso.jpg'
+import SecadoManoGiroToalla from '../assets/video/webm/SecadoManoGiroToalla.webm'
+import SecadoManoGiroToallaImage from '../assets/image/jpg/SecadoManoGiroToalla.jpg'
+import SecadoManoAbrazoPalmas from '../assets/video/webm/SecadoManoAbrazoPalmas.webm'
+import SecadoManoAbrazoPalmasImage from '../assets/image/jpg/SecadoManoAbrazoPalmas.jpg'
+import SecadoManoDorsoContrario from '../assets/video/webm/SecadoManoDorsoContrario.webm'
+import SecadoManoDorsoContrarioImage from '../assets/image/jpg/SecadoManoDorsoContrario.jpg'
+import SecadoManoDobladoToalla from '../assets/video/webm/SecadoManoDobladoToalla.webm'
+import SecadoManoDobladoToallaImage from '../assets/image/jpg/SecadoManoDobladoToalla.jpg'
+
+import LimpiarMesaCincoPuntos from '../assets/video/webm/LimpiarMesaCincoPuntos.webm'
+import LimpiarMesaCincoPuntosImage from '../assets/image/jpg/LimpiarMesaCincoPuntos.jpg'
+import LimpiarMesaCompresa from '../assets/video/webm/LimpiarMesaCompresa.webm'
+import LimpiarMesaCompresaImage from '../assets/image/jpg/LimpiarMesaCompresa.jpg'
+import LimpiarMesaCompresaLaterales from '../assets/video/webm/LimpiarMesaCompresaLaterales.webm'
+import LimpiarMesaCompresaLateralesImage from '../assets/image/jpg/LimpiarMesaCompresaLaterales.jpg'
+
+import LimpiarArticuloExsept from '../assets/video/webm/LimpiarArticuloExsept.webm'
+import LimpiarArticuloExseptImage from '../assets/image/jpg/LimpiarArticuloExsept.jpg'
+import LimpiarArticuloTijeras from '../assets/video/webm/LimpiarArticuloTijeras.webm'
+import LimpiarArticuloTijerasImage from '../assets/image/jpg/LimpiarArticuloTijeras.jpg'
+import LimpiarArticuloMupirocina from '../assets/video/webm/LimpiarArticuloMupirocina.webm'
+import LimpiarArticuloMupirocinaImage from '../assets/image/jpg/LimpiarArticuloMupirocina.jpg'
+import LimpiarArticuloGuante from '../assets/video/webm/LimpiarArticuloGuante.webm'
+import LimpiarArticuloGuanteImage from '../assets/image/jpg/LimpiarArticuloGuante.jpg'
+import LimpiarArticuloCinta from '../assets/video/webm/LimpiarArticuloCinta.webm'
+import LimpiarArticuloCintaImage from '../assets/image/jpg/LimpiarArticuloCinta.jpg'
+import LimpiarArticuloJabonLiquido from '../assets/video/webm/LimpiarArticuloJabonLiquido.webm'
+import LimpiarArticuloJabonLiquidoImage from '../assets/image/jpg/LimpiarArticuloJabonLiquido.jpg'
+import LimpiarArticuloAguaEsteril from '../assets/video/webm/LimpiarArticuloAguaEsteril.webm'
+import LimpiarArticuloAguaEsterilImage from '../assets/image/jpg/LimpiarArticuloAguaEsteril.jpg'
+
+import CortarCinta from '../assets/video/webm/CortarCinta.webm'
+import CortarCintaImage from '../assets/image/jpg/CortarCinta.jpg'
+
+import AbrirGasa from '../assets/video/webm/AbrirGasa.webm'
+import AbrirGasaImage from '../assets/image/jpg/AbrirGasa.jpg'
 
 export const WoundHealing = () => {
   const description = 'Proceso para realizar la curación de la herida del catéter y la herida de cirugía.'
@@ -40,7 +100,8 @@ export const WoundHealing = () => {
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>3</span> Colocar toalla para el secado de manos
+            <input type='checkbox' /> <span>3</span> Colocar toalla para el secado de manos <strong>(Doblada a la mitad por lo largo)</strong>
+            <Video src={ColocarToalla} poster={ColocarToallaImage} />
           </li>
         </ul>
       </Card>
@@ -51,21 +112,27 @@ export const WoundHealing = () => {
             <ul>
               <li>
                 <input type='checkbox' /> <span>4.1</span> Mojar las manos y aplicar jabón
+                <Video src={LavarManosJabon} poster={LavarManosJabonImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>4.2</span> Frotar palmas 10 veces
+                <Video src={LavarManosPalmas} poster={LavarManosPalmasImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>4.3</span> Frotar dorsos 10 veces
+                <Video src={LavarManosDorso} poster={LavarManosDorsoImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>4.4</span> Enganchar manos y frotar nudillos 10 veces
+                <Video src={LavarManosNudillos} poster={LavarManosNudillosImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>4.5</span> Frotar pulgares 10 veces
+                <Video src={LavarManosPulgares} poster={LavarManosPulgaresImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>4.6</span> Frotar las uñas 10 veces
+                <Video src={LavarManosUnas} poster={LavarManosUnasImage} />
               </li>
             </ul>
           </li>
@@ -78,24 +145,31 @@ export const WoundHealing = () => {
             <ul>
               <li>
                 <input type='checkbox' /> <span>5.1</span> Tomamos la toalla y abrazamos nuestras palmas
+                <Video src={SecadoManoTomarToalla} poster={SecadoManoTomarToallaImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>5.2</span> Secamos los dedos de la mano
+                <Video src={SecadoManoDedos} poster={SecadoManoDedosImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>5.3</span> Con ligeros toques secamos el dorso de la mano
+                <Video src={SecadoManoDorso} poster={SecadoManoDorsoImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>5.4</span> Así como está doblada la toalla la giramos, ahora secaremos con la parte de abajo
+                <Video src={SecadoManoGiroToalla} poster={SecadoManoGiroToallaImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>5.5</span> Repetimos abrazo de palmas y secado uno a uno de los dedos
+                <Video src={SecadoManoAbrazoPalmas} poster={SecadoManoAbrazoPalmasImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>5.6</span> Con ligeros toques secamos el dorso de la mano
+                <Video src={SecadoManoDorsoContrario} poster={SecadoManoDorsoContrarioImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>5.7</span> Doblamos la toalla por el lado seco y la dejamos acomodada para el siguiente lavado de manos
+                <Video src={SecadoManoDobladoToalla} poster={SecadoManoDobladoToallaImage} />
               </li>
             </ul>
           </li>
@@ -125,7 +199,21 @@ export const WoundHealing = () => {
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>9</span> Limpiamos la mesa
+            <span>9</span> Limpiar mesa de trabajo (Con agua clorada al 10% o Exsept):
+            <ul>
+              <li>
+                <input type='checkbox' /> <span>9.1</span> Colocar chorrito de agua clorada en las esquinas de la mesa y en el centro
+                <Video src={LimpiarMesaCincoPuntos} poster={LimpiarMesaCincoPuntosImage} />
+              </li>
+              <li>
+                <input type='checkbox' /> <span>9.2</span> Impregnar compresa con los chorritos de cloro puestos en la mesa y limpiar de frente hacia atrás (Hacer presión con la compresa para que la mesa quede bien seca)
+                <Video src={LimpiarMesaCompresa} poster={LimpiarMesaCompresaImage} />
+              </li>
+              <li>
+                <input type='checkbox' /> <span>9.3</span> Doblar compresa y limpiar los lados de la mesa (Cuidar que nuestra ropa no toque la mesa)
+                <Video src={LimpiarMesaCompresaLaterales} poster={LimpiarMesaCompresaLateralesImage} />
+              </li>
+            </ul>
           </li>
         </ul>
       </Card>
@@ -135,19 +223,32 @@ export const WoundHealing = () => {
             <span>10</span> Usar la misma compresa e ir doblándose  por sus diferentes lados limpios para limpiar lo siguiente e ir colocándolos en la mesa de trabajo:
             <ul>
               <li>
-                <input type='checkbox' /> <span>10.1</span> Except sin tapa
+                <input type='checkbox' /> <span>10.1</span> Exsept sin tapa
+                <Video src={LimpiarArticuloExsept} poster={LimpiarArticuloExseptImage} />
               </li>
               <li>
-                <input type='checkbox' /> <span>10.2</span> Guante de latex
+                <input type='checkbox' /> <span>10.2</span> Tijeras
+                <Video src={LimpiarArticuloTijeras} poster={LimpiarArticuloTijerasImage} />
               </li>
               <li>
-                <input type='checkbox' /> <span>10.3</span> Tijeras
+                <input type='checkbox' /> <span>10.3</span> Pomada mupirocina (Si es requerida)
+                <Video src={LimpiarArticuloMupirocina} poster={LimpiarArticuloMupirocinaImage} />
               </li>
               <li>
-                <input type='checkbox' /> <span>10.4</span> Cinta micropore (Esta se limpia ligeramente)
+                <input type='checkbox' /> <span>10.4</span> Guante de latex
+                <Video src={LimpiarArticuloGuante} poster={LimpiarArticuloGuanteImage} />
               </li>
               <li>
-                <input type='checkbox' /> <span>10.5</span> Pomada Mupirocina (Si es requerida)
+                <input type='checkbox' /> <span>10.5</span> Cinta micropore (Esta se limpia ligeramente)
+                <Video src={LimpiarArticuloCinta} poster={LimpiarArticuloCintaImage} />
+              </li>
+              <li>
+                <input type='checkbox' /> <span>10.6</span> Jabón líquido
+                <Video src={LimpiarArticuloJabonLiquido} poster={LimpiarArticuloJabonLiquidoImage} />
+              </li>
+              <li>
+                <input type='checkbox' /> <span>10.7</span> Agua estéril
+                <Video src={LimpiarArticuloAguaEsteril} poster={LimpiarArticuloAguaEsterilImage} />
               </li>
             </ul>
           </li>
@@ -156,14 +257,16 @@ export const WoundHealing = () => {
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>11</span> Sacar aproximadamente 7 gasas o más
+            <input type='checkbox' /> <span>11</span> Cortar 3 o 4 cintas micropore y pegarlas en la mesa para tomarlas más fácilmente al colocar la gasa limpia en la herida
+            <Video src={CortarCinta} poster={CortarCintaImage} />
           </li>
         </ul>
       </Card>
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>12</span> Cortar 3 o 4 cintas micropore y pegarlas en la mesa para tomarlas más fácilmente al colocar la gasa limpia en la herida
+            <input type='checkbox' /> <span>12</span> Sacar aproximadamente 7 gasas o más
+            <Video src={AbrirGasa} poster={AbrirGasaImage} />
           </li>
         </ul>
       </Card>
@@ -174,21 +277,27 @@ export const WoundHealing = () => {
             <ul>
               <li>
                 <input type='checkbox' /> <span>13.1</span> Mojar las manos y aplicar jabón
+                <Video src={LavarManosJabon} poster={LavarManosJabonImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>13.2</span> Frotar palmas 10 veces
+                <Video src={LavarManosPalmas} poster={LavarManosPalmasImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>13.3</span> Frotar dorsos 10 veces
+                <Video src={LavarManosDorso} poster={LavarManosDorsoImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>13.4</span> Enganchar manos y frotar nudillos 10 veces
+                <Video src={LavarManosNudillos} poster={LavarManosNudillosImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>13.5</span> Frotar pulgares 10 veces
+                <Video src={LavarManosPulgares} poster={LavarManosPulgaresImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>13.6</span> Frotar las uñas 10 veces
+                <Video src={LavarManosUnas} poster={LavarManosUnasImage} />
               </li>
             </ul>
           </li>
@@ -201,21 +310,27 @@ export const WoundHealing = () => {
             <ul>
               <li>
                 <input type='checkbox' /> <span>14.1</span> Tomamos la toalla y abrazamos nuestras palmas
+                <Video src={SecadoManoTomarToalla} poster={SecadoManoTomarToallaImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>14.2</span> Secamos los dedos de la mano
+                <Video src={SecadoManoDedos} poster={SecadoManoDedosImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>14.3</span> Con ligeros toques secamos el dorso de la mano
+                <Video src={SecadoManoDorso} poster={SecadoManoDorsoImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>14.4</span> Así como está doblada la toalla la giramos, ahora secaremos con la parte de abajo
+                <Video src={SecadoManoGiroToalla} poster={SecadoManoGiroToallaImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>14.5</span> Repetimos abrazo de palmas y secado uno a uno de los dedos
+                <Video src={SecadoManoAbrazoPalmas} poster={SecadoManoAbrazoPalmasImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>14.6</span> Con ligeros toques secamos el dorso de la mano
+                <Video src={SecadoManoDorsoContrario} poster={SecadoManoDorsoContrarioImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>14.7</span> Depositamos la toalla en el cesto de toallas sucias
@@ -311,7 +426,7 @@ export const WoundHealing = () => {
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>27</span> Realizar un push de Except en herida, levantando un poquito el tubito para que caiga en toda la entrada del catéter
+            <input type='checkbox' /> <span>27</span> Realizar un push de Exsept en herida, levantando un poquito el tubito para que caiga en toda la entrada del catéter
           </li>
         </ul>
       </Card>
