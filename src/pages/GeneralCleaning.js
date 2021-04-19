@@ -41,6 +41,29 @@ import LimpiarMesaCompresaImage from '../assets/image/jpg/LimpiarMesaCompresa.jp
 import LimpiarMesaCompresaLaterales from '../assets/video/webm/LimpiarMesaCompresaLaterales.webm'
 import LimpiarMesaCompresaLateralesImage from '../assets/image/jpg/LimpiarMesaCompresaLaterales.jpg'
 
+import LimpiarArticuloExsept from '../assets/video/webm/LimpiarArticuloExsept.webm'
+import LimpiarArticuloExseptImage from '../assets/image/jpg/LimpiarArticuloExsept.jpg'
+import LimpiarArticuloPinzas from '../assets/video/webm/LimpiarArticuloPinzas.webm'
+import LimpiarArticuloPinzasImage from '../assets/image/jpg/LimpiarArticuloPinzas.jpg'
+import LimpiarArticuloTijeras from '../assets/video/webm/LimpiarArticuloTijeras.webm'
+import LimpiarArticuloTijerasImage from '../assets/image/jpg/LimpiarArticuloTijeras.jpg'
+import LimpiarArticuloMupirocina from '../assets/video/webm/LimpiarArticuloMupirocina.webm'
+import LimpiarArticuloMupirocinaImage from '../assets/image/jpg/LimpiarArticuloMupirocina.jpg'
+import LimpiarArticuloCinta from '../assets/video/webm/LimpiarArticuloCinta.webm'
+import LimpiarArticuloCintaImage from '../assets/image/jpg/LimpiarArticuloCinta.jpg'
+
+import LimpiarMicroondasCentro from '../assets/video/webm/LimpiarMicroondasCentro.webm'
+import LimpiarMicroondasCentroImage from '../assets/image/jpg/LimpiarMicroondasCentro.jpg'
+import LimpiarMicroondasParedes from '../assets/video/webm/LimpiarMicroondasParedes.webm'
+import LimpiarMicroondasParedesImage from '../assets/image/jpg/LimpiarMicroondasParedes.jpg'
+import LimpiarMicroondasPuerta from '../assets/video/webm/LimpiarMicroondasPuerta.webm'
+import LimpiarMicroondasPuertaImage from '../assets/image/jpg/LimpiarMicroondasPuerta.jpg'
+import LimpiarMicroondasParteFuera from '../assets/video/webm/LimpiarMicroondasParteFuera.webm'
+import LimpiarMicroondasParteFueraImage from '../assets/image/jpg/LimpiarMicroondasParteFuera.jpg'
+
+import LimpiarTripie from '../assets/video/webm/LimpiarTripie.webm'
+import LimpiarTripieImage from '../assets/image/jpg/LimpiarTripie.jpg'
+
 export const GeneralCleaning = () => {
   const description = 'Proceso para realizar el aseo general una vez al día, de preferencia a la misma hora.'
   return (
@@ -164,41 +187,51 @@ export const GeneralCleaning = () => {
             <ul>
               <li>
                 <input type='checkbox' /> <span>6.1</span> Exsept con tapa sobre la compresa y poner agua clorada al 10%
+                <Video src={LimpiarArticuloExsept} poster={LimpiarArticuloExseptImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>6.2</span> Pinzas sobre la compresa y poner agua clorada al 10%, las pinzas deben estar abiertas
+                <Video src={LimpiarArticuloPinzas} poster={LimpiarArticuloPinzasImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>6.3</span> Tijeras sobre la compresa y poner agua clorada al 10%, las tijeras deben estar abiertas
+                <Video src={LimpiarArticuloTijeras} poster={LimpiarArticuloTijerasImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>6.4</span> Pomada Mupirocina sobre la compresa y poner agua clorada al 10%
+                <Video src={LimpiarArticuloMupirocina} poster={LimpiarArticuloMupirocinaImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>6.5</span> Cinta micropore sobre la compresa y <strong>frotar con la compresa ya humeda</strong>
+                <Video src={LimpiarArticuloCinta} poster={LimpiarArticuloCintaImage} />
               </li>
               <li>
                 <input type='checkbox' /> <span>6.6</span> Limpiar horno de microondas:
                 <ul>
                   <li>
                     <input type='checkbox' /> <span>6.6.1</span> Centro primero
+                    <Video src={LimpiarMicroondasCentro} poster={LimpiarMicroondasCentroImage} />
                   </li>
                   <li>
                     <input type='checkbox' /> <span>6.6.2</span> Paredes
+                    <Video src={LimpiarMicroondasParedes} poster={LimpiarMicroondasParedesImage} />
                   </li>
                   <li>
                     <input type='checkbox' /> <span>6.6.3</span> Puerta
+                    <Video src={LimpiarMicroondasPuerta} poster={LimpiarMicroondasPuertaImage} />
                   </li>
                   <li>
                     <input type='checkbox' /> <span>6.6.4</span> Parte de afuera
+                    <Video src={LimpiarMicroondasParteFuera} poster={LimpiarMicroondasParteFueraImage} />
                   </li>
                 </ul>
               </li>
               <li>
                 <input type='checkbox' /> <span>6.7</span> Limpiar tripié
+                <Video src={LimpiarTripie} poster={LimpiarTripieImage} />
               </li>
               <li>
-                <input type='checkbox' /> <span>6.8</span> Limpiar báscula y charola
+                <input type='checkbox' /> <span>6.8</span> Limpiar báscula
               </li>
             </ul>
           </li>

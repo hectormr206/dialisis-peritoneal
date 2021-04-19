@@ -34,6 +34,9 @@ import SecadoManoDorsoContrarioImage from '../assets/image/jpg/SecadoManoDorsoCo
 import SecadoManoDobladoToalla from '../assets/video/webm/SecadoManoDobladoToalla.webm'
 import SecadoManoDobladoToallaImage from '../assets/image/jpg/SecadoManoDobladoToalla.jpg'
 
+import DesprenderGasasHerida from '../assets/video/webm/DesprenderGasasHerida.webm'
+import DesprenderGasasHeridaImage from '../assets/image/jpg/DesprenderGasasHerida.jpg'
+
 import LimpiarMesaCincoPuntos from '../assets/video/webm/LimpiarMesaCincoPuntos.webm'
 import LimpiarMesaCincoPuntosImage from '../assets/image/jpg/LimpiarMesaCincoPuntos.jpg'
 import LimpiarMesaCompresa from '../assets/video/webm/LimpiarMesaCompresa.webm'
@@ -61,6 +64,27 @@ import CortarCintaImage from '../assets/image/jpg/CortarCinta.jpg'
 
 import AbrirGasa from '../assets/video/webm/AbrirGasa.webm'
 import AbrirGasaImage from '../assets/image/jpg/AbrirGasa.jpg'
+
+import EnjuagarGuante from '../assets/video/webm/EnjuagarGuante.webm'
+import EnjuagarGuanteImage from '../assets/image/jpg/EnjuagarGuante.jpg'
+import ImpregnarGasaAguaEsterilJabonLiquido from '../assets/video/webm/ImpregnarGasaAguaEsterilJabonLiquido.webm'
+import ImpregnarGasaAguaEsterilJabonLiquidoImage from '../assets/image/jpg/ImpregnarGasaAguaEsterilJabonLiquido.jpg'
+import GasaHeridaPresionamosLevemente from '../assets/video/webm/GasaHeridaPresionamosLevemente.webm'
+import GasaHeridaPresionamosLevementeImage from '../assets/image/jpg/GasaHeridaPresionamosLevemente.jpg'
+import CirculoArrastramosEspiral from '../assets/video/webm/CirculoArrastramosEspiral.webm'
+import CirculoArrastramosEspiralImage from '../assets/image/jpg/CirculoArrastramosEspiral.jpg'
+import OtraGasaQuitarJabon from '../assets/video/webm/OtraGasaQuitarJabon.webm'
+import OtraGasaQuitarJabonImage from '../assets/image/jpg/OtraGasaQuitarJabon.jpg'
+import OtraGasaSecarBien from '../assets/video/webm/OtraGasaSecarBien.webm'
+import OtraGasaSecarBienImage from '../assets/image/jpg/OtraGasaSecarBien.jpg'
+import PushExseptHerida from '../assets/video/webm/PushExseptHerida.webm'
+import PushExseptHeridaImage from '../assets/image/jpg/PushExseptHerida.jpg'
+import ColocarMupirocina from '../assets/video/webm/ColocarMupirocina.webm'
+import ColocarMupirocinaImage from '../assets/image/jpg/ColocarMupirocina.jpg'
+import ColocarGasaHerida from '../assets/video/webm/ColocarGasaHerida.webm'
+import ColocarGasaHeridaImage from '../assets/image/jpg/ColocarGasaHerida.jpg'
+import ColocarGasaTuboHerida from '../assets/video/webm/ColocarGasaTuboHerida.webm'
+import ColocarGasaTuboHeridaImage from '../assets/image/jpg/ColocarGasaTuboHerida.jpg'
 
 export const WoundHealing = () => {
   const description = 'Proceso para realizar la curación de la herida del catéter y la herida de cirugía.'
@@ -193,6 +217,7 @@ export const WoundHealing = () => {
         <ul>
           <li>
             <input type='checkbox' /> <span>8</span> Desprender gasas de las heridas y desecharlas
+            <Video src={DesprenderGasasHerida} poster={DesprenderGasasHeridaImage} />
           </li>
         </ul>
       </Card>
@@ -343,6 +368,7 @@ export const WoundHealing = () => {
         <ul>
           <li>
             <input type='checkbox' /> <span>15</span> Colocar guante en mano dominante y enjuagar con el agua estéril
+            <Video src={EnjuagarGuante} poster={EnjuagarGuanteImage} />
           </li>
         </ul>
       </Card>
@@ -350,6 +376,7 @@ export const WoundHealing = () => {
         <ul>
           <li>
             <input type='checkbox' /> <span>16</span> Impregnar gasa con agua estéril y jabón líquido neutro
+            <Video src={ImpregnarGasaAguaEsterilJabonLiquido} poster={ImpregnarGasaAguaEsterilJabonLiquidoImage} />
           </li>
         </ul>
       </Card>
@@ -357,6 +384,7 @@ export const WoundHealing = () => {
         <ul>
           <li>
             <input type='checkbox' /> <span>17</span> Colocamos gasa en la herida y presionamos levemente
+            <Video src={GasaHeridaPresionamosLevemente} poster={GasaHeridaPresionamosLevementeImage} />
           </li>
         </ul>
       </Card>
@@ -364,6 +392,7 @@ export const WoundHealing = () => {
         <ul>
           <li>
             <input type='checkbox' /> <span>18</span> Hacemos un circulo con la gasa y empezamos a arrastrar la gasa del centro hacia fuera, formando círculos alrededor de la entrada del catéter
+            <Video src={CirculoArrastramosEspiral} poster={CirculoArrastramosEspiralImage} />
           </li>
         </ul>
       </Card>
@@ -392,6 +421,7 @@ export const WoundHealing = () => {
         <ul>
           <li>
             <input type='checkbox' /> <span>22</span> Con otra gasa con agua estéril realizamos el mismo proceso para quitar el jabón
+            <Video src={OtraGasaQuitarJabon} poster={OtraGasaQuitarJabonImage} />
           </li>
         </ul>
       </Card>
@@ -413,6 +443,7 @@ export const WoundHealing = () => {
         <ul>
           <li>
             <input type='checkbox' /> <span>25</span> Tomar otras gasas para secar muy bien la entrada completa del catéter y dejar orear un poco
+            <Video src={OtraGasaSecarBien} poster={OtraGasaSecarBienImage} />
           </li>
         </ul>
       </Card>
@@ -426,49 +457,60 @@ export const WoundHealing = () => {
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>27</span> Realizar un push de Exsept en herida, levantando un poquito el tubito para que caiga en toda la entrada del catéter
+            <input type='checkbox' /> <span>27</span> Realizar un push de Exsept en herida, levantando un poquito el tubito para que caiga en toda la entrada del catéter y secar muy poco el exceso de líquido con una gasa
+            <Video src={PushExseptHerida} poster={PushExseptHeridaImage} />
           </li>
         </ul>
       </Card>
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>28</span> Colocar una gasa a lo largo de la entrada del catéter e ir colocando 2 cintas adhesivas en diferentes lugares a la anterior curación, para evitar irritar la piel
+            <input type='checkbox' /> <span>28</span> Colocar Mupirocina sólo si es requerida, destapando con una mano la pomada y aplicando en el dedo meñique de la mano que trae el guante. <strong>Colocar directo en la herida.</strong>
+            <Video src={ColocarMupirocina} poster={ColocarMupirocinaImage} />
           </li>
         </ul>
       </Card>
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>29</span> Colocar otra cinta adhesiva que abrace muy bien el tubo del catéter y pegar las dos extremidades a la piel. Con esto ayudamos a que no se jale por accidente
+            <input type='checkbox' /> <span>29</span> Colocar una gasa a lo largo de la entrada del catéter e ir colocando 2 cintas adhesivas en diferentes lugares a la anterior curación, para evitar irritar la piel
+            <Video src={ColocarGasaHerida} poster={ColocarGasaHeridaImage} />
           </li>
         </ul>
       </Card>
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>30</span> Colocar fajero limpio
+            <input type='checkbox' /> <span>30</span> Colocar otra cinta adhesiva que abrace muy bien el tubo del catéter y pegar las dos extremidades a la piel. Con esto ayudamos a que no se jale por accidente
+            <Video src={ColocarGasaTuboHerida} poster={ColocarGasaTuboHeridaImage} />
           </li>
         </ul>
       </Card>
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>31</span> Guardar catéter
+            <input type='checkbox' /> <span>31</span> Colocar fajero limpio
           </li>
         </ul>
       </Card>
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>32</span> Guardar la compresa
+            <input type='checkbox' /> <span>32</span> Guardar catéter
           </li>
         </ul>
       </Card>
       <Card>
         <ul>
           <li>
-            <input type='checkbox' /> <span>33</span> Devolver todos los materiales a su lugar
+            <input type='checkbox' /> <span>33</span> Guardar la compresa
+          </li>
+        </ul>
+      </Card>
+      <Card>
+        <ul>
+          <li>
+            <input type='checkbox' /> <span>34</span> Devolver todos los materiales a su lugar
           </li>
         </ul>
       </Card>
