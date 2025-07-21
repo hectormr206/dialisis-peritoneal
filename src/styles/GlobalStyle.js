@@ -1,4 +1,4 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   :root {
@@ -128,7 +128,7 @@ export const GlobalStyle = createGlobalStyle`
     &:focus {
       outline: 2px solid var(--color-accent);
       outline-offset: 2px;
-    }
+  }
   }
 
   /* Contenedor principal */
@@ -218,4 +218,4 @@ export const GlobalStyle = createGlobalStyle`
       scroll-behavior: auto;
     }
   }
-`
+`;
