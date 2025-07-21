@@ -1,13 +1,16 @@
-import React, { Suspense } from 'react'
-import { GlobalStyle } from '../styles/GlobalStyle'
-import { Loader } from './Loader'
-import { Routes } from '../routes'
+import React, { Suspense } from "react";
+import { StyleSheetManager } from "styled-components";
+import { GlobalStyle } from "../styles/GlobalStyle";
+import { Loader } from "./Loader";
+import { AppRoutes } from "../routes";
 
 export const App = () => {
   return (
-    <Suspense fallback={<Loader />}>
-      <GlobalStyle />
-      <Routes />
-    </Suspense>
-  )
-}
+    <StyleSheetManager shouldForwardProp={() => true}>
+      <Suspense fallback={<Loader />}>
+        <GlobalStyle />
+        <AppRoutes />
+      </Suspense>
+    </StyleSheetManager>
+  );
+};

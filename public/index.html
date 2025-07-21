@@ -2,27 +2,182 @@
 <html lang="es">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no" />
-        <meta name="apple-mobile-web-app-title" content="hectormr" />
-        <meta name="apple-mobile-web-app-capable" content="no" />
         <meta
-            name="apple-mobile-web-app-status-bar-style"
-            content="black-translucent"
+            name="viewport"
+            content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
         />
-        <meta name="theme-color" content="#4285f4" />
 
-        <link rel="shortcut icon" href="./favicon.ico" type="image/png/ico" />
+        <!-- Meta tags mejorados para SEO y accesibilidad -->
+        <meta
+            name="description"
+            content="Guía completa de diálisis peritoneal con horarios, procedimientos de limpieza y videos instructivos para pacientes y cuidadores."
+        />
+        <meta
+            name="keywords"
+            content="diálisis peritoneal, diálisis, riñón, cuidados médicos, procedimientos médicos, salud renal"
+        />
+        <meta
+            name="author"
+            content="Celia García Mateo, Héctor Martínez Reséndiz"
+        />
+        <meta name="robots" content="index, follow" />
+        <meta name="language" content="es" />
+
+        <!-- Open Graph para redes sociales -->
+        <meta
+            property="og:title"
+            content="Diálisis Peritoneal - Guía Completa"
+        />
+        <meta
+            property="og:description"
+            content="Guía completa de diálisis peritoneal con horarios, procedimientos de limpieza y videos instructivos."
+        />
+        <meta property="og:type" content="website" />
+        <meta property="og:locale" content="es_ES" />
+
+        <!-- Twitter Cards -->
+        <meta name="twitter:card" content="summary" />
+        <meta
+            name="twitter:title"
+            content="Diálisis Peritoneal - Guía Completa"
+        />
+        <meta
+            name="twitter:description"
+            content="Guía completa de diálisis peritoneal con horarios, procedimientos de limpieza y videos instructivos."
+        />
+
+        <!-- PWA y Mobile optimizations -->
+        <meta name="apple-mobile-web-app-title" content="Diálisis Peritoneal" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+        <meta name="theme-color" content="#3b82f6" />
+        <meta name="msapplication-TileColor" content="#3b82f6" />
+
+        <!-- Performance optimizations -->
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="format-detection" content="telephone=no" />
+
+        <!-- Icons y manifest -->
+        <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon" />
         <link rel="manifest" href="./manifest.json" />
         <link rel="apple-touch-icon" href="./apple-icon.png" />
-        <link rel="preconnect" href="https://fonts.gstatic.com">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
 
-        <title>Welcome to React! | 😉 @hectormr206</title>
+        <!-- Fonts con optimización de rendimiento -->
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Preload crítico para mejor rendimiento -->
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+
+        <title>
+            Diálisis Peritoneal - Guía Completa | Procedimientos y Cuidados
+        </title>
     </head>
     <body>
         <noscript>
-          You need to enable JavaScript to run this app.
+            <div
+                style="
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: 100%;
+                    background: #dc2626;
+                    color: white;
+                    padding: 1rem;
+                    text-align: center;
+                    z-index: 9999;
+                "
+            >
+                Esta aplicación requiere JavaScript para funcionar
+                correctamente. Por favor, habilita JavaScript en tu navegador.
+            </div>
         </noscript>
-        <div id="app"></div>
+
+        <!-- Contenedor principal de la aplicación -->
+        <div
+            id="app"
+            role="application"
+            aria-label="Aplicación de Diálisis Peritoneal"
+        >
+            <!-- Loading fallback mejorado -->
+            <div
+                style="
+                    display: flex;
+                    flex-direction: column;
+                    justify-content: center;
+                    align-items: center;
+                    height: 100vh;
+                    font-family: 'Noto Sans JP', sans-serif;
+                    background: #f8fafc;
+                    color: #1e293b;
+                "
+            >
+                <div
+                    style="
+                        width: 40px;
+                        height: 40px;
+                        border: 4px solid #e2e8f0;
+                        border-top: 4px solid #3b82f6;
+                        border-radius: 50%;
+                        animation: spin 1s linear infinite;
+                        margin-bottom: 1rem;
+                    "
+                ></div>
+                <p style="margin: 0; font-weight: 500">
+                    Cargando aplicación...
+                </p>
+            </div>
+        </div>
+
+        <style>
+            @keyframes spin {
+                0% {
+                    transform: rotate(0deg);
+                }
+                100% {
+                    transform: rotate(360deg);
+                }
+            }
+
+            /* Evitar FOUC (Flash of Unstyled Content) */
+            body {
+                visibility: hidden;
+            }
+            body.loaded {
+                visibility: visible;
+            }
+        </style>
+
+        <script>
+            // Mostrar el body una vez que la página está lista
+            document.addEventListener("DOMContentLoaded", function () {
+                document.body.classList.add("loaded");
+            });
+
+            // Service Worker registration para PWA
+            if ("serviceWorker" in navigator) {
+                window.addEventListener("load", function () {
+                    navigator.serviceWorker
+                        .register("/service-worker.js")
+                        .then(function (registration) {
+                            console.log(
+                                "SW registrado con éxito:",
+                                registration.scope
+                            );
+                        })
+                        .catch(function (registrationError) {
+                            console.log(
+                                "SW falló en el registro:",
+                                registrationError
+                            );
+                        });
+                });
+            }
+        </script>
     </body>
 </html>
