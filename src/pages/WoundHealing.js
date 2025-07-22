@@ -1,519 +1,988 @@
-import React from 'react'
-import { Layout } from '../components/Layout'
-import { Card } from '../components/Card'
-import { Video } from '../components/Video'
+import React from "react";
+import { Layout } from "../components/Layout";
+import { ProgressStep } from "../components/ProgressStep";
+import { Video } from "../components/Video";
 
-import ColocarToalla from '../assets/video/webm/ColocarToalla.webm'
-import ColocarToallaImage from '../assets/image/jpg/ColocarToalla.jpg'
+import ColocarToalla from "../assets/video/webm/ColocarToalla.webm";
+import ColocarToallaImage from "../assets/image/jpg/ColocarToalla.jpg";
 
-import LavarManosJabon from '../assets/video/webm/LavarManosJabon.webm'
-import LavarManosJabonImage from '../assets/image/jpg/LavarManosJabon.jpg'
-import LavarManosPalmas from '../assets/video/webm/LavarManosPalmas.webm'
-import LavarManosPalmasImage from '../assets/image/jpg/LavarManosPalmas.jpg'
-import LavarManosDorso from '../assets/video/webm/LavarManosDorso.webm'
-import LavarManosDorsoImage from '../assets/image/jpg/LavarManosDorso.jpg'
-import LavarManosNudillos from '../assets/video/webm/LavarManosNudillos.webm'
-import LavarManosNudillosImage from '../assets/image/jpg/LavarManosNudillos.jpg'
-import LavarManosPulgares from '../assets/video/webm/LavarManosPulgares.webm'
-import LavarManosPulgaresImage from '../assets/image/jpg/LavarManosPulgares.jpg'
-import LavarManosUnas from '../assets/video/webm/LavarManosUnas.webm'
-import LavarManosUnasImage from '../assets/image/jpg/LavarManosUnas.jpg'
+import LavarManosJabon from "../assets/video/webm/LavarManosJabon.webm";
+import LavarManosJabonImage from "../assets/image/jpg/LavarManosJabon.jpg";
+import LavarManosPalmas from "../assets/video/webm/LavarManosPalmas.webm";
+import LavarManosPalmasImage from "../assets/image/jpg/LavarManosPalmas.jpg";
+import LavarManosDorso from "../assets/video/webm/LavarManosDorso.webm";
+import LavarManosDorsoImage from "../assets/image/jpg/LavarManosDorso.jpg";
+import LavarManosNudillos from "../assets/video/webm/LavarManosNudillos.webm";
+import LavarManosNudillosImage from "../assets/image/jpg/LavarManosNudillos.jpg";
+import LavarManosPulgares from "../assets/video/webm/LavarManosPulgares.webm";
+import LavarManosPulgaresImage from "../assets/image/jpg/LavarManosPulgares.jpg";
+import LavarManosUnas from "../assets/video/webm/LavarManosUnas.webm";
+import LavarManosUnasImage from "../assets/image/jpg/LavarManosUnas.jpg";
 
-import SecadoManoTomarToalla from '../assets/video/webm/SecadoManoTomarToalla.webm'
-import SecadoManoTomarToallaImage from '../assets/image/jpg/SecadoManoTomarToalla.jpg'
-import SecadoManoDedos from '../assets/video/webm/SecadoManoDedos.webm'
-import SecadoManoDedosImage from '../assets/image/jpg/SecadoManoDedos.jpg'
-import SecadoManoDorso from '../assets/video/webm/SecadoManoDorso.webm'
-import SecadoManoDorsoImage from '../assets/image/jpg/SecadoManoDorso.jpg'
-import SecadoManoGiroToalla from '../assets/video/webm/SecadoManoGiroToalla.webm'
-import SecadoManoGiroToallaImage from '../assets/image/jpg/SecadoManoGiroToalla.jpg'
-import SecadoManoAbrazoPalmas from '../assets/video/webm/SecadoManoAbrazoPalmas.webm'
-import SecadoManoAbrazoPalmasImage from '../assets/image/jpg/SecadoManoAbrazoPalmas.jpg'
-import SecadoManoDorsoContrario from '../assets/video/webm/SecadoManoDorsoContrario.webm'
-import SecadoManoDorsoContrarioImage from '../assets/image/jpg/SecadoManoDorsoContrario.jpg'
-import SecadoManoDobladoToalla from '../assets/video/webm/SecadoManoDobladoToalla.webm'
-import SecadoManoDobladoToallaImage from '../assets/image/jpg/SecadoManoDobladoToalla.jpg'
+import SecadoManoTomarToalla from "../assets/video/webm/SecadoManoTomarToalla.webm";
+import SecadoManoTomarToallaImage from "../assets/image/jpg/SecadoManoTomarToalla.jpg";
+import SecadoManoDedos from "../assets/video/webm/SecadoManoDedos.webm";
+import SecadoManoDedosImage from "../assets/image/jpg/SecadoManoDedos.jpg";
+import SecadoManoDorso from "../assets/video/webm/SecadoManoDorso.webm";
+import SecadoManoDorsoImage from "../assets/image/jpg/SecadoManoDorso.jpg";
+import SecadoManoGiroToalla from "../assets/video/webm/SecadoManoGiroToalla.webm";
+import SecadoManoGiroToallaImage from "../assets/image/jpg/SecadoManoGiroToalla.jpg";
+import SecadoManoAbrazoPalmas from "../assets/video/webm/SecadoManoAbrazoPalmas.webm";
+import SecadoManoAbrazoPalmasImage from "../assets/image/jpg/SecadoManoAbrazoPalmas.jpg";
+import SecadoManoDorsoContrario from "../assets/video/webm/SecadoManoDorsoContrario.webm";
+import SecadoManoDorsoContrarioImage from "../assets/image/jpg/SecadoManoDorsoContrario.jpg";
 
-import DesprenderGasasHerida from '../assets/video/webm/DesprenderGasasHerida.webm'
-import DesprenderGasasHeridaImage from '../assets/image/jpg/DesprenderGasasHerida.jpg'
+import DesprenderGasasHerida from "../assets/video/webm/DesprenderGasasHerida.webm";
+import DesprenderGasasHeridaImage from "../assets/image/jpg/DesprenderGasasHerida.jpg";
 
-import LimpiarMesaCincoPuntos from '../assets/video/webm/LimpiarMesaCincoPuntos.webm'
-import LimpiarMesaCincoPuntosImage from '../assets/image/jpg/LimpiarMesaCincoPuntos.jpg'
-import LimpiarMesaCompresa from '../assets/video/webm/LimpiarMesaCompresa.webm'
-import LimpiarMesaCompresaImage from '../assets/image/jpg/LimpiarMesaCompresa.jpg'
-import LimpiarMesaCompresaLaterales from '../assets/video/webm/LimpiarMesaCompresaLaterales.webm'
-import LimpiarMesaCompresaLateralesImage from '../assets/image/jpg/LimpiarMesaCompresaLaterales.jpg'
+import LimpiarMesaCincoPuntos from "../assets/video/webm/LimpiarMesaCincoPuntos.webm";
+import LimpiarMesaCincoPuntosImage from "../assets/image/jpg/LimpiarMesaCincoPuntos.jpg";
+import LimpiarMesaCompresa from "../assets/video/webm/LimpiarMesaCompresa.webm";
+import LimpiarMesaCompresaImage from "../assets/image/jpg/LimpiarMesaCompresa.jpg";
 
-import LimpiarArticuloExsept from '../assets/video/webm/LimpiarArticuloExsept.webm'
-import LimpiarArticuloExseptImage from '../assets/image/jpg/LimpiarArticuloExsept.jpg'
-import LimpiarArticuloTijeras from '../assets/video/webm/LimpiarArticuloTijeras.webm'
-import LimpiarArticuloTijerasImage from '../assets/image/jpg/LimpiarArticuloTijeras.jpg'
-import LimpiarArticuloMupirocina from '../assets/video/webm/LimpiarArticuloMupirocina.webm'
-import LimpiarArticuloMupirocinaImage from '../assets/image/jpg/LimpiarArticuloMupirocina.jpg'
-import LimpiarArticuloGuante from '../assets/video/webm/LimpiarArticuloGuante.webm'
-import LimpiarArticuloGuanteImage from '../assets/image/jpg/LimpiarArticuloGuante.jpg'
-import LimpiarArticuloCinta from '../assets/video/webm/LimpiarArticuloCinta.webm'
-import LimpiarArticuloCintaImage from '../assets/image/jpg/LimpiarArticuloCinta.jpg'
-import LimpiarArticuloJabonLiquido from '../assets/video/webm/LimpiarArticuloJabonLiquido.webm'
-import LimpiarArticuloJabonLiquidoImage from '../assets/image/jpg/LimpiarArticuloJabonLiquido.jpg'
-import LimpiarArticuloAguaEsteril from '../assets/video/webm/LimpiarArticuloAguaEsteril.webm'
-import LimpiarArticuloAguaEsterilImage from '../assets/image/jpg/LimpiarArticuloAguaEsteril.jpg'
+import LimpiarArticuloExsept from "../assets/video/webm/LimpiarArticuloExsept.webm";
+import LimpiarArticuloExseptImage from "../assets/image/jpg/LimpiarArticuloExsept.jpg";
+import LimpiarArticuloTijeras from "../assets/video/webm/LimpiarArticuloTijeras.webm";
+import LimpiarArticuloTijerasImage from "../assets/image/jpg/LimpiarArticuloTijeras.jpg";
+import LimpiarArticuloMupirocina from "../assets/video/webm/LimpiarArticuloMupirocina.webm";
+import LimpiarArticuloMupirocinaImage from "../assets/image/jpg/LimpiarArticuloMupirocina.jpg";
+import LimpiarArticuloGuante from "../assets/video/webm/LimpiarArticuloGuante.webm";
+import LimpiarArticuloGuanteImage from "../assets/image/jpg/LimpiarArticuloGuante.jpg";
+import LimpiarArticuloCinta from "../assets/video/webm/LimpiarArticuloCinta.webm";
+import LimpiarArticuloCintaImage from "../assets/image/jpg/LimpiarArticuloCinta.jpg";
+import LimpiarArticuloJabonLiquido from "../assets/video/webm/LimpiarArticuloJabonLiquido.webm";
+import LimpiarArticuloJabonLiquidoImage from "../assets/image/jpg/LimpiarArticuloJabonLiquido.jpg";
+import LimpiarArticuloAguaEsteril from "../assets/video/webm/LimpiarArticuloAguaEsteril.webm";
+import LimpiarArticuloAguaEsterilImage from "../assets/image/jpg/LimpiarArticuloAguaEsteril.jpg";
 
-import CortarCinta from '../assets/video/webm/CortarCinta.webm'
-import CortarCintaImage from '../assets/image/jpg/CortarCinta.jpg'
+import CortarCinta from "../assets/video/webm/CortarCinta.webm";
+import CortarCintaImage from "../assets/image/jpg/CortarCinta.jpg";
 
-import AbrirGasa from '../assets/video/webm/AbrirGasa.webm'
-import AbrirGasaImage from '../assets/image/jpg/AbrirGasa.jpg'
+import AbrirGasa from "../assets/video/webm/AbrirGasa.webm";
+import AbrirGasaImage from "../assets/image/jpg/AbrirGasa.jpg";
 
-import EnjuagarGuante from '../assets/video/webm/EnjuagarGuante.webm'
-import EnjuagarGuanteImage from '../assets/image/jpg/EnjuagarGuante.jpg'
-import ImpregnarGasaAguaEsterilJabonLiquido from '../assets/video/webm/ImpregnarGasaAguaEsterilJabonLiquido.webm'
-import ImpregnarGasaAguaEsterilJabonLiquidoImage from '../assets/image/jpg/ImpregnarGasaAguaEsterilJabonLiquido.jpg'
-import GasaHeridaPresionamosLevemente from '../assets/video/webm/GasaHeridaPresionamosLevemente.webm'
-import GasaHeridaPresionamosLevementeImage from '../assets/image/jpg/GasaHeridaPresionamosLevemente.jpg'
-import CirculoArrastramosEspiral from '../assets/video/webm/CirculoArrastramosEspiral.webm'
-import CirculoArrastramosEspiralImage from '../assets/image/jpg/CirculoArrastramosEspiral.jpg'
-import OtraGasaQuitarJabon from '../assets/video/webm/OtraGasaQuitarJabon.webm'
-import OtraGasaQuitarJabonImage from '../assets/image/jpg/OtraGasaQuitarJabon.jpg'
-import OtraGasaSecarBien from '../assets/video/webm/OtraGasaSecarBien.webm'
-import OtraGasaSecarBienImage from '../assets/image/jpg/OtraGasaSecarBien.jpg'
-import PushExseptHerida from '../assets/video/webm/PushExseptHerida.webm'
-import PushExseptHeridaImage from '../assets/image/jpg/PushExseptHerida.jpg'
-import ColocarMupirocina from '../assets/video/webm/ColocarMupirocina.webm'
-import ColocarMupirocinaImage from '../assets/image/jpg/ColocarMupirocina.jpg'
-import ColocarGasaHerida from '../assets/video/webm/ColocarGasaHerida.webm'
-import ColocarGasaHeridaImage from '../assets/image/jpg/ColocarGasaHerida.jpg'
-import ColocarGasaTuboHerida from '../assets/video/webm/ColocarGasaTuboHerida.webm'
-import ColocarGasaTuboHeridaImage from '../assets/image/jpg/ColocarGasaTuboHerida.jpg'
+import EnjuagarGuante from "../assets/video/webm/EnjuagarGuante.webm";
+import EnjuagarGuanteImage from "../assets/image/jpg/EnjuagarGuante.jpg";
+import ImpregnarGasaAguaEsterilJabonLiquido from "../assets/video/webm/ImpregnarGasaAguaEsterilJabonLiquido.webm";
+import ImpregnarGasaAguaEsterilJabonLiquidoImage from "../assets/image/jpg/ImpregnarGasaAguaEsterilJabonLiquido.jpg";
+import GasaHeridaPresionamosLevemente from "../assets/video/webm/GasaHeridaPresionamosLevemente.webm";
+import GasaHeridaPresionamosLevementeImage from "../assets/image/jpg/GasaHeridaPresionamosLevemente.jpg";
+import CirculoArrastramosEspiral from "../assets/video/webm/CirculoArrastramosEspiral.webm";
+import CirculoArrastramosEspiralImage from "../assets/image/jpg/CirculoArrastramosEspiral.jpg";
+import OtraGasaQuitarJabon from "../assets/video/webm/OtraGasaQuitarJabon.webm";
+import OtraGasaQuitarJabonImage from "../assets/image/jpg/OtraGasaQuitarJabon.jpg";
+import OtraGasaSecarBien from "../assets/video/webm/OtraGasaSecarBien.webm";
+import OtraGasaSecarBienImage from "../assets/image/jpg/OtraGasaSecarBien.jpg";
+import PushExseptHerida from "../assets/video/webm/PushExseptHerida.webm";
+import PushExseptHeridaImage from "../assets/image/jpg/PushExseptHerida.jpg";
+import ColocarMupirocina from "../assets/video/webm/ColocarMupirocina.webm";
+import ColocarMupirocinaImage from "../assets/image/jpg/ColocarMupirocina.jpg";
+import ColocarGasaHerida from "../assets/video/webm/ColocarGasaHerida.webm";
+import ColocarGasaHeridaImage from "../assets/image/jpg/ColocarGasaHerida.jpg";
+import ColocarGasaTuboHerida from "../assets/video/webm/ColocarGasaTuboHerida.webm";
+import ColocarGasaTuboHeridaImage from "../assets/image/jpg/ColocarGasaTuboHerida.jpg";
 
 export const WoundHealing = () => {
-  const description = 'Proceso para realizar la curación de la herida del catéter y la herida de cirugía.'
+  const description =
+    "Siga estos pasos en orden para realizar la curación de heridas correctamente. Es importante no omitir ningún paso para evitar infecciones.";
+
+  const steps = [
+    {
+      title: "Preparación de materiales",
+      description:
+        "Verifique que tenga todos los materiales necesarios antes de comenzar",
+      content: (
+        <div>
+          <h4>🧴 Materiales necesarios:</h4>
+          <ul>
+            <li>Agua estéril o hervida (5 minutos o más)</li>
+            <li>Jabón líquido neutro</li>
+            <li>Fajero limpio</li>
+          </ul>
+          <h4>⚠️ Importante:</h4>
+          <p>
+            <strong>
+              Al bañar al paciente, las gasas y el fajero no se quitan
+            </strong>{" "}
+            para no dejar descubierta la herida y evitar infecciones.
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Colocar cubrebocas",
+      description: "Coloque cubrebocas al paciente y familiares presentes",
+      content: (
+        <div>
+          <p>
+            <strong>Protección:</strong> Todos los presentes deben usar
+            cubrebocas para evitar contaminación.
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Colocar toalla para secado",
+      description:
+        "Prepare la toalla doblada a la mitad por lo largo para el secado de manos",
+      content: (
+        <div>
+          <p>
+            <strong>Técnica:</strong> Doble la toalla a la mitad por lo largo
+          </p>
+          <Video
+            src={ColocarToalla}
+            poster={ColocarToallaImage}
+            title="Colocar toalla para secado"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Primer lavado - Aplicar jabón",
+      description:
+        "Inicie el primer lavado de manos clínico. Moje las manos y aplique jabón",
+      content: (
+        <div>
+          <p>
+            <strong>Inicio:</strong> Lavado clínico empezando por mano no
+            dominante
+          </p>
+          <Video
+            src={LavarManosJabon}
+            poster={LavarManosJabonImage}
+            title="Aplicar jabón en las manos"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Primer lavado - Frotar palmas",
+      description: "Frote las palmas de las manos 10 veces",
+      content: (
+        <div>
+          <p>
+            <strong>Cuenta:</strong> 10 movimientos circulares completos
+          </p>
+          <Video
+            src={LavarManosPalmas}
+            poster={LavarManosPalmasImage}
+            title="Frotar palmas"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Primer lavado - Frotar dorsos",
+      description: "Frote el dorso de cada mano 10 veces",
+      content: (
+        <div>
+          <p>
+            <strong>Técnica:</strong> Palma sobre dorso, movimientos
+            arriba-abajo
+          </p>
+          <Video
+            src={LavarManosDorso}
+            poster={LavarManosDorsoImage}
+            title="Frotar dorsos"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Primer lavado - Frotar nudillos",
+      description: "Enganche los dedos y frote los nudillos 10 veces",
+      content: (
+        <div>
+          <p>
+            <strong>Posición:</strong> Dedos entrelazados, frotar nudillos
+          </p>
+          <Video
+            src={LavarManosNudillos}
+            poster={LavarManosNudillosImage}
+            title="Frotar nudillos"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Primer lavado - Frotar pulgares",
+      description: "Frote cada pulgar 10 veces con la palma contraria",
+      content: (
+        <div>
+          <p>
+            <strong>Movimiento:</strong> Pulgar rodeado por palma contraria
+          </p>
+          <Video
+            src={LavarManosPulgares}
+            poster={LavarManosPulgaresImage}
+            title="Frotar pulgares"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Primer lavado - Frotar uñas",
+      description: "Frote las uñas contra las palmas 10 veces cada mano",
+      content: (
+        <div>
+          <p>
+            <strong>Técnica:</strong> Uñas contra palma contraria, movimiento
+            circular
+          </p>
+          <Video
+            src={LavarManosUnas}
+            poster={LavarManosUnasImage}
+            title="Frotar uñas"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Primer secado - Tomar toalla",
+      description: "Tome la toalla y abrace sus palmas para comenzar el secado",
+      content: (
+        <div>
+          <p>
+            <strong>Inicio:</strong> Palmas juntas con toalla entre ellas
+          </p>
+          <Video
+            src={SecadoManoTomarToalla}
+            poster={SecadoManoTomarToallaImage}
+            title="Tomar toalla para secado"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Primer secado - Secar dedos",
+      description: "Seque cada dedo individualmente",
+      content: (
+        <div>
+          <p>
+            <strong>Técnica:</strong> Dedo por dedo, base hasta punta
+          </p>
+          <Video
+            src={SecadoManoDedos}
+            poster={SecadoManoDedosImage}
+            title="Secar dedos"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Primer secado - Secar dorso",
+      description: "Seque el dorso de la mano con toques ligeros",
+      content: (
+        <div>
+          <p>
+            <strong>Movimiento:</strong> Toques suaves, sin frotar
+          </p>
+          <Video
+            src={SecadoManoDorso}
+            poster={SecadoManoDorsoImage}
+            title="Secar dorso"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Preparar área de trabajo",
+      description:
+        "Saque la línea de catéter y déjela descansar cubierta con una compresa",
+      content: (
+        <div>
+          <p>
+            <strong>Cuidado:</strong> Mantenga el catéter cubierto y en lugar
+            seguro
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Retirar fajero",
+      description: "Retire cuidadosamente el fajero actual",
+      content: (
+        <div>
+          <p>
+            <strong>Cuidado:</strong> Retire sin tocar la herida directamente
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Retirar gasas viejas",
+      description: "Desprenda las gasas de las heridas y deséchelas",
+      content: (
+        <div>
+          <p>
+            <strong>Técnica:</strong> Retire con cuidado y deseche
+            inmediatamente
+          </p>
+          <Video
+            src={DesprenderGasasHerida}
+            poster={DesprenderGasasHeridaImage}
+            title="Retirar gasas de herida"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Limpiar mesa de trabajo",
+      description:
+        "Desinfecte la mesa con agua clorada siguiendo el patrón de 5 puntos",
+      content: (
+        <div>
+          <p>
+            <strong>Patrón:</strong> Chorros en esquinas y centro, limpiar
+            adelante-atrás
+          </p>
+          <Video
+            src={LimpiarMesaCincoPuntos}
+            poster={LimpiarMesaCincoPuntosImage}
+            title="Limpiar mesa - 5 puntos"
+          />
+          <Video
+            src={LimpiarMesaCompresa}
+            poster={LimpiarMesaCompresaImage}
+            title="Limpiar con compresa"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Limpiar materiales - Exsept",
+      description: "Limpie el Exsept (sin tapa) con agua clorada al 10%",
+      content: (
+        <div>
+          <p>
+            <strong>Importante:</strong> Limpie sin la tapa
+          </p>
+          <Video
+            src={LimpiarArticuloExsept}
+            poster={LimpiarArticuloExseptImage}
+            title="Limpiar Exsept"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Limpiar materiales - Tijeras",
+      description: "Limpie las tijeras abiertas con agua clorada",
+      content: (
+        <div>
+          <p>
+            <strong>Posición:</strong> Tijeras abiertas para limpieza completa
+          </p>
+          <Video
+            src={LimpiarArticuloTijeras}
+            poster={LimpiarArticuloTijerasImage}
+            title="Limpiar tijeras"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Limpiar materiales - Mupirocina",
+      description: "Limpie la pomada Mupirocina (si es requerida)",
+      content: (
+        <div>
+          <p>
+            <strong>Nota:</strong> Solo si está prescrita por el médico
+          </p>
+          <Video
+            src={LimpiarArticuloMupirocina}
+            poster={LimpiarArticuloMupirocinaImage}
+            title="Limpiar Mupirocina"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Limpiar materiales - Guante",
+      description: "Limpie el guante de látex",
+      content: (
+        <div>
+          <p>
+            <strong>Preparación:</strong> Guante listo para uso estéril
+          </p>
+          <Video
+            src={LimpiarArticuloGuante}
+            poster={LimpiarArticuloGuanteImage}
+            title="Limpiar guante"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Limpiar materiales - Cinta",
+      description:
+        "Limpie ligeramente la cinta micropore frotando con compresa húmeda",
+      content: (
+        <div>
+          <p>
+            <strong>Técnica:</strong> Limpieza ligera con compresa húmeda
+          </p>
+          <Video
+            src={LimpiarArticuloCinta}
+            poster={LimpiarArticuloCintaImage}
+            title="Limpiar cinta micropore"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Limpiar materiales - Jabón",
+      description: "Limpie el jabón líquido",
+      content: (
+        <div>
+          <p>
+            <strong>Higiene:</strong> Jabón neutro limpio
+          </p>
+          <Video
+            src={LimpiarArticuloJabonLiquido}
+            poster={LimpiarArticuloJabonLiquidoImage}
+            title="Limpiar jabón líquido"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Limpiar materiales - Agua estéril",
+      description: "Limpie el recipiente de agua estéril",
+      content: (
+        <div>
+          <p>
+            <strong>Esterilidad:</strong> Mantenga el agua completamente estéril
+          </p>
+          <Video
+            src={LimpiarArticuloAguaEsteril}
+            poster={LimpiarArticuloAguaEsterilImage}
+            title="Limpiar agua estéril"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Preparar cintas adhesivas",
+      description:
+        "Corte 3-4 cintas micropore y péguelas en la mesa para fácil acceso",
+      content: (
+        <div>
+          <p>
+            <strong>Preparación:</strong> Cintas listas para colocar gasas
+          </p>
+          <Video
+            src={CortarCinta}
+            poster={CortarCintaImage}
+            title="Cortar cintas micropore"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Preparar gasas",
+      description: "Saque aproximadamente 7 gasas o más para el procedimiento",
+      content: (
+        <div>
+          <p>
+            <strong>Cantidad:</strong> Suficientes gasas para todo el proceso
+          </p>
+          <Video
+            src={AbrirGasa}
+            poster={AbrirGasaImage}
+            title="Preparar gasas estériles"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Segundo lavado - Aplicar jabón",
+      description:
+        "Inicie el segundo lavado de manos clínico antes de la curación",
+      content: (
+        <div>
+          <p>
+            <strong>Lavado estéril:</strong> Empezando por mano no dominante
+          </p>
+          <Video
+            src={LavarManosJabon}
+            poster={LavarManosJabonImage}
+            title="Segundo lavado - jabón"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Segundo lavado - Frotar palmas",
+      description: "Frote las palmas 10 veces en el segundo lavado",
+      content: (
+        <div>
+          <p>
+            <strong>Cuenta:</strong> 10 movimientos completos
+          </p>
+          <Video
+            src={LavarManosPalmas}
+            poster={LavarManosPalmasImage}
+            title="Segundo lavado - palmas"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Segundo lavado - Frotar dorsos",
+      description: "Frote los dorsos 10 veces en el segundo lavado",
+      content: (
+        <div>
+          <p>
+            <strong>Técnica:</strong> Dorso completo de ambas manos
+          </p>
+          <Video
+            src={LavarManosDorso}
+            poster={LavarManosDorsoImage}
+            title="Segundo lavado - dorsos"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Segundo lavado - Frotar nudillos",
+      description: "Frote los nudillos 10 veces en el segundo lavado",
+      content: (
+        <div>
+          <p>
+            <strong>Posición:</strong> Dedos entrelazados
+          </p>
+          <Video
+            src={LavarManosNudillos}
+            poster={LavarManosNudillosImage}
+            title="Segundo lavado - nudillos"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Segundo lavado - Frotar pulgares",
+      description: "Frote los pulgares 10 veces en el segundo lavado",
+      content: (
+        <div>
+          <p>
+            <strong>Movimiento:</strong> Pulgar con palma contraria
+          </p>
+          <Video
+            src={LavarManosPulgares}
+            poster={LavarManosPulgaresImage}
+            title="Segundo lavado - pulgares"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Segundo lavado - Frotar uñas",
+      description: "Frote las uñas 10 veces en el segundo lavado",
+      content: (
+        <div>
+          <p>
+            <strong>Técnica:</strong> Uñas contra palma contraria
+          </p>
+          <Video
+            src={LavarManosUnas}
+            poster={LavarManosUnasImage}
+            title="Segundo lavado - uñas"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Segundo secado - Tomar toalla",
+      description: "Inicie el secado con la toalla limpia",
+      content: (
+        <div>
+          <p>
+            <strong>Secado estéril:</strong> Toalla abraza palmas
+          </p>
+          <Video
+            src={SecadoManoTomarToalla}
+            poster={SecadoManoTomarToallaImage}
+            title="Segundo secado - tomar toalla"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Segundo secado - Secar dedos",
+      description: "Seque cada dedo del segundo lavado",
+      content: (
+        <div>
+          <p>
+            <strong>Precisión:</strong> Cada dedo individualmente
+          </p>
+          <Video
+            src={SecadoManoDedos}
+            poster={SecadoManoDedosImage}
+            title="Segundo secado - dedos"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Segundo secado - Secar dorso",
+      description: "Seque el dorso con toques ligeros",
+      content: (
+        <div>
+          <p>
+            <strong>Suavidad:</strong> Sin frotar, solo toques
+          </p>
+          <Video
+            src={SecadoManoDorso}
+            poster={SecadoManoDorsoImage}
+            title="Segundo secado - dorso"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Segundo secado - Girar toalla",
+      description: "Gire la toalla para usar la parte limpia",
+      content: (
+        <div>
+          <p>
+            <strong>Limpieza:</strong> Parte no contaminada de la toalla
+          </p>
+          <Video
+            src={SecadoManoGiroToalla}
+            poster={SecadoManoGiroToallaImage}
+            title="Girar toalla para segunda mano"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Segundo secado - Segunda mano",
+      description: "Repita secado con la segunda mano",
+      content: (
+        <div>
+          <p>
+            <strong>Repetir:</strong> Mismo proceso con mano contraria
+          </p>
+          <Video
+            src={SecadoManoAbrazoPalmas}
+            poster={SecadoManoAbrazoPalmasImage}
+            title="Secar segunda mano"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Segundo secado - Dorso segunda mano",
+      description: "Seque el dorso de la segunda mano",
+      content: (
+        <div>
+          <p>
+            <strong>Finalización:</strong> Dorso de la segunda mano
+          </p>
+          <Video
+            src={SecadoManoDorsoContrario}
+            poster={SecadoManoDorsoContrarioImage}
+            title="Dorso segunda mano"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Colocar guante estéril",
+      description:
+        "Coloque guante en mano dominante y enjuague con agua estéril",
+      content: (
+        <div>
+          <p>
+            <strong>Esterilidad:</strong> Guante en mano dominante, enjuagar
+          </p>
+          <Video
+            src={EnjuagarGuante}
+            poster={EnjuagarGuanteImage}
+            title="Colocar y enjuagar guante"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Preparar gasa con jabón",
+      description: "Impregne gasa con agua estéril y jabón líquido neutro",
+      content: (
+        <div>
+          <p>
+            <strong>Preparación:</strong> Gasa húmeda con jabón neutro
+          </p>
+          <Video
+            src={ImpregnarGasaAguaEsterilJabonLiquido}
+            poster={ImpregnarGasaAguaEsterilJabonLiquidoImage}
+            title="Impregnar gasa con jabón"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Limpiar herida - Colocar gasa",
+      description: "Coloque gasa en la herida y presione levemente",
+      content: (
+        <div>
+          <p>
+            <strong>Suavidad:</strong> Presión leve en la herida
+          </p>
+          <Video
+            src={GasaHeridaPresionamosLevemente}
+            poster={GasaHeridaPresionamosLevementeImage}
+            title="Colocar gasa en herida"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Limpiar herida - Movimiento circular",
+      description: "Haga círculos arrastrando del centro hacia fuera",
+      content: (
+        <div>
+          <p>
+            <strong>Técnica:</strong> Centro hacia fuera, círculos alrededor del
+            catéter
+          </p>
+          <Video
+            src={CirculoArrastramosEspiral}
+            poster={CirculoArrastramosEspiralImage}
+            title="Movimiento circular espiral"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Limpiar herida - Una sola pasada",
+      description:
+        "Haga la limpieza con jabón una vez, arrastrando toda la suciedad",
+      content: (
+        <div>
+          <p>
+            <strong>Eficiencia:</strong> Una pasada efectiva para arrastrar
+            suciedad
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Desechar primera gasa",
+      description: "Deseche la gasa usada inmediatamente",
+      content: (
+        <div>
+          <p>
+            <strong>Higiene:</strong> Desechar sin contaminar área
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Revisar residuos",
+      description: "Verifique que no queden residuos de pegamento en la piel",
+      content: (
+        <div>
+          <p>
+            <strong>Inspección:</strong> Si hay pegamento, retire con gasa en
+            movimiento circular
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Enjuagar con agua estéril",
+      description: "Use gasa con agua estéril para quitar el jabón",
+      content: (
+        <div>
+          <p>
+            <strong>Enjuague:</strong> Mismo proceso circular para retirar jabón
+          </p>
+          <Video
+            src={OtraGasaQuitarJabon}
+            poster={OtraGasaQuitarJabonImage}
+            title="Quitar jabón con agua estéril"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Desechar gasa de enjuague",
+      description: "Deseche la gasa del enjuague",
+      content: (
+        <div>
+          <p>
+            <strong>Limpieza:</strong> Desechar gasa usada
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Repetir enjuague",
+      description: "Repita 2-3 veces más hasta eliminar todo el jabón",
+      content: (
+        <div>
+          <p>
+            <strong>Completo:</strong> Asegurar que no quede jabón residual
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Secar herida completamente",
+      description: "Use gasas limpias para secar toda la entrada del catéter",
+      content: (
+        <div>
+          <p>
+            <strong>Secado total:</strong> Entrada completa del catéter, dejar
+            orear
+          </p>
+          <Video
+            src={OtraGasaSecarBien}
+            poster={OtraGasaSecarBienImage}
+            title="Secar herida completamente"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Evitar contaminación",
+      description: "No sople ni use elementos externos para secar",
+      content: (
+        <div>
+          <p>
+            <strong>⚠️ Prohibido:</strong> No soplar, no usar aire externo, solo
+            gasas
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Aplicar Exsept",
+      description: "Aplique Exsept en la herida levantando el tubo",
+      content: (
+        <div>
+          <p>
+            <strong>Técnica:</strong> Levantar tubito para que caiga en toda la
+            entrada
+          </p>
+          <Video
+            src={PushExseptHerida}
+            poster={PushExseptHeridaImage}
+            title="Aplicar Exsept en herida"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Aplicar Mupirocina (opcional)",
+      description: "Aplique Mupirocina solo si está prescrita",
+      content: (
+        <div>
+          <p>
+            <strong>Solo si es requerida:</strong> Con dedo meñique del guante,
+            directo en herida
+          </p>
+          <Video
+            src={ColocarMupirocina}
+            poster={ColocarMupirocinaImage}
+            title="Aplicar Mupirocina"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Colocar gasa nueva",
+      description: "Coloque gasa limpia a lo largo del catéter con cintas",
+      content: (
+        <div>
+          <p>
+            <strong>Posición:</strong> 2 cintas en lugares diferentes a la
+            curación anterior
+          </p>
+          <Video
+            src={ColocarGasaHerida}
+            poster={ColocarGasaHeridaImage}
+            title="Colocar gasa nueva"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Asegurar catéter",
+      description: "Coloque cinta que abrace el tubo del catéter",
+      content: (
+        <div>
+          <p>
+            <strong>Seguridad:</strong> Cinta abrazando tubo, extremos a la piel
+          </p>
+          <Video
+            src={ColocarGasaTuboHerida}
+            poster={ColocarGasaTuboHeridaImage}
+            title="Asegurar catéter con cinta"
+          />
+        </div>
+      ),
+    },
+    {
+      title: "Colocar fajero limpio",
+      description: "Coloque el fajero limpio sobre la gasa",
+      content: (
+        <div>
+          <p>
+            <strong>Protección:</strong> Fajero limpio para proteger la curación
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Guardar catéter",
+      description: "Guarde el catéter en su posición segura",
+      content: (
+        <div>
+          <p>
+            <strong>Posición:</strong> Catéter en lugar seguro y cómodo
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Limpiar área de trabajo",
+      description: "Guarde la compresa y limpie el área",
+      content: (
+        <div>
+          <p>
+            <strong>Limpieza:</strong> Recoger compresa y limpiar área de
+            trabajo
+          </p>
+        </div>
+      ),
+    },
+    {
+      title: "Guardar materiales",
+      description: "Devuelva todos los materiales a su lugar",
+      content: (
+        <div>
+          <p>
+            <strong>Organización:</strong> Cada material en su lugar designado
+          </p>
+          <p>
+            <strong>✅ Proceso completado:</strong> La herida está limpia y
+            protegida
+          </p>
+        </div>
+      ),
+    },
+  ];
+
   return (
-    <Layout title='Curación de heridas' description={description}>
-      <Card>
-        {description}
-      </Card>
-      <Card>
-        Al bañar al paciente las gasas y el fajero no se quitan. Esto para no dejar descubierta la herida e infectarse
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <span>1</span> Antes de iniciar el proceso se necesita lo siguiente:
-            <ul>
-              <li>
-                <input type='checkbox' /> <span>1.1</span> Agua estéril o hervida (Se deja hervir 5 minutos o más)
-              </li>
-              <li>
-                <input type='checkbox' /> <span>1.2</span> Jabón líquido neutro
-              </li>
-              <li>
-                <input type='checkbox' /> <span>1.3</span> Fajero limpio
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>2</span> Colocar cubrebocas al paciente y familiares
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>3</span> Colocar toalla para el secado de manos <strong>(Doblada a la mitad por lo largo)</strong>
-            <Video src={ColocarToalla} poster={ColocarToallaImage} />
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <span>4</span> Lavado de manos clínico en 3 tiempos empezando por mano no dominante:
-            <ul>
-              <li>
-                <input type='checkbox' /> <span>4.1</span> Mojar las manos y aplicar jabón
-                <Video src={LavarManosJabon} poster={LavarManosJabonImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>4.2</span> Frotar palmas 10 veces
-                <Video src={LavarManosPalmas} poster={LavarManosPalmasImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>4.3</span> Frotar dorsos 10 veces
-                <Video src={LavarManosDorso} poster={LavarManosDorsoImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>4.4</span> Enganchar manos y frotar nudillos 10 veces
-                <Video src={LavarManosNudillos} poster={LavarManosNudillosImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>4.5</span> Frotar pulgares 10 veces
-                <Video src={LavarManosPulgares} poster={LavarManosPulgaresImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>4.6</span> Frotar las uñas 10 veces
-                <Video src={LavarManosUnas} poster={LavarManosUnasImage} />
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <span>5</span> Secado de manos:
-            <ul>
-              <li>
-                <input type='checkbox' /> <span>5.1</span> Tomamos la toalla y abrazamos nuestras palmas
-                <Video src={SecadoManoTomarToalla} poster={SecadoManoTomarToallaImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>5.2</span> Secamos los dedos de la mano
-                <Video src={SecadoManoDedos} poster={SecadoManoDedosImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>5.3</span> Con ligeros toques secamos el dorso de la mano
-                <Video src={SecadoManoDorso} poster={SecadoManoDorsoImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>5.4</span> Así como está doblada la toalla la giramos, ahora secaremos con la parte de abajo
-                <Video src={SecadoManoGiroToalla} poster={SecadoManoGiroToallaImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>5.5</span> Repetimos abrazo de palmas y secado uno a uno de los dedos
-                <Video src={SecadoManoAbrazoPalmas} poster={SecadoManoAbrazoPalmasImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>5.6</span> Con ligeros toques secamos el dorso de la mano
-                <Video src={SecadoManoDorsoContrario} poster={SecadoManoDorsoContrarioImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>5.7</span> Doblamos la toalla por el lado seco y la dejamos acomodada para el siguiente lavado de manos
-                <Video src={SecadoManoDobladoToalla} poster={SecadoManoDobladoToallaImage} />
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>6</span> Sacar línea de catéter y dejarla descansar en una compresa cubriéndola
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>7</span> Retirar fajero
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>8</span> Desprender gasas de las heridas y desecharlas
-            <Video src={DesprenderGasasHerida} poster={DesprenderGasasHeridaImage} />
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <span>9</span> Limpiar mesa de trabajo (Con agua clorada al 10% o Exsept):
-            <ul>
-              <li>
-                <input type='checkbox' /> <span>9.1</span> Colocar chorrito de agua clorada en las esquinas de la mesa y en el centro
-                <Video src={LimpiarMesaCincoPuntos} poster={LimpiarMesaCincoPuntosImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>9.2</span> Impregnar compresa con los chorritos de cloro puestos en la mesa y limpiar de frente hacia atrás (Hacer presión con la compresa para que la mesa quede bien seca)
-                <Video src={LimpiarMesaCompresa} poster={LimpiarMesaCompresaImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>9.3</span> Doblar compresa y limpiar los lados de la mesa (Cuidar que nuestra ropa no toque la mesa)
-                <Video src={LimpiarMesaCompresaLaterales} poster={LimpiarMesaCompresaLateralesImage} />
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <span>10</span> Usar la misma compresa e ir doblándose  por sus diferentes lados limpios para limpiar lo siguiente e ir colocándolos en la mesa de trabajo:
-            <ul>
-              <li>
-                <input type='checkbox' /> <span>10.1</span> Exsept sin tapa
-                <Video src={LimpiarArticuloExsept} poster={LimpiarArticuloExseptImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>10.2</span> Tijeras
-                <Video src={LimpiarArticuloTijeras} poster={LimpiarArticuloTijerasImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>10.3</span> Pomada mupirocina (Si es requerida)
-                <Video src={LimpiarArticuloMupirocina} poster={LimpiarArticuloMupirocinaImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>10.4</span> Guante de latex
-                <Video src={LimpiarArticuloGuante} poster={LimpiarArticuloGuanteImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>10.5</span> Cinta micropore (Esta se limpia ligeramente)
-                <Video src={LimpiarArticuloCinta} poster={LimpiarArticuloCintaImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>10.6</span> Jabón líquido
-                <Video src={LimpiarArticuloJabonLiquido} poster={LimpiarArticuloJabonLiquidoImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>10.7</span> Agua estéril
-                <Video src={LimpiarArticuloAguaEsteril} poster={LimpiarArticuloAguaEsterilImage} />
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>11</span> Cortar 3 o 4 cintas micropore y pegarlas en la mesa para tomarlas más fácilmente al colocar la gasa limpia en la herida
-            <Video src={CortarCinta} poster={CortarCintaImage} />
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>12</span> Sacar aproximadamente 7 gasas o más
-            <Video src={AbrirGasa} poster={AbrirGasaImage} />
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <span>13</span> Lavado de manos clínico en 3 tiempos empezando por mano no dominante:
-            <ul>
-              <li>
-                <input type='checkbox' /> <span>13.1</span> Mojar las manos y aplicar jabón
-                <Video src={LavarManosJabon} poster={LavarManosJabonImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>13.2</span> Frotar palmas 10 veces
-                <Video src={LavarManosPalmas} poster={LavarManosPalmasImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>13.3</span> Frotar dorsos 10 veces
-                <Video src={LavarManosDorso} poster={LavarManosDorsoImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>13.4</span> Enganchar manos y frotar nudillos 10 veces
-                <Video src={LavarManosNudillos} poster={LavarManosNudillosImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>13.5</span> Frotar pulgares 10 veces
-                <Video src={LavarManosPulgares} poster={LavarManosPulgaresImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>13.6</span> Frotar las uñas 10 veces
-                <Video src={LavarManosUnas} poster={LavarManosUnasImage} />
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <span>14</span> Secado de manos:
-            <ul>
-              <li>
-                <input type='checkbox' /> <span>14.1</span> Tomamos la toalla y abrazamos nuestras palmas
-                <Video src={SecadoManoTomarToalla} poster={SecadoManoTomarToallaImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>14.2</span> Secamos los dedos de la mano
-                <Video src={SecadoManoDedos} poster={SecadoManoDedosImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>14.3</span> Con ligeros toques secamos el dorso de la mano
-                <Video src={SecadoManoDorso} poster={SecadoManoDorsoImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>14.4</span> Así como está doblada la toalla la giramos, ahora secaremos con la parte de abajo
-                <Video src={SecadoManoGiroToalla} poster={SecadoManoGiroToallaImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>14.5</span> Repetimos abrazo de palmas y secado uno a uno de los dedos
-                <Video src={SecadoManoAbrazoPalmas} poster={SecadoManoAbrazoPalmasImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>14.6</span> Con ligeros toques secamos el dorso de la mano
-                <Video src={SecadoManoDorsoContrario} poster={SecadoManoDorsoContrarioImage} />
-              </li>
-              <li>
-                <input type='checkbox' /> <span>14.7</span> Depositamos la toalla en el cesto de toallas sucias
-              </li>
-            </ul>
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>15</span> Colocar guante en mano dominante y enjuagar con el agua estéril
-            <Video src={EnjuagarGuante} poster={EnjuagarGuanteImage} />
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>16</span> Impregnar gasa con agua estéril y jabón líquido neutro
-            <Video src={ImpregnarGasaAguaEsterilJabonLiquido} poster={ImpregnarGasaAguaEsterilJabonLiquidoImage} />
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>17</span> Colocamos gasa en la herida y presionamos levemente
-            <Video src={GasaHeridaPresionamosLevemente} poster={GasaHeridaPresionamosLevementeImage} />
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>18</span> Hacemos un circulo con la gasa y empezamos a arrastrar la gasa del centro hacia fuera, formando círculos alrededor de la entrada del catéter
-            <Video src={CirculoArrastramosEspiral} poster={CirculoArrastramosEspiralImage} />
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>19</span> Lo mejor es hacer la limpieza con jabón una vez, tratando de arrastrar toda la suciedad
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>20</span> Desechamos la gasa
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>21</span> Revisar que no queden residuos de pegamento en la piel, si es así, retirar cuidadosamente con la gasa y en forma circular tratando de no contaminar la herida
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>22</span> Con otra gasa con agua estéril realizamos el mismo proceso para quitar el jabón
-            <Video src={OtraGasaQuitarJabon} poster={OtraGasaQuitarJabonImage} />
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>23</span> Desechamos la gasa
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>24</span> Repetimos 2 o 3 veces más hasta quitar el jabón
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>25</span> Tomar otras gasas para secar muy bien la entrada completa del catéter y dejar orear un poco
-            <Video src={OtraGasaSecarBien} poster={OtraGasaSecarBienImage} />
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>26</span> No soplar, hechar aire, o ayudar con algo externo que no sea la gasa para secar el área mojada
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>27</span> Realizar un push de Exsept en herida, levantando un poquito el tubito para que caiga en toda la entrada del catéter y secar muy poco el exceso de líquido con una gasa
-            <Video src={PushExseptHerida} poster={PushExseptHeridaImage} />
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>28</span> Colocar Mupirocina sólo si es requerida, destapando con una mano la pomada y aplicando en el dedo meñique de la mano que trae el guante. <strong>Colocar directo en la herida.</strong>
-            <Video src={ColocarMupirocina} poster={ColocarMupirocinaImage} />
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>29</span> Colocar una gasa a lo largo de la entrada del catéter e ir colocando 2 cintas adhesivas en diferentes lugares a la anterior curación, para evitar irritar la piel
-            <Video src={ColocarGasaHerida} poster={ColocarGasaHeridaImage} />
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>30</span> Colocar otra cinta adhesiva que abrace muy bien el tubo del catéter y pegar las dos extremidades a la piel. Con esto ayudamos a que no se jale por accidente
-            <Video src={ColocarGasaTuboHerida} poster={ColocarGasaTuboHeridaImage} />
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>31</span> Colocar fajero limpio
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>32</span> Guardar catéter
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>33</span> Guardar la compresa
-          </li>
-        </ul>
-      </Card>
-      <Card>
-        <ul>
-          <li>
-            <input type='checkbox' /> <span>34</span> Devolver todos los materiales a su lugar
-          </li>
-        </ul>
-      </Card>
+    <Layout title="Limpieza de Herida" description={description}>
+      <ProgressStep
+        steps={steps}
+        pageId="limpieza-herida"
+        title="🩹 Lista de verificación - Limpieza de Herida"
+      />
     </Layout>
-  )
-}
+  );
+};

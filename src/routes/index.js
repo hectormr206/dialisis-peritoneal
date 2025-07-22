@@ -1,5 +1,5 @@
 import React from 'react'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route } from 'react-router-dom'
 import { NavBar } from '../components/NavBar'
 import { Home } from '../pages/Home'
 import { GeneralCleaning } from '../pages/GeneralCleaning'
@@ -7,17 +7,17 @@ import { WoundHealing } from '../pages/WoundHealing'
 import { WaterRecycling } from '../pages/WaterRecycling'
 import { NoMatch } from '../pages/NoMatch'
 
-export const Routes = () => {
+export const AppRoutes = () => {
   return (
     <BrowserRouter>
       <NavBar />
-      <Switch>
-        <Route exact path='/' component={Home} />
-        <Route exact path='/aseo-general' component={GeneralCleaning} />
-        <Route exact path='/limpieza-herida' component={WoundHealing} />
-        <Route exact path='/realizar-dialisis' component={WaterRecycling} />
-        <Route component={NoMatch} />
-      </Switch>
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/aseo-general' element={<GeneralCleaning />} />
+        <Route path='/limpieza-herida' element={<WoundHealing />} />
+        <Route path='/realizar-dialisis' element={<WaterRecycling />} />
+        <Route path='*' element={<NoMatch />} />
+      </Routes>
     </BrowserRouter>
   )
 }
