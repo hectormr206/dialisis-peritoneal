@@ -78,8 +78,26 @@ export const ProgressStep = ({
     newCompleted.add(stepIndex);
     setCompletedSteps(newCompleted);
 
+    // 🎯 Plausible Event: Paso completado
+    if (window.plausible) {
+      window.plausible("Paso Completado", {
+        props: {
+          procedimiento: pageId,
+          paso: stepIndex + 1,
+          total_pasos: steps.length,
+        },
+      });
+    }
+
     if (newCompleted.size === steps.length) {
       setAllCompleted(true);
+
+      // 🎯 Plausible Event: Procedimiento completado
+      if (window.plausible) {
+        window.plausible("Procedimiento Completado", {
+          props: { procedimiento: pageId },
+        });
+      }
     }
 
     saveProgress(newCompleted, currentStep);
@@ -101,6 +119,16 @@ export const ProgressStep = ({
 
   // Confirmar reinicio
   const confirmReset = () => {
+    // 🎯 Plausible Event: Proceso reiniciado
+    if (window.plausible) {
+      window.plausible("Proceso Reiniciado", {
+        props: {
+          procedimiento: pageId,
+          progreso_previo: completedSteps.size,
+        },
+      });
+    }
+
     setCompletedSteps(new Set());
     setCurrentStep(0);
     setAllCompleted(false);
