@@ -6,8 +6,8 @@ WORKDIR /app
 # Copy package files
 COPY package*.json ./
 
-# Install dependencies
-RUN npm ci
+# Clean npm cache and install dependencies
+RUN npm cache clean --force && npm install
 
 # Install serve globally
 RUN npm install -g serve
