@@ -18,8 +18,8 @@ COPY . .
 # Build the application
 RUN npm run build
 
-# Expose port 3000
-EXPOSE 3000
+# Expose port 3020
+EXPOSE 3020
 
 # Start with serve
-CMD ["serve", "-s", "dist", "-l", "3000"] 
+CMD ["serve", "-s", "dist", "-l", "3020"] 
