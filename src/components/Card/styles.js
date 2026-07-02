@@ -1,8 +1,56 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
+
+// Identidad de color por sección (R "más color" del dueño del producto) —
+// tiñe fondo/borde y el color del h2/p de la tarjeta. Nunca se usa para
+// UrgentWarningCallout, que conserva su semántica roja/ámbar propia.
+// p usa --color-primary (no --color-secondary): sobre el fondo
+// procedimientos, --color-secondary mide 4.37:1 y falla AA — ver
+// GlobalStyle.js para el detalle de contraste medido.
+const sectionStyles = {
+  procedimientos: css`
+    background: var(--section-procedimientos-bg);
+    border-color: var(--section-procedimientos-border);
+
+    h2 {
+      color: var(--section-procedimientos-accent);
+    }
+
+    p {
+      color: var(--color-primary);
+    }
+  `,
+  cuidados: css`
+    background: var(--section-cuidados-bg);
+    border-color: var(--section-cuidados-border);
+
+    h2 {
+      color: var(--section-cuidados-accent);
+    }
+
+    p {
+      color: var(--color-primary);
+    }
+  `,
+  comida: css`
+    background: var(--section-comida-bg);
+    border-color: var(--section-comida-border);
+
+    h2 {
+      color: var(--section-comida-accent);
+    }
+
+    p {
+      color: var(--color-primary);
+    }
+  `
+}
 
 export const CardComponent = styled.div`
-  margin: var(--spacing-sm);
-  padding: var(--spacing-lg);
+  /* Sin margin propio: el espaciado entre tarjetas lo controla el gap del
+     contenedor padre (PageContainer, Home) — antes Card sumaba su propio
+     margin AL gap del padre, duplicando el espacio visualmente y siendo la
+     causa principal del espaciado inconsistente reportado. */
+  padding: var(--space-3);
   border-radius: var(--border-radius);
   background: var(--body-card);
   border: 1px solid var(--border-color);
@@ -13,7 +61,7 @@ export const CardComponent = styled.div`
   color: var(--color-primary);
 
   /* Mejoras para accesibilidad y mobile */
-  min-height: 44px; /* Área de toque mínima */
+  min-height: 48px; /* Área de toque mínima — subida de 44 a 48px */
   position: relative;
 
   /* Efecto hover suave */
@@ -130,10 +178,9 @@ export const CardComponent = styled.div`
     transition: background 0.2s ease;
 
     &:hover {
-      /* #047857 fijo (no var(--color-actived)): en modo oscuro el token
-         cambia a #34d399, cuyo contraste con texto blanco (1.92:1) falla
-         AA. #047857 con texto blanco = 5.48:1 y no varía por
-         color-scheme — mismo patrón que HomeLink/CompleteButton. */
+      /* #047857 fijo (no var(--color-actived)) — mismo patrón que
+         HomeLink/CompleteButton: texto blanco sobre #047857 = 5.48:1,
+         cumple AA. */
       background: #047857;
     }
 
@@ -145,8 +192,7 @@ export const CardComponent = styled.div`
 
   /* Responsive adjustments para pantallas pequeñas */
   @media (max-width: 480px) {
-    margin: var(--spacing-xs);
-    padding: var(--spacing-md);
+    padding: var(--space-3);
 
     ul {
       padding-left: var(--spacing-sm);
@@ -159,22 +205,16 @@ export const CardComponent = styled.div`
     }
   }
 
-  /* Mejoras para tablets */
+  /* Mejoras para tablets y pantallas grandes: padding más generoso, mismo
+     token (--space-6) que TopicSection y el resto de superficies con más
+     aire en desktop — R "espaciado consistente". */
   @media (min-width: 768px) {
-    margin: var(--spacing-md);
-    padding: var(--spacing-xl);
+    padding: var(--space-6);
   }
 
   /* Para pantallas grandes */
   @media (min-width: 1024px) {
     max-width: var(--max-width-container);
-  }
-
-  /* Soporte para modo oscuro */
-  @media (prefers-color-scheme: dark) {
-    ul li span {
-      background: rgba(59, 130, 246, 0.2);
-    }
   }
 
   /* Animación reducida para usuarios con preferencias de movimiento reducido */
@@ -185,4 +225,6 @@ export const CardComponent = styled.div`
       transform: none;
     }
   }
+
+  ${(props) => props.$section && sectionStyles[props.$section]}
 `
