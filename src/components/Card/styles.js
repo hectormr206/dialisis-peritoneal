@@ -98,10 +98,13 @@ export const CardComponent = styled.div`
       transform: scale(1.1);
     }
 
-    /* Etiquetas de tiempo con mejor visibilidad */
+    /* Etiquetas de tiempo con mejor visibilidad. #1d4ed8 fijo (no
+       var(--color-accent)): texto sobre --body-card (blanco) con
+       var(--color-accent) mide solo 3.68:1 y falla WCAG AA; con
+       #1d4ed8 mide 6.70:1 y cumple AA (mínimo 4.5:1). */
     span {
       margin-right: var(--spacing-sm);
-      color: var(--color-accent);
+      color: #1d4ed8;
       font-size: var(--font-size-base);
       font-weight: 600;
       background: rgba(59, 130, 246, 0.1);
@@ -151,9 +154,12 @@ export const CardComponent = styled.div`
     color: var(--color-secondary);
   }
 
-  /* Links accesibles */
+  /* Links accesibles. #1d4ed8 fijo (no var(--color-accent)): texto sobre
+     --body-card (blanco) o los fondos tintados de sección con
+     var(--color-accent) mide 3.52-3.68:1 y falla WCAG AA; con #1d4ed8
+     mide 6.41-6.70:1 y cumple AA (mínimo 4.5:1). */
   a {
-    color: var(--color-accent);
+    color: #1d4ed8;
     text-decoration: underline;
 
     &:hover,

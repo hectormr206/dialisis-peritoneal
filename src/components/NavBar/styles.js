@@ -74,7 +74,11 @@ export const NavLink = styled(Link)`
   /* Estados de interacción mejorados */
   &:hover {
     background: rgba(59, 130, 246, 0.1);
-    color: var(--color-accent);
+    /* #1d4ed8 fijo (no var(--color-accent)): texto sobre --body-footer
+       (blanco) con var(--color-accent) mide solo 3.68:1 y falla WCAG AA;
+       con #1d4ed8 mide 6.70:1 y cumple AA (mínimo 4.5:1) — mismo patrón
+       que el resto de la app. */
+    color: #1d4ed8;
     transform: translateY(-2px);
   }
 

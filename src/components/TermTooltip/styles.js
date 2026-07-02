@@ -11,7 +11,11 @@ export const TermTrigger = styled.button`
   min-height: 48px; /* Área de toque accesible — subida de 44 a 48px */
   min-width: 48px;
   padding: 0 var(--spacing-xs);
-  color: var(--color-accent);
+  /* #1d4ed8 fijo (no var(--color-accent)): texto sobre el fondo de la
+     página con var(--color-accent) mide 3.52-3.68:1 y falla WCAG AA;
+     con #1d4ed8 mide 6.41-6.70:1 y cumple AA (mínimo 4.5:1) — mismo
+     patrón que el resto de la app. */
+  color: #1d4ed8;
   font-weight: 600;
   text-decoration: underline dotted;
   border-radius: var(--border-radius);

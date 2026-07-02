@@ -8,7 +8,11 @@ export const Badge = styled.a`
   border-radius: var(--border-radius);
   background: var(--body-background);
   border: 1px solid var(--border-color);
-  color: var(--color-accent);
+  /* #1d4ed8 fijo (no var(--color-accent)): texto sobre --body-background
+     con var(--color-accent) mide solo 3.52:1 y falla WCAG AA; con
+     #1d4ed8 mide 6.41:1 y cumple AA (mínimo 4.5:1) — mismo patrón que el
+     resto de la app. */
+  color: #1d4ed8;
   font-size: var(--font-size-sm);
   text-decoration: none;
 

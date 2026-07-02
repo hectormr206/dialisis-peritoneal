@@ -224,9 +224,13 @@ export const StepContent = styled.div`
         font-size: var(--font-size-sm);
         line-height: 1.4;
 
+        /* #1d4ed8 fijo (no var(--color-accent)): el marcador "•" sobre
+           --body-card (blanco) con var(--color-accent) mide solo 3.68:1
+           y falla WCAG AA; con #1d4ed8 mide 6.70:1 y cumple AA (mínimo
+           4.5:1). */
         &:before {
           content: "•";
-          color: var(--color-accent);
+          color: #1d4ed8;
           font-weight: bold;
           display: inline-block;
           width: 1em;
@@ -235,8 +239,10 @@ export const StepContent = styled.div`
       }
     }
 
+    /* #1d4ed8 fijo (no var(--color-accent)): mismo motivo que el
+       marcador "•" arriba — texto en negrita sobre --body-card. */
     strong {
-      color: var(--color-accent);
+      color: #1d4ed8;
       font-weight: 600;
     }
   }
