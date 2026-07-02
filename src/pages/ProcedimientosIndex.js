@@ -9,15 +9,13 @@ export const ProcedimientosIndex = () => (
   <Layout
     title='Procedimientos'
     description='Guías paso a paso para el aseo general, la curación de heridas y la diálisis.'
+    section='procedimientos'
   >
     <PageContainer>
-      <Card>
+      <Card section='procedimientos'>
         <section aria-labelledby='procedimientos-heading'>
           <h2 id='procedimientos-heading'>🧴 Procedimientos</h2>
-          <p>
-            Elige el procedimiento que necesitas realizar. Cada guía te lleva
-            paso a paso, con fotos y videos.
-          </p>
+          <p>Elige tu procedimiento: pasos claros con fotos y video.</p>
         </section>
       </Card>
       <CardLinkGrid aria-label='Lista de procedimientos'>

@@ -9,7 +9,11 @@ import { senalesAlarma } from '../content/topics/senales-alarma'
 // escalation (R5.3, placed first) -> explanatory sign list -> citations
 // (R5.1).
 export const SenalesAlarma = () => (
-  <Layout title={senalesAlarma.title} description={senalesAlarma.description}>
+  <Layout
+    title={senalesAlarma.title}
+    description={senalesAlarma.description}
+    section='cuidados'
+  >
     <TopicPage {...senalesAlarma} />
   </Layout>
 )

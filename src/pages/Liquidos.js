@@ -9,7 +9,7 @@ import { liquidos } from '../content/topics/liquidos'
 // warning signs -> misconception loop (R5.6) -> what you can do ->
 // citations (R5.1).
 export const Liquidos = () => (
-  <Layout title={liquidos.title} description={liquidos.description}>
+  <Layout title={liquidos.title} description={liquidos.description} section='comida'>
     <TopicPage {...liquidos} />
   </Layout>
 )

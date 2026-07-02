@@ -8,6 +8,7 @@ export const WoundHealing = () => {
     <Layout
       title={limpiezaHerida.title}
       description={limpiezaHerida.description}
+      section='procedimientos'
     >
       <ProgressStep
         steps={limpiezaHerida.steps}

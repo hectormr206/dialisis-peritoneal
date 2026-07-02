@@ -3,43 +3,21 @@ import styled from "styled-components";
 import { Layout } from "../components/Layout";
 import { Card } from "../components/Card";
 import { CardLink, CardLinkGrid } from "../components/CardLink";
+import { PageContainer } from "../components/PageContainer";
 import {
   procedureLinks,
   cuidadosLinks,
   alimentacionLinks,
 } from "../content/navigation";
 
-const CenteredContainer = styled.div`
+// Card y CardLinkGrid quedan agrupados dentro de cada sección del hub con
+// el mismo gap que PageContainer usa entre sus hijos de nivel superior
+// (--space-4) — así el espacio "intro de la sección -> su grilla de
+// tarjetas" es idéntico al espacio "sección -> siguiente sección".
+const HubSection = styled.section`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 0 var(--spacing-md);
-
-  /* Espaciado entre tarjetas */
-  & > * {
-    margin-bottom: var(--spacing-md);
-    width: 100%;
-    max-width: 700px;
-  }
-
-  /* Responsive para móviles */
-  @media (max-width: 768px) {
-    padding: 0 var(--spacing-sm);
-    max-width: 100%;
-
-    & > * {
-      max-width: 100%;
-    }
-  }
-
-  /* Para pantallas grandes */
-  @media (min-width: 1024px) {
-    max-width: 900px;
-  }
+  gap: var(--space-4);
 `;
 
 export const Home = () => {
@@ -48,14 +26,14 @@ export const Home = () => {
 
   return (
     <Layout title="Diálisis Peritoneal" description={description}>
-      <CenteredContainer>
+      <PageContainer>
         {/* Introducción principal */}
         <Card>
           <section aria-labelledby="intro-heading">
             <h2 id="intro-heading" className="sr-only">
               Introducción
             </h2>
-            <p>{description}</p>
+            <p>Guías claras para tus procedimientos, cuidados y alimentación diarios.</p>
           </section>
         </Card>
 
@@ -66,10 +44,10 @@ export const Home = () => {
             que en las páginas índice — el selector `a` de CardComponent
             (0,1,1 de especificidad) pisaría los estilos propios de
             CardLinkElement (0,1,0) si quedara anidado adentro. */}
-        <section aria-labelledby="hub-procedimientos-heading">
-          <Card>
+        <HubSection aria-labelledby="hub-procedimientos-heading">
+          <Card section="procedimientos">
             <h2 id="hub-procedimientos-heading">🧴 Procedimientos</h2>
-            <p>Guías paso a paso para el aseo, la curación y la diálisis.</p>
+            <p>Guías paso a paso: aseo, curación y diálisis.</p>
           </Card>
           <CardLinkGrid aria-label="Lista de procedimientos">
             {procedureLinks.map((link) => (
@@ -78,10 +56,10 @@ export const Home = () => {
               </li>
             ))}
           </CardLinkGrid>
-        </section>
+        </HubSection>
 
-        <section aria-labelledby="hub-cuidados-heading">
-          <Card>
+        <HubSection aria-labelledby="hub-cuidados-heading">
+          <Card section="cuidados">
             <h2 id="hub-cuidados-heading">🩺 Higiene y señales de alarma</h2>
             <p>Cómo cuidar tu piel y catéter, y cuándo buscar ayuda.</p>
           </Card>
@@ -92,10 +70,10 @@ export const Home = () => {
               </li>
             ))}
           </CardLinkGrid>
-        </section>
+        </HubSection>
 
-        <section aria-labelledby="hub-alimentacion-heading">
-          <Card>
+        <HubSection aria-labelledby="hub-alimentacion-heading">
+          <Card section="comida">
             <h2 id="hub-alimentacion-heading">🍽️ Comida y líquidos</h2>
             <p>Líquidos, ingresos y alimentación saludable.</p>
           </Card>
@@ -106,7 +84,7 @@ export const Home = () => {
               </li>
             ))}
           </CardLinkGrid>
-        </section>
+        </HubSection>
 
         {/* Sección de horarios de 3 recambios */}
         <Card>
@@ -220,7 +198,7 @@ export const Home = () => {
             </address>
           </section>
         </Card>
-      </CenteredContainer>
+      </PageContainer>
     </Layout>
   );
 };

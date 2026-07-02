@@ -9,6 +9,7 @@ export const RegistroDiario = () => (
   <Layout
     title='Mi registro diario'
     description='Anota tu peso y notas cada día. Tus datos se quedan solo en tu teléfono.'
+    section='comida'
   >
     <HealthLog />
   </Layout>

@@ -8,6 +8,7 @@ export const WaterRecycling = () => {
     <Layout
       title={realizarDialisis.title}
       description={realizarDialisis.description}
+      section='procedimientos'
     >
       <ProgressStep
         steps={realizarDialisis.steps}

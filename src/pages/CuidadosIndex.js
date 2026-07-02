@@ -9,15 +9,13 @@ export const CuidadosIndex = () => (
   <Layout
     title='Cuidados'
     description='Higiene, cuidado de heridas y señales de alarma en diálisis peritoneal.'
+    section='cuidados'
   >
     <PageContainer>
-      <Card>
+      <Card section='cuidados'>
         <section aria-labelledby='cuidados-heading'>
           <h2 id='cuidados-heading'>🩺 Higiene y señales de alarma</h2>
-          <p>
-            Consulta cómo cuidar tu piel y catéter, y qué señales indican que
-            debes buscar ayuda.
-          </p>
+          <p>Cómo cuidar tu piel, tu catéter y cuándo pedir ayuda.</p>
         </section>
       </Card>
       <CardLinkGrid aria-label='Lista de temas de cuidados'>

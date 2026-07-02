@@ -9,7 +9,7 @@ import { nutricion } from '../content/topics/nutricion'
 // three minerals (sodium, potassium, phosphorus) -> calories -> supplements
 // -> citations (R5.1). Final medical-content topic page of the PR6-9 chain.
 export const Nutricion = () => (
-  <Layout title={nutricion.title} description={nutricion.description}>
+  <Layout title={nutricion.title} description={nutricion.description} section='comida'>
     <TopicPage {...nutricion} />
   </Layout>
 )

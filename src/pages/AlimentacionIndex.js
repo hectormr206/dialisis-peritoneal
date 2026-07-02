@@ -9,15 +9,13 @@ export const AlimentacionIndex = () => (
   <Layout
     title='Comida y líquidos'
     description='Qué tomar en cuenta sobre líquidos y alimentación en diálisis peritoneal.'
+    section='comida'
   >
     <PageContainer>
-      <Card>
+      <Card section='comida'>
         <section aria-labelledby='alimentacion-heading'>
           <h2 id='alimentacion-heading'>🍽️ Comida y líquidos</h2>
-          <p>
-            Consulta información sobre líquidos, ingresos y una alimentación
-            saludable durante la diálisis peritoneal.
-          </p>
+          <p>Líquidos, ingresos y alimentación saludable para tu diálisis.</p>
         </section>
       </Card>
       <CardLinkGrid aria-label='Lista de temas de alimentación'>

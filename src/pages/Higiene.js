@@ -8,7 +8,7 @@ import { higiene } from '../content/topics/higiene'
 // skip-link landmark (R6.2); TopicPage composes intro -> core guidance ->
 // warning/escalation -> citations (R5.1).
 export const Higiene = () => (
-  <Layout title={higiene.title} description={higiene.description}>
+  <Layout title={higiene.title} description={higiene.description} section='cuidados'>
     <TopicPage {...higiene} />
   </Layout>
 )
