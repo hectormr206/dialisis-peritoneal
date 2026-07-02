@@ -21,7 +21,7 @@ describe('Video — prefers-reduced-motion (R6.4)', () => {
     mockMatchMedia(false)
 
     const { container } = render(
-      <Video src="clip.webm" poster="poster.jpg" title="Video de prueba" />
+      <Video src='clip.webm' poster='poster.jpg' title='Video de prueba' />
     )
 
     const video = container.querySelector('video')
@@ -37,7 +37,7 @@ describe('Video — prefers-reduced-motion (R6.4)', () => {
     mockMatchMedia(true)
 
     const { container } = render(
-      <Video src="clip.webm" poster="poster.jpg" title="Video de prueba" />
+      <Video src='clip.webm' poster='poster.jpg' title='Video de prueba' />
     )
 
     const video = container.querySelector('video')
