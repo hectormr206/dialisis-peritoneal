@@ -8,8 +8,8 @@ export const TermWrapper = styled.span`
 export const TermTrigger = styled.button`
   display: inline-flex;
   align-items: center;
-  min-height: 44px; /* Área de toque mínima accesible — R6.3 */
-  min-width: 44px;
+  min-height: 48px; /* Área de toque accesible — subida de 44 a 48px */
+  min-width: 48px;
   padding: 0 var(--spacing-xs);
   color: var(--color-accent);
   font-weight: 600;
@@ -55,8 +55,8 @@ export const TermPanelDismiss = styled.button`
   position: absolute;
   top: var(--spacing-xs);
   right: var(--spacing-xs);
-  min-height: 44px; /* Área de toque mínima accesible — R6.3 */
-  min-width: 44px;
+  min-height: 48px; /* Área de toque accesible — subida de 44 a 48px */
+  min-width: 48px;
   border-radius: 50%;
   color: var(--color-secondary);
 

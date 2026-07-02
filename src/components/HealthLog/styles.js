@@ -72,10 +72,9 @@ export const SaveButton = styled.button`
   font-size: var(--font-size-base);
 
   &:hover {
-    /* #047857 fijo (no var(--color-actived)) — mismo motivo que
-       CompleteButton/HomeLink: en modo oscuro el token cambia a #34d399,
-       cuyo contraste con texto blanco (1.92:1) falla AA. #047857 con texto
-       blanco = 5.48:1 y no varía por color-scheme. */
+    /* #047857 fijo (no var(--color-actived)) — mismo patrón que
+       CompleteButton/HomeLink: texto blanco sobre #047857 = 5.48:1,
+       cumple AA. */
     background: #047857;
   }
 
@@ -144,7 +143,7 @@ export const EmptyState = styled.p`
 `
 
 export const DeleteAllButton = styled.button`
-  min-height: 44px;
+  min-height: 48px; /* Área de toque accesible — subida de 44 a 48px */
   margin-top: var(--spacing-lg);
   padding: var(--spacing-sm) var(--spacing-lg);
   border-radius: var(--border-radius);
@@ -208,7 +207,7 @@ export const ModalButtons = styled.div`
 `
 
 export const ConfirmDeleteButton = styled.button`
-  min-height: 44px;
+  min-height: 48px; /* Área de toque accesible — subida de 44 a 48px */
   padding: var(--spacing-sm) var(--spacing-lg);
   border-radius: var(--border-radius);
   background: var(--color-warning);
@@ -221,7 +220,7 @@ export const ConfirmDeleteButton = styled.button`
 `
 
 export const CancelDeleteButton = styled.button`
-  min-height: 44px;
+  min-height: 48px; /* Área de toque accesible — subida de 44 a 48px */
   padding: var(--spacing-sm) var(--spacing-lg);
   border-radius: var(--border-radius);
   background: var(--color-secondary);
