@@ -52,8 +52,12 @@ export const senalesAlarma = {
         items: [
           {
             id: 'exit-site-infection',
-            symptom:
-              'Enrojecimiento, hinchazón, dolor, calor o pus alrededor de tu catéter',
+            symptom: (
+              <>
+                Enrojecimiento, hinchazón, dolor, calor o pus alrededor de tu{' '}
+                <TermTooltip termKey='cateter'>catéter</TermTooltip>
+              </>
+            ),
             action: 'clinic'
           },
           { id: 'fever', symptom: 'Fiebre', action: 'clinic' },

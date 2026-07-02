@@ -99,7 +99,7 @@ describe('SenalesAlarma page', () => {
     ).toBeInTheDocument()
   })
 
-  it('glossary-links peritonitis, efluente and hiporexia on first use', () => {
+  it('glossary-links peritonitis, efluente, catéter and hiporexia on first use', () => {
     renderSenalesAlarma()
 
     expect(
@@ -108,6 +108,7 @@ describe('SenalesAlarma page', () => {
     expect(
       screen.getByRole('button', { name: 'líquido de diálisis (efluente)' })
     ).toBeInTheDocument()
+    expect(screen.getByRole('button', { name: 'catéter' })).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'hiporexia' })).toBeInTheDocument()
   })
 })
