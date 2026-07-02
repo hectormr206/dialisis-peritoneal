@@ -8,7 +8,9 @@
 // + medlineplus-pd for the hygiene deep-dive page's food-prep and
 // exit-site-infection claims. PR7 attaches imss-797-16/medlineplus-pd to the
 // warning-signs page. PR8 adds nkf-fluid-overload + nkf-ultrafiltration for
-// the fluid-management + swelling page (content-research section 3c) —
+// the fluid-management + swelling page (content-research section 3c). PR9
+// adds nkf-potassium + nkf-phosphorus for the nutrition page, reusing
+// niddk-nutrition-pd's URL verified in PR6 — the final medical-content PR —
 // currency should be re-checked at each PR per R5.7 (e.g. IMSS-797-16 is
 // flagged in the explore doc as possibly superseded by a newer edition).
 //
@@ -84,6 +86,20 @@ export const sources = {
     name: 'Ultrafiltration',
     org: 'National Kidney Foundation (NKF)',
     url: 'https://www.kidney.org/kidney-topics/ultrafiltration',
+    published: null,
+    accessed: '2026-07-02'
+  },
+  'nkf-potassium': {
+    name: 'Potassium in Your CKD Diet',
+    org: 'National Kidney Foundation (NKF)',
+    url: 'https://www.kidney.org/kidney-topics/potassium-your-ckd-diet',
+    published: null,
+    accessed: '2026-07-02'
+  },
+  'nkf-phosphorus': {
+    name: 'Phosphorus and Your Diet',
+    org: 'National Kidney Foundation (NKF)',
+    url: 'https://www.kidney.org/kidney-topics/phosphorus-and-your-ckd-diet',
     published: null,
     accessed: '2026-07-02'
   }

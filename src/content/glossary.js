@@ -3,8 +3,9 @@
 // in PR5b (heparina, peritonitis) alongside the TermTooltip component itself.
 // PR6 adds sitioSalida/cateter/clorhexidina for the hygiene deep-dive page.
 // PR7 adds efluente/hiporexia for the warning-signs + escalation page. PR8
-// adds sodio/ultrafiltracion for the fluid-management + swelling page —
-// populated further as PR9 adds its own real medical-content page.
+// adds sodio/ultrafiltracion for the fluid-management + swelling page. PR9
+// adds potasio/fosforo for the nutrition page — the final medical-content
+// page in the PR6-9 chain.
 //
 // Shape: { [termKey]: { term, plainDefinition } }
 
@@ -62,5 +63,15 @@ export const glossary = {
     term: 'Ultrafiltración',
     plainDefinition:
       'El proceso con el que se saca líquido de tu cuerpo durante un intercambio de diálisis peritoneal. Depende de la concentración de dextrosa (azúcar) del líquido de diálisis que usas.'
+  },
+  potasio: {
+    term: 'Potasio',
+    plainDefinition:
+      'Un mineral que ayuda a que tus nervios y músculos funcionen bien, incluyendo que tu corazón lata de forma constante. La diálisis peritoneal puede sacar el exceso de potasio de tu cuerpo, así que algunas personas necesitan comer más alimentos con potasio (a diferencia de lo que se indica en otras etapas de la enfermedad renal).'
+  },
+  fosforo: {
+    term: 'Fósforo',
+    plainDefinition:
+      'Un mineral que, en exceso en tu sangre, puede debilitar tus huesos (haciendo que se rompan más fácil) y causarte comezón en la piel. La diálisis peritoneal no siempre saca suficiente fósforo, así que muchas veces se necesita cuidar cuánto comes, y algunas personas necesitan medicamentos llamados quelantes de fósforo.'
   }
 }
