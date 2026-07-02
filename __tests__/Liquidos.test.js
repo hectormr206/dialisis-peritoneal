@@ -13,10 +13,23 @@ const renderLiquidos = () =>
 // A fluid-volume number would violate R5.5's hard rule for this page (no
 // fixed mL/oz-per-day limit — content-research section 3c confirms no
 // PD-specific source states a universal figure). Matches "<digits> ml",
-// "<digits> mililitros", "<digits> litros/L", "<digits> oz/onzas", whether
-// or not "por día" follows, so any invented threshold is caught regardless
-// of phrasing.
-const FLUID_VOLUME_NUMBER = /\d+\s?(ml|mililitros?|litros?|l\b|oz|onzas?)\b/i
+// "<digits> mililitros", "<digits> litros/L", "<digits> oz/onzas", and
+// glass/cup phrasings ("<digits> vasos", "<digits> tazas" — e.g. "4 vasos
+// al día"), whether or not "al día"/"por día" follows, so any invented
+// threshold is caught regardless of unit or phrasing (PR8 gate review
+// corrective pass — the original alternation missed cup-based limits).
+const FLUID_VOLUME_NUMBER =
+  /\d+\s?(ml|mililitros?|litros?|l\b|oz|onzas?|vasos?|tazas?)\b/i
+
+// Meta-test: guards the guard — confirms the regex itself would catch a
+// cup-based fluid limit before relying on it to scan the rendered page.
+describe('FLUID_VOLUME_NUMBER regex', () => {
+  it('matches glass/cup-based fluid limits, not just ml/l/oz', () => {
+    expect('4 vasos al día').toMatch(FLUID_VOLUME_NUMBER)
+    expect('2 tazas por día').toMatch(FLUID_VOLUME_NUMBER)
+    expect('1500 ml al día').toMatch(FLUID_VOLUME_NUMBER)
+  })
+})
 
 // Liquidos: real content page at /alimentacion/liquidos (PR8) — R5.1, R5.5,
 // R5.6, R5.7.

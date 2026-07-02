@@ -25,6 +25,16 @@ import { SignList } from '../../components/SignList'
 // users to contact the clinic for a *change* in swelling pattern rather
 // than self-adjusting limits.
 //
+// R5.2 attribution note (PR8 gate review corrective pass): the
+// sodium-retention and ultrafiltration-variance/failure claims ARE stated
+// by nkf-fluid-overload/nkf-ultrafiltration and are cited to them. The
+// membrane-change (sodium-sieving, heavily simplified) sentence and the
+// closing reassurance are NOT stated by those sources — only non-allowlist
+// academic sources describe that mechanism (content-research #5086 section
+// 5, item 5) — so that content lives in its own un-sourced subsection
+// (no `sourceIds`) rather than being folded under the nkf-ultrafiltration
+// citation.
+//
 // Section order: intro -> fluid-overload warning signs (R5.1's
 // recommended-for-this-page escalation slot) -> why swelling happens
 // (misconception loop, R5.6) -> what you can do (sodium, weight,
@@ -105,12 +115,29 @@ export const liquidos = {
             sangre), peritonitis, o si usas seguido soluciones con dextrosa
             alta. Tu clínica puede revisar esto y ajustar tu tratamiento.
           </p>
+        </>
+      ),
+      sourceIds: ['nkf-fluid-overload', 'nkf-ultrafiltration']
+    },
+    {
+      // No sourceIds on this subsection, deliberately: the membrane-change
+      // sentence (heavily simplified sodium-sieving concept) and the
+      // closing reassurance are NOT claims NKF's Ultrafiltration page
+      // states — only non-allowlist academic sources describe membrane
+      // filtering changing over years (content-research #5086 section 5,
+      // item 5). Keeping this subsection un-sourced (no heading either, so
+      // it reads as a continuation of "Por qué te hinchas...") means the
+      // CitationFooter's aggregated `nkf-ultrafiltration` citation never
+      // implies NKF states this — R5.2 attribution accuracy fix, PR8 gate
+      // review corrective pass.
+      body: (
+        <>
           <p>
             Con los años de diálisis peritoneal, la forma en que tu
             peritoneo (la membrana donde ocurre el intercambio) filtra la
-            sal y el agua puede cambiar. Esto es algo que tu clínica revisa
-            con estudios especiales, no algo que puedas controlar con tu
-            alimentación.
+            sal y el agua puede cambiar. Esto no es algo que puedas
+            controlar con tu alimentación: tu clínica puede revisar cómo
+            está funcionando tu membrana con estudios especiales.
           </p>
           <p>
             Si notas más hinchazón de lo normal, llama a tu clínica para que
@@ -118,8 +145,7 @@ export const liquidos = {
             puede haber otras razones médicas detrás.
           </p>
         </>
-      ),
-      sourceIds: ['nkf-fluid-overload', 'nkf-ultrafiltration']
+      )
     },
     {
       heading: 'Qué puedes hacer',
