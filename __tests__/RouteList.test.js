@@ -43,6 +43,20 @@ describe('RouteList', () => {
     expect(screen.getAllByText(headingText, { exact: false }).length).toBeGreaterThan(0)
   })
 
+  it('excludes the decorative emoji from the Procedimientos index heading accessible name', () => {
+    renderAt('/procedimientos')
+
+    // The page's <h1> (from Layout's title prop) also reads "Procedimientos"
+    // with no emoji — target the level-2 section heading specifically,
+    // the one that actually composes the decorative emoji in its markup.
+    const heading = screen.getByRole('heading', {
+      name: 'Procedimientos',
+      level: 2
+    })
+    expect(heading).toHaveAccessibleName('Procedimientos')
+    expect(heading.textContent).toContain('🧴')
+  })
+
   it('renders the real Higiene content page at /cuidados/higiene under Layout', () => {
     renderAt('/cuidados/higiene')
     expect(screen.getByRole('main')).toBeInTheDocument()

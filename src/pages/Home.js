@@ -46,7 +46,9 @@ export const Home = () => {
             CardLinkElement (0,1,0) si quedara anidado adentro. */}
         <HubSection aria-labelledby="hub-procedimientos-heading">
           <Card section="procedimientos">
-            <h2 id="hub-procedimientos-heading">🧴 Procedimientos</h2>
+            <h2 id="hub-procedimientos-heading">
+              <span aria-hidden="true">🧴</span> Procedimientos
+            </h2>
             <p>Guías paso a paso: aseo, curación y diálisis.</p>
           </Card>
           <CardLinkGrid aria-label="Lista de procedimientos">
@@ -60,7 +62,9 @@ export const Home = () => {
 
         <HubSection aria-labelledby="hub-cuidados-heading">
           <Card section="cuidados">
-            <h2 id="hub-cuidados-heading">🩺 Higiene y señales de alarma</h2>
+            <h2 id="hub-cuidados-heading">
+              <span aria-hidden="true">🩺</span> Higiene y señales de alarma
+            </h2>
             <p>Cómo cuidar tu piel y catéter, y cuándo buscar ayuda.</p>
           </Card>
           <CardLinkGrid aria-label="Lista de temas de cuidados">
@@ -74,7 +78,9 @@ export const Home = () => {
 
         <HubSection aria-labelledby="hub-alimentacion-heading">
           <Card section="comida">
-            <h2 id="hub-alimentacion-heading">🍽️ Comida y líquidos</h2>
+            <h2 id="hub-alimentacion-heading">
+              <span aria-hidden="true">🍽️</span> Comida y líquidos
+            </h2>
             <p>Qué comer y cuánto líquido tomar.</p>
           </Card>
           <CardLinkGrid aria-label="Lista de temas de alimentación">
@@ -90,8 +96,8 @@ export const Home = () => {
         <Card>
           <section aria-labelledby="schedule-3-heading">
             <h2 id="schedule-3-heading">
-              📅 Horario sugerido diario para <strong>3 recambios</strong> de{" "}
-              <strong>5 horas</strong>
+              <span aria-hidden="true">📅</span> Horario sugerido diario para{" "}
+              <strong>3 recambios</strong> de <strong>5 horas</strong>
             </h2>
             <ul role="list" aria-label="Horario de 3 recambios diarios">
               <li>
@@ -134,8 +140,8 @@ export const Home = () => {
         <Card>
           <section aria-labelledby="schedule-4-heading">
             <h2 id="schedule-4-heading">
-              📅 Horario sugerido diario para <strong>4 recambios</strong> de{" "}
-              <strong>4 horas</strong>
+              <span aria-hidden="true">📅</span> Horario sugerido diario para{" "}
+              <strong>4 recambios</strong> de <strong>4 horas</strong>
             </h2>
             <ul role="list" aria-label="Horario de 4 recambios diarios">
               <li>
@@ -182,7 +188,9 @@ export const Home = () => {
         {/* Información de créditos */}
         <Card>
           <section aria-labelledby="credits-heading">
-            <h2 id="credits-heading">👥 Créditos</h2>
+            <h2 id="credits-heading">
+              <span aria-hidden="true">👥</span> Créditos
+            </h2>
             <address>
               <p>
                 <strong>Realizado por:</strong>

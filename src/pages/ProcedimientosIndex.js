@@ -14,7 +14,9 @@ export const ProcedimientosIndex = () => (
     <PageContainer>
       <Card section='procedimientos'>
         <section aria-labelledby='procedimientos-heading'>
-          <h2 id='procedimientos-heading'>🧴 Procedimientos</h2>
+          <h2 id='procedimientos-heading'>
+            <span aria-hidden='true'>🧴</span> Procedimientos
+          </h2>
           <p>Elige tu procedimiento: pasos claros con fotos y video.</p>
         </section>
       </Card>

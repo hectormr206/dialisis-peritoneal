@@ -13,7 +13,8 @@ export const WoundHealing = () => {
       <ProgressStep
         steps={limpiezaHerida.steps}
         pageId={limpiezaHerida.id}
-        title="🩹 Lista de verificación - Limpieza de Herida"
+        icon="🩹"
+        title="Lista de verificación - Limpieza de Herida"
       />
     </Layout>
   );

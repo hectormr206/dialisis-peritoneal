@@ -14,7 +14,9 @@ export const CuidadosIndex = () => (
     <PageContainer>
       <Card section='cuidados'>
         <section aria-labelledby='cuidados-heading'>
-          <h2 id='cuidados-heading'>🩺 Higiene y señales de alarma</h2>
+          <h2 id='cuidados-heading'>
+            <span aria-hidden='true'>🩺</span> Higiene y señales de alarma
+          </h2>
           <p>Cómo cuidar tu piel, tu catéter y cuándo pedir ayuda.</p>
         </section>
       </Card>

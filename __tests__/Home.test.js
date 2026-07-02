@@ -69,4 +69,16 @@ describe('Home', () => {
     expect(lastHubIndex).toBeGreaterThan(-1)
     expect(firstScheduleIndex).toBeGreaterThan(lastHubIndex)
   })
+
+  // Screen readers announce every character of a heading's accessible name,
+  // including decorative emoji ("botella de loción..."). The emoji stays
+  // visible for sighted users (wrapped in aria-hidden) but must not leak
+  // into the accessible name a screen reader announces.
+  it('excludes the decorative emoji from a hub heading accessible name', () => {
+    renderHome()
+
+    const heading = screen.getByRole('heading', { name: 'Procedimientos' })
+    expect(heading).toHaveAccessibleName('Procedimientos')
+    expect(heading.textContent).toContain('🧴')
+  })
 })

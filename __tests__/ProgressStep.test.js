@@ -308,3 +308,45 @@ describe('ProgressStep — WaterRecycling (realizar-dialisis) real content', () 
     expect(screen.getByText('Preparación inicial - Cubrebocas')).toBeInTheDocument()
   })
 })
+
+// The 3 procedure pages (GeneralCleaning/WaterRecycling/WoundHealing) each
+// pass a decorative emoji ahead of the checklist heading (e.g. "🧹 Lista de
+// verificación..."). A screen reader announces every character of a
+// heading's accessible name, so the emoji must stay visible for sighted
+// users but be excluded from the accessible name via a structured `icon`
+// prop rendered in an aria-hidden span.
+describe('ProgressStep — decorative icon on the checklist heading', () => {
+  it('excludes the icon from the checklist heading accessible name', () => {
+    render(
+      <ProgressStep
+        steps={schemaSteps}
+        pageId={pageId}
+        icon='🧹'
+        title='Lista de verificación - Aseo General'
+      />
+    )
+
+    const heading = screen.getByRole('heading', {
+      name: 'Lista de verificación - Aseo General',
+      level: 2
+    })
+    expect(heading).toHaveAccessibleName('Lista de verificación - Aseo General')
+    expect(heading.textContent).toContain('🧹')
+  })
+
+  it('renders the plain title with no leading icon when none is provided', () => {
+    render(
+      <ProgressStep
+        steps={schemaSteps}
+        pageId={pageId}
+        title='Lista de verificación'
+      />
+    )
+
+    const heading = screen.getByRole('heading', {
+      name: 'Lista de verificación',
+      level: 2
+    })
+    expect(heading).toHaveAccessibleName('Lista de verificación')
+  })
+})

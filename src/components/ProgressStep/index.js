@@ -30,6 +30,7 @@ export const ProgressStep = ({
   steps,
   pageId,
   title = "Lista de verificación",
+  icon,
 }) => {
   // Dual-mode step identity (R3.4, gate-review item #2): schema-based steps
   // already carry a stable `id` (see src/content/). The `step.id ?? index`
@@ -205,7 +206,9 @@ export const ProgressStep = ({
 
       <StepHeader>
         <div>
-          <StepTitle>{title}</StepTitle>
+          <StepTitle>
+            {icon && <span aria-hidden="true">{icon}</span>} {title}
+          </StepTitle>
           <ProgressBar>
             <ProgressFill percentage={progressPercentage} />
           </ProgressBar>

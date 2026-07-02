@@ -13,7 +13,8 @@ export const GeneralCleaning = () => {
       <ProgressStep
         steps={aseoGeneral.steps}
         pageId={aseoGeneral.id}
-        title="🧹 Lista de verificación - Aseo General"
+        icon="🧹"
+        title="Lista de verificación - Aseo General"
       />
     </Layout>
   );

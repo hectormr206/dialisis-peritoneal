@@ -13,7 +13,8 @@ export const WaterRecycling = () => {
       <ProgressStep
         steps={realizarDialisis.steps}
         pageId={realizarDialisis.id}
-        title="💧 Lista de verificación - Realizar Diálisis"
+        icon="💧"
+        title="Lista de verificación - Realizar Diálisis"
       />
     </Layout>
   );
