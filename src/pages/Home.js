@@ -4,6 +4,7 @@ import { Layout } from "../components/Layout";
 import { Card } from "../components/Card";
 import { CardLink, CardLinkGrid } from "../components/CardLink";
 import { PageContainer } from "../components/PageContainer";
+import { InstallBanner } from "../components/InstallBanner";
 import {
   procedureLinks,
   cuidadosLinks,
@@ -36,6 +37,12 @@ export const Home = () => {
             <p>Guías claras para tus procedimientos, cuidados y alimentación diarios.</p>
           </section>
         </Card>
+
+        {/* Promo de instalación PWA: solo en Home, debajo de la intro y
+            arriba del hub — se oculta sola si ya está instalada, si fue
+            descartada hace menos de 30 días, o si el navegador no ofrece
+            ningún camino de instalación (ni evento nativo ni iOS Safari). */}
+        <InstallBanner />
 
         {/* Hub: 3 secciones agrupadas por tema (R4.1). Los horarios diarios
             quedan debajo de estos grupos, ver más abajo.
