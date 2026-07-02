@@ -4,6 +4,7 @@ import userEvent from '@testing-library/user-event'
 
 import { ProgressStep } from '../src/components/ProgressStep'
 import { progressKey, legacyProgressKey } from '../src/utils/progressStorage'
+import { limpiezaHeridaSteps } from '../src/content/procedures/limpieza-herida'
 
 const pageId = 'test-procedure'
 
@@ -217,5 +218,32 @@ describe('ProgressStep — migration reset notice (R2.3)', () => {
 
     expect(screen.queryByText(/Actualizamos esta guía/)).not.toBeInTheDocument()
     expect(screen.getByText(/1 de 3 pasos completados/)).toBeInTheDocument()
+  })
+})
+
+// R3.4 (PR4): render the real, migrated WoundHealing content module through
+// the component (not synthetic steps) to confirm a returning user with a
+// real pre-PR2 legacy record resumes correctly on the actual 57-step
+// procedure — complements the migration-utility-level coverage in
+// progressStorage.test.js.
+describe('ProgressStep — WoundHealing (limpieza-herida) real content', () => {
+  const woundHealingPageId = 'limpieza-herida'
+
+  it('renders the first real step on first load', () => {
+    render(<ProgressStep steps={limpiezaHeridaSteps} pageId={woundHealingPageId} />)
+
+    expect(screen.getByText('Preparación de materiales')).toBeInTheDocument()
+  })
+
+  it('resumes at the correct real step from a pre-PR2 legacy localStorage record', () => {
+    window.localStorage.setItem(
+      legacyProgressKey(woundHealingPageId),
+      JSON.stringify({ completed: [0, 1], current: 2, timestamp: Date.now() })
+    )
+
+    render(<ProgressStep steps={limpiezaHeridaSteps} pageId={woundHealingPageId} />)
+
+    expect(screen.getByText('Colocar toalla para secado')).toBeInTheDocument()
+    expect(screen.getByText(/2 de 57 pasos completados/)).toBeInTheDocument()
   })
 })
