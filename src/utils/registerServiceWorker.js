@@ -24,9 +24,8 @@ const UPDATE_TOAST_ID = 'sw-update-toast'
 // Builds and injects the update-available toast via plain DOM APIs (no
 // React, no extra dependency like workbox-window) — this runs from
 // src/index.js before/independently of the React tree, and the toast reads
-// the same CSS custom properties GlobalStyle sets on :root (colors adapt to
-// light/dark mode automatically since it's appended straight to <body>,
-// still a descendant of :root).
+// the same CSS custom properties GlobalStyle sets on :root, since it's
+// appended straight to <body>, still a descendant of :root.
 export function showUpdateNotice ({
   documentRef = typeof document !== 'undefined' ? document : undefined,
   windowRef = typeof window !== 'undefined' ? window : undefined,
