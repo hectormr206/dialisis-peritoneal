@@ -3,9 +3,13 @@
 // fills in the verified URL for that entry and adds the remaining sources
 // named in spec R5.2 (ISPD 2022/2023, NKF, NIDDK) using the exact
 // URLs/dates captured during exploration (sdd/accessible-redesign/explore).
-// PR6-9 attach these sourceIds to real medical claims — currency should be
-// re-checked at that point per R5.7 (e.g. IMSS-797-16 is flagged in the
-// explore doc as possibly superseded by a newer edition).
+// PR6 fills in niddk-nutrition-pd's Spanish URL (verified during content
+// research, sdd/accessible-redesign/content-research) and adds who-five-keys
+// + medlineplus-pd for the hygiene deep-dive page's food-prep and
+// exit-site-infection claims. PR7-9 attach these sourceIds to real medical
+// claims — currency should be re-checked at that point per R5.7 (e.g.
+// IMSS-797-16 is flagged in the explore doc as possibly superseded by a
+// newer edition).
 //
 // Shape: { [sourceId]: { name, org, url, published, accessed } }
 
@@ -39,13 +43,28 @@ export const sources = {
     accessed: '2026-07-01'
   },
   'niddk-nutrition-pd': {
-    // Exact URL path was not captured verbatim during exploration (only the
-    // niddk.nih.gov domain + title were recorded) — verify this path before
-    // citing it in real PR6-9 content per R5.7.
-    name: 'Eating & Nutrition for Peritoneal Dialysis',
+    // URL verified during PR6 content research (sdd/accessible-redesign/
+    // content-research, section 2) — the official Spanish version of this
+    // page, preferred over the English one since the target audience is
+    // Spanish-speaking Mexico patients.
+    name: 'Alimentación y nutrición para la diálisis peritoneal',
     org: 'NIDDK (National Institute of Diabetes and Digestive and Kidney Diseases)',
-    url: null,
+    url: 'https://www.niddk.nih.gov/health-information/informacion-de-la-salud/enfermedades-rinones/insuficiencia-renal/dialisis-peritoneal/alimentacion-nutricion',
     published: '2018-08',
-    accessed: '2026-07-01'
+    accessed: '2026-07-02'
+  },
+  'who-five-keys': {
+    name: 'Manual sobre las cinco claves para la inocuidad de los alimentos',
+    org: 'OMS (Organización Mundial de la Salud)',
+    url: 'https://www.who.int/es/publications/i/item/9789241594639',
+    published: '2006',
+    accessed: '2026-07-02'
+  },
+  'medlineplus-pd': {
+    name: 'Diálisis - peritoneal',
+    org: 'MedlinePlus (Biblioteca Nacional de Medicina de EE. UU.)',
+    url: 'https://medlineplus.gov/spanish/ency/article/007434.htm',
+    published: '2024-10-28',
+    accessed: '2026-07-02'
   }
 }
