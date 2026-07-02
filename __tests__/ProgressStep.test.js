@@ -5,6 +5,7 @@ import userEvent from '@testing-library/user-event'
 import { ProgressStep } from '../src/components/ProgressStep'
 import { progressKey, legacyProgressKey } from '../src/utils/progressStorage'
 import { limpiezaHeridaSteps } from '../src/content/procedures/limpieza-herida'
+import { realizarDialisisSteps } from '../src/content/procedures/realizar-dialisis'
 
 const pageId = 'test-procedure'
 
@@ -245,5 +246,65 @@ describe('ProgressStep — WoundHealing (limpieza-herida) real content', () => {
 
     expect(screen.getByText('Colocar toalla para secado')).toBeInTheDocument()
     expect(screen.getByText(/2 de 57 pasos completados/)).toBeInTheDocument()
+  })
+})
+
+// R3.4 (PR4b): render the real, migrated WaterRecycling content module
+// through the component (not synthetic steps) to confirm a returning user
+// with a real pre-PR2 legacy record resumes correctly on the actual 36-step
+// procedure — complements the migration-utility-level coverage in
+// progressStorage.test.js.
+describe('ProgressStep — WaterRecycling (realizar-dialisis) real content', () => {
+  const waterRecyclingPageId = 'realizar-dialisis'
+
+  it('renders the first real step on first load', () => {
+    render(<ProgressStep steps={realizarDialisisSteps} pageId={waterRecyclingPageId} />)
+
+    expect(screen.getByText('Preparación inicial - Cubrebocas')).toBeInTheDocument()
+  })
+
+  it('resumes at the correct real step from a pre-PR2 legacy localStorage record', () => {
+    window.localStorage.setItem(
+      legacyProgressKey(waterRecyclingPageId),
+      JSON.stringify({ completed: [0, 1], current: 2, timestamp: Date.now() })
+    )
+
+    render(<ProgressStep steps={realizarDialisisSteps} pageId={waterRecyclingPageId} />)
+
+    expect(screen.getByText('Preparar jeringa con cloro')).toBeInTheDocument()
+    expect(screen.getByText(/2 de 36 pasos completados/)).toBeInTheDocument()
+  })
+
+  // Carry-over test gap from PR4a's gate review (sdd/accessible-redesign/
+  // decision-r32-deviation, "Learned"): no prior test rendered ProgressStep
+  // with a REAL procedure's steps against a dual-mode-fallback/mismatched
+  // stored record and asserted the visible reset-notice banner text. A v2
+  // record whose `stepIds` are the PR3-era numeric-string fallback ids
+  // ("0".."35") no longer matches this page's real kebab-case ids at any
+  // position, so `reconcileV2` takes the reset path and the banner must
+  // render — not just the migration-utility result object.
+  it('shows the reset-notice banner for a real procedure when the stored record is a mismatched dual-mode-fallback record', () => {
+    const dualModeFallbackIds = Array.from(
+      { length: realizarDialisisSteps.length },
+      (_, i) => String(i)
+    )
+
+    window.localStorage.setItem(
+      progressKey(waterRecyclingPageId),
+      JSON.stringify({
+        version: 2,
+        completedIds: dualModeFallbackIds.slice(0, 5),
+        currentId: '5',
+        stepIds: dualModeFallbackIds,
+        timestamp: Date.now()
+      })
+    )
+
+    render(<ProgressStep steps={realizarDialisisSteps} pageId={waterRecyclingPageId} />)
+
+    expect(
+      screen.getByText(/Actualizamos esta guía; tu progreso en esta sección se reinició\./)
+    ).toBeInTheDocument()
+    expect(screen.getByText('Preparación inicial - Cubrebocas')).toBeInTheDocument()
   })
 })

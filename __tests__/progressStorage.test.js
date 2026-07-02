@@ -6,6 +6,7 @@ import {
 } from '../src/utils/progressStorage'
 import { aseoGeneralSteps } from '../src/content/procedures/aseo-general'
 import { limpiezaHeridaSteps } from '../src/content/procedures/limpieza-herida'
+import { realizarDialisisSteps } from '../src/content/procedures/realizar-dialisis'
 
 const procedureId = 'test-procedure'
 
@@ -326,6 +327,105 @@ describe('progressStorage', () => {
       expect(result.migrated).toBe('reset')
       expect(result.completedIds).toEqual([])
       expect(result.currentId).toBe('prep-materials')
+    })
+  })
+
+  // R3.4: exercise the migration for real against WaterRecycling's actual
+  // before/after step arrays (PR4b). The extraction kept the exact same 36
+  // steps in the exact same order (see
+  // src/content/procedures/realizar-dialisis.js), so a user who never
+  // touched the page after PR3 shipped (still on the bare pre-PR2 legacy
+  // format) gets a direct legacy index-to-id migration, no reset — same
+  // shape as GeneralCleaning's and WoundHealing's cases above.
+  //
+  // The same PR3-era dual-mode window applies here too: PR3 wired
+  // ProgressStep universally (dual-mode, `String(index)` fallback ids)
+  // before WaterRecycling's real ids existed, so a user who interacted with
+  // the page between PR3 and PR4b shipping has a v2 record whose `stepIds`
+  // are numeric strings ("0".."35"), not the new kebab-case ids —
+  // `reconcileV2` resets once with the existing tested notice, the same
+  // fallback path already covered above.
+  describe('WaterRecycling (realizar-dialisis) real before/after migration', () => {
+    const pageId = 'realizar-dialisis'
+
+    it('has 36 steps in the same order as the pre-migration inline page (fidelity check)', () => {
+      expect(realizarDialisisSteps).toHaveLength(36)
+      expect(realizarDialisisSteps[0].id).toBe('prep-facemask')
+      expect(realizarDialisisSteps[35].id).toBe('surgical-repeat-other-hand')
+    })
+
+    it('migrates a real pre-PR2 legacy (bare, index-based) record onto the new ids with no reset', () => {
+      // A user who completed materials prep through the first hand-wash
+      // (indices 0-10) and was on "Primer secado - Tomar toalla" (index 11)
+      // before this PR shipped, and never opened the page again in the
+      // PR3-era dual-mode window.
+      window.localStorage.setItem(
+        legacyProgressKey(pageId),
+        JSON.stringify({
+          completed: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+          current: 11,
+          timestamp: 12345
+        })
+      )
+
+      const procedure = { id: pageId, steps: realizarDialisisSteps }
+      const result = loadProgress(procedure)
+
+      expect(result.migrated).toBeUndefined()
+      expect(result.completedIds).toEqual([
+        'prep-facemask',
+        'weigh-patient',
+        'prep-chlorine-syringe',
+        'prep-towel',
+        'prep-scale',
+        'wash-soap',
+        'wash-palms',
+        'wash-backs',
+        'wash-knuckles',
+        'wash-thumbs',
+        'wash-nails'
+      ])
+      expect(result.currentId).toBe('dry-take-towel')
+    })
+
+    it('handles an all-steps-completed pre-PR2 legacy record with no reset', () => {
+      window.localStorage.setItem(
+        legacyProgressKey(pageId),
+        JSON.stringify({
+          completed: Array.from({ length: 36 }, (_, i) => i),
+          current: 35,
+          timestamp: 999
+        })
+      )
+
+      const procedure = { id: pageId, steps: realizarDialisisSteps }
+      const result = loadProgress(procedure)
+
+      expect(result.migrated).toBeUndefined()
+      expect(result.completedIds).toHaveLength(36)
+      expect(result.currentId).toBe('surgical-repeat-other-hand')
+    })
+
+    it('resets once (with the existing notice path) a PR3-era dual-mode v2 record whose stepIds are numeric-index strings', () => {
+      const legacyDualModeIds = Array.from({ length: 36 }, (_, i) => String(i))
+
+      window.localStorage.setItem(
+        progressKey(pageId),
+        JSON.stringify({
+          version: 2,
+          completedIds: legacyDualModeIds.slice(0, 11),
+          currentId: '11',
+          stepIds: legacyDualModeIds,
+          timestamp: 54321
+        })
+      )
+
+      const procedure = { id: pageId, steps: realizarDialisisSteps }
+      const result = loadProgress(procedure)
+
+      expect(result.migrated).toBe('reset')
+      expect(result.completedIds).toEqual([])
+      expect(result.currentId).toBe('prep-facemask')
     })
   })
 })
