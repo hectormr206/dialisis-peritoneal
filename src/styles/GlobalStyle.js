@@ -157,13 +157,17 @@ export const GlobalStyle = createGlobalStyle`
     position: absolute;
     top: -40px;
     left: 6px;
-    background: var(--color-accent);
+    /* #1d4ed8 (no var(--color-accent)) sobre blanco de fondo: texto blanco
+       sobre #1d4ed8 = 6.70:1, cumple WCAG AA (mínimo 4.5:1). Usar
+       var(--color-accent) aquí daría solo 3.68:1 y fallaría AA. */
+    background: #1d4ed8;
     color: white;
     padding: 8px;
     text-decoration: none;
     z-index: 9999;
     border-radius: 4px;
-    
+    font-weight: 600;
+
     &:focus {
       top: 6px;
     }

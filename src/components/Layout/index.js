@@ -34,6 +34,10 @@ export const Layout = ({ children, title, description }) => {
         />
       </Helmet>
 
+      <a href="#main-content" className="skip-link">
+        Ir al contenido principal
+      </a>
+
       <Header role="banner">
         {title && (
           <Title id="page-title" tabIndex="-1">
