@@ -10,7 +10,9 @@ export const GlobalStyle = createGlobalStyle`
     --color-primary: #1e293b;
     --color-secondary: #64748b;
     --color-tertiary: #94a3b8;
-    --color-actived: #059669;
+    /* #047857 sobre blanco (#ffffff) = 5.48:1, cumple WCAG AA para texto normal
+       (mínimo 4.5:1). El valor previo #059669 medía 3.77:1 y fallaba AA. */
+    --color-actived: #047857;
     --color-accent: #3b82f6;
     --color-warning: #dc2626;
     --color-success: #16a34a;
