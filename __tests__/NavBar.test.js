@@ -70,6 +70,14 @@ describe('NavBar', () => {
     ).toHaveAttribute('aria-current', 'page')
   })
 
+  it('marks Comida y líquidos active on the top-level /registro route', () => {
+    renderNavBar('/registro')
+
+    expect(
+      screen.getByRole('link', { name: /Comida y líquidos/ })
+    ).toHaveAttribute('aria-current', 'page')
+  })
+
   it('does not mark any tab active on an unrelated route', () => {
     renderNavBar('/does-not-exist')
 

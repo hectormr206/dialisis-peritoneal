@@ -45,7 +45,10 @@ const NAV_ITEMS = [
     label: 'Comida y líquidos',
     ariaLabel: 'Comida y líquidos',
     Icon: MdRestaurant,
-    prefixes: ['/alimentacion']
+    // '/registro' (the daily weight/fluid log, PR11) is a top-level route
+    // like the legacy procedure routes above, but conceptually belongs to
+    // this group — included here for the same active-tab-continuity reason.
+    prefixes: ['/alimentacion', '/registro']
   }
 ]
 

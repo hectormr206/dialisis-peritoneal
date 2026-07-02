@@ -4,7 +4,8 @@ import {
   GiWaterRecycling,
   GiMedicines,
   GiWaterDrop,
-  GiFruitBowl
+  GiFruitBowl,
+  GiWeightScale
 } from 'react-icons/gi'
 import { MdWarningAmber } from 'react-icons/md'
 import { aseoGeneral } from './procedures/aseo-general'
@@ -62,5 +63,18 @@ export const alimentacionLinks = [
     title: 'Nutrición',
     description: 'Alimentación saludable para diálisis peritoneal.',
     icon: GiFruitBowl
+  },
+  {
+    // Route is a top-level `/registro` (design section 7 sketch), not
+    // nested under /alimentacion — same pattern as the 3 legacy procedure
+    // routes, which live outside /procedimientos but still appear in the
+    // Procedimientos hub group and nav tab (see NavBar's comment). This
+    // single navigation.js entry supplies both required entry points
+    // (Home hub card + /alimentacion index card) since both pages already
+    // render this array — no per-page wiring needed.
+    to: '/registro',
+    title: 'Mi registro diario',
+    description: 'Anota tu peso y notas cada día, solo en tu teléfono.',
+    icon: GiWeightScale
   }
 ]

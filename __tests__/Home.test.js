@@ -42,6 +42,14 @@ describe('Home', () => {
     ).toHaveAttribute('href', '/realizar-dialisis')
   })
 
+  it('links the daily-log card to /registro (PR11)', () => {
+    renderHome()
+
+    expect(
+      screen.getByRole('link', { name: /Mi registro diario/ })
+    ).toHaveAttribute('href', '/registro')
+  })
+
   it('keeps the daily schedules below the hub sections', () => {
     renderHome()
 

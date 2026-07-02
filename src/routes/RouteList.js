@@ -11,6 +11,7 @@ import { Higiene } from '../pages/Higiene'
 import { SenalesAlarma } from '../pages/SenalesAlarma'
 import { Liquidos } from '../pages/Liquidos'
 import { Nutricion } from '../pages/Nutricion'
+import { RegistroDiario } from '../pages/RegistroDiario'
 import { NoMatch } from '../pages/NoMatch'
 
 // Extracted from routes/index.js (which also wraps BrowserRouter + NavBar)
@@ -34,6 +35,10 @@ export const RouteList = () => (
     <Route path='/alimentacion' element={<AlimentacionIndex />} />
     <Route path='/alimentacion/liquidos' element={<Liquidos />} />
     <Route path='/alimentacion/nutricion' element={<Nutricion />} />
+
+    {/* Top-level route (design section 7 sketch), like the legacy
+        procedure routes above — not nested under /alimentacion — PR11 */}
+    <Route path='/registro' element={<RegistroDiario />} />
 
     <Route path='*' element={<NoMatch />} />
   </Routes>

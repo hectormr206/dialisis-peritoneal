@@ -76,6 +76,14 @@ describe('RouteList', () => {
     expect(screen.queryByText(/preparando esta guía/)).not.toBeInTheDocument()
   })
 
+  it('renders the real Registro diario page at /registro under Layout (PR11)', () => {
+    renderAt('/registro')
+    expect(screen.getByRole('main')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: 'Mi registro diario', level: 1 })
+    ).toBeInTheDocument()
+  })
+
   it('falls back to NoMatch on an unknown route', () => {
     renderAt('/does-not-exist')
     expect(screen.getByRole('main')).toBeInTheDocument()
