@@ -50,8 +50,11 @@ const HomeLink = styled(Link)`
 
   &:hover,
   &:focus {
-    /* var(--color-actived) = #047857; blanco sobre #047857 = 5.48:1, AA ok */
-    background: var(--color-actived);
+    /* #047857 fijo (no var(--color-actived)) porque en modo oscuro el token
+       cambia a #34d399 (necesario para texto legible sobre --body-card) y
+       texto blanco sobre #34d399 mide solo 1.92:1, muy por debajo de AA.
+       Texto blanco sobre #047857 = 5.48:1 y no varía por color-scheme. */
+    background: #047857;
     text-decoration: none;
   }
 
