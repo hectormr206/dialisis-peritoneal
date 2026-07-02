@@ -1,5 +1,7 @@
 # Debug version - Simple Node.js server
-FROM node:18-alpine
+# node >= 20 required: workbox's @rollup/plugin-terser -> serialize-javascript
+# needs the global WebCrypto API and crashes on node 18
+FROM node:22-alpine
 
 WORKDIR /app
 
