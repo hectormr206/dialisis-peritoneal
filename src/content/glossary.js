@@ -2,8 +2,9 @@
 // primitive (R4.3). Seed entries added in PR3 (exsept, mupirocina); expanded
 // in PR5b (heparina, peritonitis) alongside the TermTooltip component itself.
 // PR6 adds sitioSalida/cateter/clorhexidina for the hygiene deep-dive page.
-// PR7 adds efluente/hiporexia for the warning-signs + escalation page —
-// populated further as PR8-9 add their own real medical-content pages.
+// PR7 adds efluente/hiporexia for the warning-signs + escalation page. PR8
+// adds sodio/ultrafiltracion for the fluid-management + swelling page —
+// populated further as PR9 adds its own real medical-content page.
 //
 // Shape: { [termKey]: { term, plainDefinition } }
 
@@ -51,5 +52,15 @@ export const glossary = {
   hiporexia: {
     term: 'Hiporexia',
     plainDefinition: 'Tener poco apetito o ganas de comer.'
+  },
+  sodio: {
+    term: 'Sodio',
+    plainDefinition:
+      'Un mineral que forma parte de la sal. Se encuentra en grandes cantidades en alimentos enlatados, empaquetados, congelados y de comida rápida, y en los condimentos. Hace que tu cuerpo retenga agua y aumenta la sed.'
+  },
+  ultrafiltracion: {
+    term: 'Ultrafiltración',
+    plainDefinition:
+      'El proceso con el que se saca líquido de tu cuerpo durante un intercambio de diálisis peritoneal. Depende de la concentración de dextrosa (azúcar) del líquido de diálisis que usas.'
   }
 }

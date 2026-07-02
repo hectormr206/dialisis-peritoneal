@@ -6,10 +6,11 @@
 // PR6 fills in niddk-nutrition-pd's Spanish URL (verified during content
 // research, sdd/accessible-redesign/content-research) and adds who-five-keys
 // + medlineplus-pd for the hygiene deep-dive page's food-prep and
-// exit-site-infection claims. PR7-9 attach these sourceIds to real medical
-// claims — currency should be re-checked at that point per R5.7 (e.g.
-// IMSS-797-16 is flagged in the explore doc as possibly superseded by a
-// newer edition).
+// exit-site-infection claims. PR7 attaches imss-797-16/medlineplus-pd to the
+// warning-signs page. PR8 adds nkf-fluid-overload + nkf-ultrafiltration for
+// the fluid-management + swelling page (content-research section 3c) —
+// currency should be re-checked at each PR per R5.7 (e.g. IMSS-797-16 is
+// flagged in the explore doc as possibly superseded by a newer edition).
 //
 // Shape: { [sourceId]: { name, org, url, published, accessed } }
 
@@ -70,6 +71,20 @@ export const sources = {
     org: 'MedlinePlus (Biblioteca Nacional de Medicina de EE. UU.)',
     url: 'https://medlineplus.gov/spanish/ency/article/007434.htm',
     published: '2024-10-28',
+    accessed: '2026-07-02'
+  },
+  'nkf-fluid-overload': {
+    name: 'Fluid Overload in a Dialysis Patient',
+    org: 'National Kidney Foundation (NKF)',
+    url: 'https://www.kidney.org/kidney-topics/fluid-overload-dialysis-patient',
+    published: null,
+    accessed: '2026-07-02'
+  },
+  'nkf-ultrafiltration': {
+    name: 'Ultrafiltration',
+    org: 'National Kidney Foundation (NKF)',
+    url: 'https://www.kidney.org/kidney-topics/ultrafiltration',
+    published: null,
     accessed: '2026-07-02'
   }
 }
