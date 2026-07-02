@@ -60,48 +60,53 @@ export const Home = () => {
         </Card>
 
         {/* Hub: 3 secciones agrupadas por tema (R4.1). Los horarios diarios
-            quedan debajo de estos grupos, ver más abajo. */}
-        <Card>
-          <section aria-labelledby="hub-procedimientos-heading">
+            quedan debajo de estos grupos, ver más abajo.
+
+            CardLinkGrid vive como hermano de Card (no anidado dentro), igual
+            que en las páginas índice — el selector `a` de CardComponent
+            (0,1,1 de especificidad) pisaría los estilos propios de
+            CardLinkElement (0,1,0) si quedara anidado adentro. */}
+        <section aria-labelledby="hub-procedimientos-heading">
+          <Card>
             <h2 id="hub-procedimientos-heading">🧴 Procedimientos</h2>
             <p>Guías paso a paso para el aseo, la curación y la diálisis.</p>
-            <CardLinkGrid aria-label="Lista de procedimientos">
-              {procedureLinks.map((link) => (
-                <li key={link.to}>
-                  <CardLink {...link} />
-                </li>
-              ))}
-            </CardLinkGrid>
-          </section>
-        </Card>
+          </Card>
+          <CardLinkGrid aria-label="Lista de procedimientos">
+            {procedureLinks.map((link) => (
+              <li key={link.to}>
+                <CardLink {...link} />
+              </li>
+            ))}
+          </CardLinkGrid>
+        </section>
 
-        <Card>
-          <section aria-labelledby="hub-cuidados-heading">
+        <section aria-labelledby="hub-cuidados-heading">
+          <Card>
             <h2 id="hub-cuidados-heading">🩺 Higiene y señales de alarma</h2>
             <p>Cómo cuidar tu piel y catéter, y cuándo buscar ayuda.</p>
-            <CardLinkGrid aria-label="Lista de temas de cuidados">
-              {cuidadosLinks.map((link) => (
-                <li key={link.to}>
-                  <CardLink {...link} />
-                </li>
-              ))}
-            </CardLinkGrid>
-          </section>
-        </Card>
+          </Card>
+          <CardLinkGrid aria-label="Lista de temas de cuidados">
+            {cuidadosLinks.map((link) => (
+              <li key={link.to}>
+                <CardLink {...link} />
+              </li>
+            ))}
+          </CardLinkGrid>
+        </section>
 
-        <Card>
-          <section aria-labelledby="hub-alimentacion-heading">
+        <section aria-labelledby="hub-alimentacion-heading">
+          <Card>
             <h2 id="hub-alimentacion-heading">🍽️ Comida y líquidos</h2>
             <p>Líquidos, ingresos y alimentación saludable.</p>
-            <CardLinkGrid aria-label="Lista de temas de alimentación">
-              {alimentacionLinks.map((link) => (
-                <li key={link.to}>
-                  <CardLink {...link} />
-                </li>
-              ))}
-            </CardLinkGrid>
-          </section>
-        </Card>
+          </Card>
+          <CardLinkGrid aria-label="Lista de temas de alimentación">
+            {alimentacionLinks.map((link) => (
+              <li key={link.to}>
+                <CardLink {...link} />
+              </li>
+            ))}
+          </CardLinkGrid>
+        </section>
 
         {/* Sección de horarios de 3 recambios */}
         <Card>
