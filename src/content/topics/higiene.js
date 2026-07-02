@@ -9,8 +9,8 @@ import { TermTooltip } from '../../components/TermTooltip'
 // invented; the only numeric claim ("2 semanas") and the "70%" alcohol-gel
 // concentration are both source-stated (IMSS-797-16) — R5.5.
 //
-// Glossary terms (peritonitis, sitio de salida, catéter) are wrapped with
-// TermTooltip on first use only, in reading order — R5.4.
+// Glossary terms (peritonitis, sitio de salida, catéter, clorhexidina) are
+// wrapped with TermTooltip on first use only, in reading order — R5.4.
 
 export const higiene = {
   title: 'Higiene',
@@ -33,8 +33,7 @@ export const higiene = {
         <p>
           El <TermTooltip termKey='sitioSalida'>sitio de salida</TermTooltip>{' '}
           es el lugar de tu piel por donde sale tu{' '}
-          <TermTooltip termKey='cateter'>catéter</TermTooltip>. Revísalo
-          todos los días.
+          <TermTooltip termKey='cateter'>catéter</TermTooltip>.
         </p>
       ),
       warning: {
@@ -65,7 +64,9 @@ export const higiene = {
       heading: 'Cuida el sitio de salida y el catéter',
       body: (
         <>
-          <p>Haz la curación de tu sitio de salida todos los días.</p>
+          <p>
+            Revisa tu sitio de salida y haz la curación todos los días.
+          </p>
           <p>
             Mantén el sitio de salida seco y el catéter bien sujeto
             (inmovilizado), para que no jale ni se mueva.
@@ -76,8 +77,9 @@ export const higiene = {
             Mientras tanto, báñate con cuidado para no mojar esa zona.
           </p>
           <p>
-            Usa antisépticos a base de clorhexidina para limpiar el sitio de
-            salida, según te lo indique tu clínica.
+            Usa antisépticos a base de{' '}
+            <TermTooltip termKey='clorhexidina'>clorhexidina</TermTooltip>{' '}
+            para limpiar el sitio de salida, según te lo indique tu clínica.
           </p>
           <p>
             Cuando el sitio de salida ya cicatrizó, lávalo todos los días con

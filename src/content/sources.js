@@ -17,7 +17,12 @@ export const sources = {
   'imss-797-16': {
     name: 'Guía de práctica clínica IMSS-797-16: Intervenciones de enfermería para la atención y prevención de peritonitis infecciosa en adultos con diálisis peritoneal ambulatoria',
     org: 'IMSS',
-    url: 'http://www.imss.gob.mx/sites/all/statics/guiasclinicas/797GER.pdf',
+    // Points to the GRR (Guía de Referencia Rápida), not the GER — all
+    // hygiene claims cited to this source in PR6 were verified against the
+    // GRR document specifically (sdd/accessible-redesign/content-research
+    // section 6). PR7 reuses this same sourceId, so the URL must stay
+    // pinned to the document actually verified.
+    url: 'http://www.imss.gob.mx/sites/all/statics/guiasclinicas/797GRR.pdf',
     published: '2016',
     accessed: '2026-07-01'
   },

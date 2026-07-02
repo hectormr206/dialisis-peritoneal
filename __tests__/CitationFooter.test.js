@@ -34,7 +34,7 @@ describe('CitationFooter', () => {
       screen.getByRole('link', { name: /Guía de práctica clínica IMSS-797-16/ })
     ).toHaveAttribute(
       'href',
-      'http://www.imss.gob.mx/sites/all/statics/guiasclinicas/797GER.pdf'
+      'http://www.imss.gob.mx/sites/all/statics/guiasclinicas/797GRR.pdf'
     )
     expect(
       screen.getByRole('link', { name: /Peritonitis/ })

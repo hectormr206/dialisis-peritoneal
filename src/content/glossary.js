@@ -1,8 +1,8 @@
 // glossary: clinical/brand term definitions for the tap-to-expand glossary
 // primitive (R4.3). Seed entries added in PR3 (exsept, mupirocina); expanded
 // in PR5b (heparina, peritonitis) alongside the TermTooltip component itself.
-// PR6 adds sitioSalida/cateter for the hygiene deep-dive page — populated
-// further as PR7-9 add their own real medical-content pages.
+// PR6 adds sitioSalida/cateter/clorhexidina for the hygiene deep-dive page —
+// populated further as PR7-9 add their own real medical-content pages.
 //
 // Shape: { [termKey]: { term, plainDefinition } }
 
@@ -36,5 +36,10 @@ export const glossary = {
     term: 'Catéter',
     plainDefinition:
       'Un tubo suave que tu médico coloca en tu abdomen, casi siempre cerca del ombligo. Por él entra y sale el líquido de diálisis.'
+  },
+  clorhexidina: {
+    term: 'Clorhexidina',
+    plainDefinition:
+      'Un antiséptico (un líquido que ayuda a evitar infecciones) que se usa para limpiar el sitio de salida de tu catéter. Tu clínica te indica cómo y cuándo usarlo.'
   }
 }

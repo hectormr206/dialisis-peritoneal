@@ -96,7 +96,7 @@ describe('Higiene page', () => {
     ).toBeInTheDocument()
   })
 
-  it('glossary-links peritonitis, sitio de salida and catéter on first use', () => {
+  it('glossary-links peritonitis, sitio de salida, catéter and clorhexidina on first use', () => {
     renderHigiene()
 
     expect(
@@ -106,5 +106,8 @@ describe('Higiene page', () => {
       screen.getByRole('button', { name: 'sitio de salida' })
     ).toBeInTheDocument()
     expect(screen.getByRole('button', { name: 'catéter' })).toBeInTheDocument()
+    expect(
+      screen.getByRole('button', { name: 'clorhexidina' })
+    ).toBeInTheDocument()
   })
 })
