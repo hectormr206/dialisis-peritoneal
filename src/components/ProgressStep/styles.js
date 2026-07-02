@@ -10,6 +10,43 @@ export const ProgressContainer = styled.div`
   padding-bottom: 100px; /* Espacio para el botón fijo */
 `;
 
+export const MigrationNotice = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  background: var(--body-card);
+  border-left: 4px solid var(--color-accent);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+
+  @media (max-width: 480px) {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+`;
+
+export const MigrationNoticeText = styled.p`
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  line-height: 1.4;
+  margin: 0;
+`;
+
+export const MigrationNoticeDismiss = styled.button`
+  flex-shrink: 0;
+  min-height: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  color: var(--color-secondary);
+  font-size: var(--font-size-base);
+
+  &:hover {
+    color: var(--color-primary);
+  }
+`;
+
 export const StepHeader = styled.div`
   display: flex;
   justify-content: space-between;

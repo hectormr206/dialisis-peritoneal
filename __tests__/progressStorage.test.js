@@ -4,6 +4,7 @@ import {
   progressKey,
   legacyProgressKey
 } from '../src/utils/progressStorage'
+import { aseoGeneralSteps } from '../src/content/procedures/aseo-general'
 
 const procedureId = 'test-procedure'
 
@@ -147,5 +148,85 @@ describe('progressStorage', () => {
     expect(stored.completedIds).toEqual(['a'])
     expect(stored.currentId).toBe('a')
     expect(stored.stepIds).toEqual(['a', 'b'])
+  })
+
+  // R3.4: exercise the migration for real against GeneralCleaning's actual
+  // before/after step arrays. Before this PR, GeneralCleaning had no step
+  // ids at all — progress was stored under the legacy bare key with
+  // index-based `completed`/`current`. The schema extraction (PR3) kept the
+  // exact same 14 steps in the exact same order (see
+  // src/content/procedures/aseo-general.js), so this is a direct legacy
+  // index-to-id migration, not a v2-to-v2 reconciliation — every historical
+  // index maps 1:1 onto the new step id at that position, and no reset is
+  // triggered.
+  describe('GeneralCleaning (aseo-general) real before/after migration', () => {
+    const pageId = 'aseo-general'
+
+    it('has 14 steps in the same order as the pre-migration inline page (fidelity check)', () => {
+      expect(aseoGeneralSteps).toHaveLength(14)
+      expect(aseoGeneralSteps.map((step) => step.id)).toEqual([
+        'prep-materials',
+        'prep-towel',
+        'hand-wash-soap',
+        'hand-wash-palms',
+        'hand-wash-backs',
+        'hand-wash-knuckles',
+        'hand-wash-thumbs',
+        'hand-wash-nails',
+        'hand-dry-take-towel',
+        'hand-dry-fingers',
+        'hand-dry-back',
+        'hand-dry-turn-towel',
+        'hand-dry-second-hand',
+        'clean-surface'
+      ])
+    })
+
+    it('maps a real pre-migration legacy record onto the new ids with no reset (trailing-append is N/A here — this is a legacy-to-v2 index migration)', () => {
+      // A user who had completed the hand-wash portion (indices 2-7) and was
+      // on "Secado - Tomar toalla" (index 8) before this PR shipped.
+      window.localStorage.setItem(
+        legacyProgressKey(pageId),
+        JSON.stringify({
+          completed: [0, 1, 2, 3, 4, 5, 6, 7],
+          current: 8,
+          timestamp: 12345
+        })
+      )
+
+      const procedure = { id: pageId, steps: aseoGeneralSteps }
+      const result = loadProgress(procedure)
+
+      expect(result.migrated).toBeUndefined()
+      expect(result.completedIds).toEqual([
+        'prep-materials',
+        'prep-towel',
+        'hand-wash-soap',
+        'hand-wash-palms',
+        'hand-wash-backs',
+        'hand-wash-knuckles',
+        'hand-wash-thumbs',
+        'hand-wash-nails'
+      ])
+      expect(result.currentId).toBe('hand-dry-take-towel')
+    })
+
+    it('handles an all-steps-completed legacy record with no reset', () => {
+      window.localStorage.setItem(
+        legacyProgressKey(pageId),
+        JSON.stringify({
+          completed: Array.from({ length: 14 }, (_, i) => i),
+          current: 13,
+          timestamp: 999
+        })
+      )
+
+      const procedure = { id: pageId, steps: aseoGeneralSteps }
+      const result = loadProgress(procedure)
+
+      expect(result.migrated).toBeUndefined()
+      expect(result.completedIds).toHaveLength(14)
+      expect(result.currentId).toBe('clean-surface')
+    })
   })
 })
