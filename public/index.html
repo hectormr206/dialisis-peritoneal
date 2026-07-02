@@ -159,9 +159,9 @@
                 document.body.classList.add("loaded");
             });
 
-            // Nota: el registro del Service Worker se removió porque no existe
-            // un service-worker.js real (fallaba en cada carga). Se reintroducirá
-            // junto con una implementación real (ver backlog PR10+).
+            // Nota: el registro real del Service Worker vive en src/index.js
+            // (registerServiceWorker), gateado a producción, y consume el
+            // service-worker.js generado por Workbox (ver webpack.config.js).
         </script>
     </body>
 </html>
