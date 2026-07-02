@@ -40,14 +40,6 @@ describe('RouteList', () => {
     expect(screen.getAllByText(headingText, { exact: false }).length).toBeGreaterThan(0)
   })
 
-  it.each([
-    '/alimentacion/nutricion'
-  ])('renders the topic placeholder at %s under Layout', (path) => {
-    renderAt(path)
-    expect(screen.getByRole('main')).toBeInTheDocument()
-    expect(screen.getByText(/preparando esta guía/)).toBeInTheDocument()
-  })
-
   it('renders the real Higiene content page at /cuidados/higiene under Layout', () => {
     renderAt('/cuidados/higiene')
     expect(screen.getByRole('main')).toBeInTheDocument()
@@ -71,6 +63,15 @@ describe('RouteList', () => {
     expect(screen.getByRole('main')).toBeInTheDocument()
     expect(
       screen.getByRole('heading', { name: 'Líquidos', level: 1 })
+    ).toBeInTheDocument()
+    expect(screen.queryByText(/preparando esta guía/)).not.toBeInTheDocument()
+  })
+
+  it('renders the real Nutrición content page at /alimentacion/nutricion under Layout', () => {
+    renderAt('/alimentacion/nutricion')
+    expect(screen.getByRole('main')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: 'Nutrición', level: 1 })
     ).toBeInTheDocument()
     expect(screen.queryByText(/preparando esta guía/)).not.toBeInTheDocument()
   })

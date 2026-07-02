@@ -10,7 +10,7 @@ import { AlimentacionIndex } from '../pages/AlimentacionIndex'
 import { Higiene } from '../pages/Higiene'
 import { SenalesAlarma } from '../pages/SenalesAlarma'
 import { Liquidos } from '../pages/Liquidos'
-import { TopicComingSoon } from '../pages/TopicComingSoon'
+import { Nutricion } from '../pages/Nutricion'
 import { NoMatch } from '../pages/NoMatch'
 
 // Extracted from routes/index.js (which also wraps BrowserRouter + NavBar)
@@ -33,15 +33,7 @@ export const RouteList = () => (
 
     <Route path='/alimentacion' element={<AlimentacionIndex />} />
     <Route path='/alimentacion/liquidos' element={<Liquidos />} />
-    <Route
-      path='/alimentacion/nutricion'
-      element={
-        <TopicComingSoon
-          title='Nutrición'
-          description='Alimentación saludable para diálisis peritoneal.'
-        />
-      }
-    />
+    <Route path='/alimentacion/nutricion' element={<Nutricion />} />
 
     <Route path='*' element={<NoMatch />} />
   </Routes>
