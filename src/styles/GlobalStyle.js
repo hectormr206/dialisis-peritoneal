@@ -38,7 +38,11 @@ export const GlobalStyle = createGlobalStyle`
     
     /* Dimensiones responsive */
     --header-height: clamp(60px, 15vw, 80px);
-    --footer-height: clamp(60px, 15vw, 80px);
+    /* Piso subido de 60px a 64px (PR5a): la barra de navegación ahora
+       muestra etiquetas de texto visibles bajo cada ícono (antes eran
+       sr-only), y necesita espacio vertical extra para 2 líneas de texto
+       sin recortar contenido — R4.2, R6.3. */
+    --footer-height: clamp(64px, 16vw, 84px);
     --border-radius: 0.5rem;
     --max-width-container: 1200px;
   }
