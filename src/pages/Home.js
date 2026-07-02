@@ -2,6 +2,12 @@ import React from "react";
 import styled from "styled-components";
 import { Layout } from "../components/Layout";
 import { Card } from "../components/Card";
+import { CardLink, CardLinkGrid } from "../components/CardLink";
+import {
+  procedureLinks,
+  cuidadosLinks,
+  alimentacionLinks,
+} from "../content/navigation";
 
 const CenteredContainer = styled.div`
   display: flex;
@@ -50,6 +56,50 @@ export const Home = () => {
               Introducción
             </h2>
             <p>{description}</p>
+          </section>
+        </Card>
+
+        {/* Hub: 3 secciones agrupadas por tema (R4.1). Los horarios diarios
+            quedan debajo de estos grupos, ver más abajo. */}
+        <Card>
+          <section aria-labelledby="hub-procedimientos-heading">
+            <h2 id="hub-procedimientos-heading">🧴 Procedimientos</h2>
+            <p>Guías paso a paso para el aseo, la curación y la diálisis.</p>
+            <CardLinkGrid aria-label="Lista de procedimientos">
+              {procedureLinks.map((link) => (
+                <li key={link.to}>
+                  <CardLink {...link} />
+                </li>
+              ))}
+            </CardLinkGrid>
+          </section>
+        </Card>
+
+        <Card>
+          <section aria-labelledby="hub-cuidados-heading">
+            <h2 id="hub-cuidados-heading">🩺 Higiene y señales de alarma</h2>
+            <p>Cómo cuidar tu piel y catéter, y cuándo buscar ayuda.</p>
+            <CardLinkGrid aria-label="Lista de temas de cuidados">
+              {cuidadosLinks.map((link) => (
+                <li key={link.to}>
+                  <CardLink {...link} />
+                </li>
+              ))}
+            </CardLinkGrid>
+          </section>
+        </Card>
+
+        <Card>
+          <section aria-labelledby="hub-alimentacion-heading">
+            <h2 id="hub-alimentacion-heading">🍽️ Comida y líquidos</h2>
+            <p>Líquidos, ingresos y alimentación saludable.</p>
+            <CardLinkGrid aria-label="Lista de temas de alimentación">
+              {alimentacionLinks.map((link) => (
+                <li key={link.to}>
+                  <CardLink {...link} />
+                </li>
+              ))}
+            </CardLinkGrid>
           </section>
         </Card>
 
@@ -143,42 +193,6 @@ export const Home = () => {
                 <strong>Ingreso:</strong> 0 ml
               </li>
             </ul>
-          </section>
-        </Card>
-
-        {/* Navegación rápida a otras secciones */}
-        <Card>
-          <section aria-labelledby="quick-nav-heading">
-            <h2 id="quick-nav-heading">🔗 Acceso rápido</h2>
-            <nav aria-label="Navegación a secciones principales">
-              <ul role="list">
-                <li>
-                  <a href="/aseo-general" aria-describedby="aseo-desc">
-                    🧹 <strong>Aseo General</strong>
-                  </a>
-                  <div id="aseo-desc" className="sr-only">
-                    Instrucciones paso a paso para la limpieza del área
-                  </div>
-                </li>
-                <li>
-                  <a href="/limpieza-herida" aria-describedby="herida-desc">
-                    🩹 <strong>Limpieza de Herida</strong>
-                  </a>
-                  <div id="herida-desc" className="sr-only">
-                    Procedimientos de curación y cuidado de heridas
-                  </div>
-                </li>
-                <li>
-                  <a href="/realizar-dialisis" aria-describedby="dialisis-desc">
-                    💧 <strong>Realizar Diálisis</strong>
-                  </a>
-                  <div id="dialisis-desc" className="sr-only">
-                    Proceso completo de diálisis peritoneal con videos
-                    instructivos
-                  </div>
-                </li>
-              </ul>
-            </nav>
           </section>
         </Card>
 
