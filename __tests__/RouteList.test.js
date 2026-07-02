@@ -41,7 +41,6 @@ describe('RouteList', () => {
   })
 
   it.each([
-    '/cuidados/higiene',
     '/cuidados/senales-de-alarma',
     '/alimentacion/liquidos',
     '/alimentacion/nutricion'
@@ -49,6 +48,15 @@ describe('RouteList', () => {
     renderAt(path)
     expect(screen.getByRole('main')).toBeInTheDocument()
     expect(screen.getByText(/preparando esta guía/)).toBeInTheDocument()
+  })
+
+  it('renders the real Higiene content page at /cuidados/higiene under Layout', () => {
+    renderAt('/cuidados/higiene')
+    expect(screen.getByRole('main')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: 'Higiene', level: 1 })
+    ).toBeInTheDocument()
+    expect(screen.queryByText(/preparando esta guía/)).not.toBeInTheDocument()
   })
 
   it('falls back to NoMatch on an unknown route', () => {

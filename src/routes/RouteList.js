@@ -7,6 +7,7 @@ import { WaterRecycling } from '../pages/WaterRecycling'
 import { ProcedimientosIndex } from '../pages/ProcedimientosIndex'
 import { CuidadosIndex } from '../pages/CuidadosIndex'
 import { AlimentacionIndex } from '../pages/AlimentacionIndex'
+import { Higiene } from '../pages/Higiene'
 import { TopicComingSoon } from '../pages/TopicComingSoon'
 import { NoMatch } from '../pages/NoMatch'
 
@@ -25,15 +26,7 @@ export const RouteList = () => (
     <Route path='/procedimientos' element={<ProcedimientosIndex />} />
 
     <Route path='/cuidados' element={<CuidadosIndex />} />
-    <Route
-      path='/cuidados/higiene'
-      element={
-        <TopicComingSoon
-          title='Higiene'
-          description='Cuidado de la piel, el catéter y la herida.'
-        />
-      }
-    />
+    <Route path='/cuidados/higiene' element={<Higiene />} />
     <Route
       path='/cuidados/senales-de-alarma'
       element={
