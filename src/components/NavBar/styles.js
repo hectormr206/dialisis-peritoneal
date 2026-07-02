@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { NavLink as NavLinkRouter } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { fadeIn } from '../../styles/animation'
 
 export const Nav = styled.nav`
@@ -11,9 +11,13 @@ export const Nav = styled.nav`
   align-items: center;
   margin: 0 auto;
   padding: var(--spacing-xs);
-  justify-content: space-around;
+  justify-content: space-between;
   width: 100%;
-  height: var(--footer-height);
+  /* min-height (no height) — con etiquetas de texto visibles (R4.2) el
+     contenido puede envolver a 2 líneas en pantallas angostas; usar una
+     altura fija recortaría el texto. min-height respeta el piso del token
+     y crece si el contenido lo necesita — R6.3. */
+  min-height: var(--footer-height);
   border-top: 1px solid var(--border-color);
   background-color: var(--body-footer);
   backdrop-filter: blur(10px);
@@ -50,14 +54,18 @@ export const Nav = styled.nav`
   }
 `
 
-export const NavLink = styled(NavLinkRouter)`
+export const NavLink = styled(Link)`
   display: inline-flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  /* Los 4 grupos se reparten el ancho de forma pareja y nunca se recortan
+     ni se salen del contenedor, ni siquiera en 360px de ancho — R4.2. */
+  flex: 1 1 0;
+  min-width: 0;
+  max-width: 25%;
   padding: var(--spacing-sm);
   min-height: 48px; /* Área de toque mínima accesible */
-  min-width: 48px;
   color: var(--color-secondary);
   text-decoration: none;
   border-radius: var(--border-radius);
@@ -77,7 +85,7 @@ export const NavLink = styled(NavLinkRouter)`
     background: rgba(59, 130, 246, 0.1);
   }
 
-  /* Estado activo con mejor contraste - React Router v6 */
+  /* Estado activo con mejor contraste - coincidencia por prefijo, no exacta */
   &.active {
     color: var(--color-actived);
     /* rgb(4, 120, 87) = #047857, el nuevo valor de --color-actived (antes
@@ -103,6 +111,7 @@ export const NavLink = styled(NavLinkRouter)`
   svg {
     margin-bottom: 2px;
     transition: transform 0.2s ease;
+    flex-shrink: 0;
   }
 
   &:hover svg,
@@ -110,39 +119,14 @@ export const NavLink = styled(NavLinkRouter)`
     transform: scale(1.1);
   }
 
-  /* Labels accesibles (ocultos visualmente pero disponibles para lectores de pantalla) */
-  &::before {
-    content: attr(aria-label);
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--color-primary);
-    color: var(--body-background);
-    padding: 4px 8px;
-    border-radius: 4px;
-    font-size: var(--font-size-sm);
-    white-space: nowrap;
-    opacity: 0;
-    pointer-events: none;
-    transition: opacity 0.2s ease;
-    z-index: 1001;
-  }
-
-  &:hover::before,
-  &:focus::before {
-    opacity: 1;
-  }
-
   /* Responsive para pantallas pequeñas */
   @media (max-width: 480px) {
     padding: var(--spacing-xs);
     min-height: 44px;
-    min-width: 44px;
 
     svg {
-      width: 24px !important;
-      height: 24px !important;
+      width: 22px !important;
+      height: 22px !important;
     }
   }
 
@@ -153,18 +137,6 @@ export const NavLink = styled(NavLinkRouter)`
     svg {
       width: 28px !important;
       height: 28px !important;
-    }
-  }
-
-  /* Modo oscuro */
-  @media (prefers-color-scheme: dark) {
-    &::before {
-      background: var(--body-background);
-      color: var(--color-primary);
-    }
-
-    &.active::after {
-      background: var(--color-actived);
     }
   }
 
@@ -185,4 +157,17 @@ export const NavLink = styled(NavLinkRouter)`
       transform: none;
     }
   }
+`
+
+export const NavLabel = styled.span`
+  /* Etiqueta corta y visible bajo el ícono (antes sr-only) — navegación
+     por ícono + palabra para usuarios de baja alfabetización — R4.2. */
+  display: block;
+  font-size: clamp(9px, 2.4vw, 11px);
+  line-height: 1.15;
+  text-align: center;
+  width: 100%;
+  overflow-wrap: break-word;
+  hyphens: auto;
+  color: inherit;
 `

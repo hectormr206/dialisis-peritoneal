@@ -10,6 +10,43 @@ export const ProgressContainer = styled.div`
   padding-bottom: 100px; /* Espacio para el botón fijo */
 `;
 
+export const MigrationNotice = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--spacing-md);
+  padding: var(--spacing-sm) var(--spacing-lg);
+  margin-bottom: var(--spacing-md);
+  background: var(--body-card);
+  border-left: 4px solid var(--color-accent);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow-light);
+
+  @media (max-width: 480px) {
+    padding: var(--spacing-sm) var(--spacing-md);
+  }
+`;
+
+export const MigrationNoticeText = styled.p`
+  color: var(--color-primary);
+  font-size: var(--font-size-sm);
+  line-height: 1.4;
+  margin: 0;
+`;
+
+export const MigrationNoticeDismiss = styled.button`
+  flex-shrink: 0;
+  min-height: 44px;
+  min-width: 44px;
+  border-radius: 50%;
+  color: var(--color-secondary);
+  font-size: var(--font-size-base);
+
+  &:hover {
+    color: var(--color-primary);
+  }
+`;
+
 export const StepHeader = styled.div`
   display: flex;
   justify-content: space-between;
@@ -298,15 +335,24 @@ const ButtonBase = styled.button`
 `;
 
 export const CompleteButton = styled(ButtonBase)`
-  background: var(--color-actived);
+  /* #047857 fijo (no var(--color-actived)) — mismo patrón que HomeLink en
+     NoMatch.js (PR1). En modo oscuro el token cambia a #34d399 (necesario
+     para texto legible sobre --body-card), y texto blanco sobre #34d399
+     mide solo 1.92:1, muy por debajo de AA. Texto blanco sobre #047857 =
+     5.48:1 y no varía por color-scheme. Carried as a known follow-up risk
+     through PR1/PR2/PR3/PR4a/PR4b, fixed here in PR5a — R6.1. */
+  background: #047857;
   color: white;
 
   &:hover {
-    background: var(--color-success);
+    /* #065f46 fijo, mismo motivo: var(--color-success) (#16a34a) con texto
+       blanco mide solo 3.30:1 y falla AA; #065f46 con texto blanco = 7.68:1
+       y no varía por color-scheme. */
+    background: #065f46;
   }
 
   &:focus {
-    outline-color: var(--color-actived);
+    outline-color: #047857;
   }
 `;
 

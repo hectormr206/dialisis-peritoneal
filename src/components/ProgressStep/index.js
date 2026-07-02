@@ -1,6 +1,9 @@
 import React, { useState, useEffect } from "react";
 import {
   ProgressContainer,
+  MigrationNotice,
+  MigrationNoticeText,
+  MigrationNoticeDismiss,
   StepCard,
   StepHeader,
   StepNumber,
@@ -20,31 +23,64 @@ import {
   ConfirmButton,
   CancelButton,
 } from "./styles";
+import { StepBody } from "../StepBody";
+import { loadProgress, saveProgress } from "../../utils/progressStorage";
 
 export const ProgressStep = ({
   steps,
   pageId,
   title = "Lista de verificación",
 }) => {
-  const [currentStep, setCurrentStep] = useState(0);
-  const [completedSteps, setCompletedSteps] = useState(new Set());
+  // Dual-mode step identity (R3.4, gate-review item #2): schema-based steps
+  // already carry a stable `id` (see src/content/). The `step.id ?? index`
+  // fallback below exists so any step array WITHOUT an `id` field (e.g. a
+  // hand-authored/legacy shape) still renders and persists progress via the
+  // same ID-based path instead of throwing.
+  //
+  // As of PR4b (accessible-redesign), all 3 procedure pages (GeneralCleaning,
+  // WoundHealing, WaterRecycling) are migrated to the content schema and
+  // always pass steps with real `id`s — there is no first-party consumer of
+  // this fallback anymore. Kept intentionally as defensive code for
+  // corrupt/unknown data rather than removed; do not delete the "legacy
+  // (index-fallback) mode" test coverage in __tests__/ProgressStep.test.js
+  // that exercises this path.
+  const normalizedSteps = steps.map((step, index) => ({
+    ...step,
+    id: step.id ?? String(index),
+  }));
+
+  const procedure = { id: pageId, steps: normalizedSteps };
+
+  const [currentId, setCurrentId] = useState(normalizedSteps[0]?.id);
+  const [completedIds, setCompletedIds] = useState(new Set());
   const [allCompleted, setAllCompleted] = useState(false);
   const [showConfirmReset, setShowConfirmReset] = useState(false);
+  const [migrationNotice, setMigrationNotice] = useState(false);
 
-  // Cargar progreso desde localStorage
+  // Cargar progreso desde localStorage (versioned v2, with legacy migration
+  // and append/reorder reconciliation — R2.3, R3.4)
   useEffect(() => {
-    const savedProgress = localStorage.getItem(`progress-${pageId}`);
-    if (savedProgress) {
-      try {
-        const { completed, current } = JSON.parse(savedProgress);
-        setCompletedSteps(new Set(completed));
-        setCurrentStep(current);
-        setAllCompleted(completed.length === steps.length);
-      } catch (error) {
-        console.error("Error cargando progreso:", error);
-      }
+    const result = loadProgress(procedure);
+    const completed = new Set(result.completedIds);
+
+    setCompletedIds(completed);
+    setCurrentId(result.currentId || normalizedSteps[0]?.id);
+    setAllCompleted(
+      normalizedSteps.length > 0 && completed.size === normalizedSteps.length
+    );
+
+    if (result.migrated === "reset") {
+      setMigrationNotice(true);
+      // Persist the reset immediately so the notice only ever shows once —
+      // the next load will see a v2 record whose stepIds already match the
+      // current schema and won't detect a mismatch again.
+      saveProgress(procedure, {
+        completedIds: [],
+        currentId: normalizedSteps[0]?.id,
+      });
     }
-  }, [pageId, steps.length]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [pageId, normalizedSteps.length]);
 
   // Scroll automático al cambiar de paso
   useEffect(() => {
@@ -58,38 +94,32 @@ export const ProgressStep = ({
     // Pequeño delay para que el contenido se renderice
     const timer = setTimeout(scrollToTop, 100);
     return () => clearTimeout(timer);
-  }, [currentStep]);
+  }, [currentId]);
 
-  // Guardar progreso en localStorage
-  const saveProgress = (completed, current) => {
-    localStorage.setItem(
-      `progress-${pageId}`,
-      JSON.stringify({
-        completed: Array.from(completed),
-        current: current,
-        timestamp: Date.now(),
-      })
-    );
-  };
+  const currentIndex = normalizedSteps.findIndex(
+    (step) => step.id === currentId
+  );
+  const activeIndex = currentIndex === -1 ? 0 : currentIndex;
+  const currentStep = normalizedSteps[activeIndex];
 
   // Marcar paso como completado
-  const completeStep = (stepIndex) => {
-    const newCompleted = new Set(completedSteps);
-    newCompleted.add(stepIndex);
-    setCompletedSteps(newCompleted);
+  const completeStep = (stepId) => {
+    const newCompleted = new Set(completedIds);
+    newCompleted.add(stepId);
+    setCompletedIds(newCompleted);
 
     // 🎯 Plausible Event: Paso completado
     if (window.plausible) {
       window.plausible("Paso Completado", {
         props: {
           procedimiento: pageId,
-          paso: stepIndex + 1,
-          total_pasos: steps.length,
+          paso: activeIndex + 1,
+          total_pasos: normalizedSteps.length,
         },
       });
     }
 
-    if (newCompleted.size === steps.length) {
+    if (newCompleted.size === normalizedSteps.length) {
       setAllCompleted(true);
 
       // 🎯 Plausible Event: Procedimiento completado
@@ -100,15 +130,15 @@ export const ProgressStep = ({
       }
     }
 
-    saveProgress(newCompleted, currentStep);
+    saveProgress(procedure, { completedIds: newCompleted, currentId });
   };
 
   // Ir al siguiente paso
   const goToNextStep = () => {
-    if (currentStep < steps.length - 1) {
-      const nextStep = currentStep + 1;
-      setCurrentStep(nextStep);
-      saveProgress(completedSteps, nextStep);
+    if (activeIndex < normalizedSteps.length - 1) {
+      const nextId = normalizedSteps[activeIndex + 1].id;
+      setCurrentId(nextId);
+      saveProgress(procedure, { completedIds, currentId: nextId });
     }
   };
 
@@ -124,16 +154,17 @@ export const ProgressStep = ({
       window.plausible("Proceso Reiniciado", {
         props: {
           procedimiento: pageId,
-          progreso_previo: completedSteps.size,
+          progreso_previo: completedIds.size,
         },
       });
     }
 
-    setCompletedSteps(new Set());
-    setCurrentStep(0);
+    const firstStepId = normalizedSteps[0]?.id;
+    setCompletedIds(new Set());
+    setCurrentId(firstStepId);
     setAllCompleted(false);
-    localStorage.removeItem(`progress-${pageId}`);
     setShowConfirmReset(false);
+    saveProgress(procedure, { completedIds: [], currentId: firstStepId });
 
     // Scroll al inicio
     window.scrollTo({
@@ -147,10 +178,31 @@ export const ProgressStep = ({
     setShowConfirmReset(false);
   };
 
-  const progressPercentage = (completedSteps.size / steps.length) * 100;
+  const dismissMigrationNotice = () => {
+    setMigrationNotice(false);
+  };
+
+  const progressPercentage =
+    normalizedSteps.length > 0
+      ? (completedIds.size / normalizedSteps.length) * 100
+      : 0;
 
   return (
     <ProgressContainer>
+      {migrationNotice && (
+        <MigrationNotice role="status">
+          <MigrationNoticeText>
+            Actualizamos esta guía; tu progreso en esta sección se reinició.
+          </MigrationNoticeText>
+          <MigrationNoticeDismiss
+            onClick={dismissMigrationNotice}
+            aria-label="Cerrar aviso"
+          >
+            ✕
+          </MigrationNoticeDismiss>
+        </MigrationNotice>
+      )}
+
       <StepHeader>
         <div>
           <StepTitle>{title}</StepTitle>
@@ -158,13 +210,13 @@ export const ProgressStep = ({
             <ProgressFill percentage={progressPercentage} />
           </ProgressBar>
           <div>
-            {completedSteps.size} de {steps.length} pasos completados (
-            {Math.round(progressPercentage)}%)
+            {completedIds.size} de {normalizedSteps.length} pasos completados
+            ({Math.round(progressPercentage)}%)
           </div>
         </div>
 
         {/* Botón reiniciar solo si hay progreso */}
-        {(completedSteps.size > 0 || currentStep > 0) && (
+        {(completedIds.size > 0 || activeIndex > 0) && (
           <HeaderActions>
             <ResetButton
               onClick={handleResetClick}
@@ -178,18 +230,16 @@ export const ProgressStep = ({
       </StepHeader>
 
       {/* Mostrar solo el paso actual */}
-      {!allCompleted && (
+      {!allCompleted && currentStep && (
         <StepCard isActive={true} isCompleted={false} isFullScreen={true}>
           <StepNumber isCompleted={false} isActive={true}>
-            {currentStep + 1}
+            {activeIndex + 1}
           </StepNumber>
 
           <StepContent>
-            <h3>{steps[currentStep].title}</h3>
-            <p>{steps[currentStep].description}</p>
-            {steps[currentStep].content && (
-              <div>{steps[currentStep].content}</div>
-            )}
+            <h3>{currentStep.title}</h3>
+            <p>{currentStep.description}</p>
+            <StepBody step={currentStep} />
           </StepContent>
         </StepCard>
       )}
@@ -206,7 +256,7 @@ export const ProgressStep = ({
       )}
 
       {/* Resumen de pasos completados (opcional, colapsado) */}
-      {completedSteps.size > 0 && !allCompleted && (
+      {completedIds.size > 0 && !allCompleted && (
         <details
           style={{
             marginTop: "var(--spacing-md)",
@@ -222,20 +272,21 @@ export const ProgressStep = ({
               color: "var(--color-secondary)",
             }}
           >
-            📋 Ver pasos completados ({completedSteps.size})
+            📋 Ver pasos completados ({completedIds.size})
           </summary>
-          {Array.from(completedSteps)
-            .sort((a, b) => a - b)
-            .map((stepIndex) => (
+          {normalizedSteps
+            .map((step, index) => ({ step, index }))
+            .filter(({ step }) => completedIds.has(step.id))
+            .map(({ step, index }) => (
               <div
-                key={stepIndex}
+                key={step.id}
                 style={{
                   padding: "var(--spacing-xs)",
                   fontSize: "var(--font-size-sm)",
                   color: "var(--color-secondary)",
                 }}
               >
-                ✅ {stepIndex + 1}. {steps[stepIndex].title}
+                ✅ {index + 1}. {step.title}
               </div>
             ))}
         </details>
@@ -243,11 +294,11 @@ export const ProgressStep = ({
 
       {/* Botón fijo con lógica correcta */}
       <StepActions>
-        {!allCompleted && !completedSteps.has(currentStep) && (
+        {!allCompleted && currentStep && !completedIds.has(currentId) && (
           <CompleteButton
-            onClick={() => completeStep(currentStep)}
+            onClick={() => completeStep(currentId)}
             aria-label={`Marcar como completado: ${
-              steps[currentStep] ? steps[currentStep].title : "paso actual"
+              currentStep ? currentStep.title : "paso actual"
             }`}
           >
             ✓ Completar paso
@@ -255,8 +306,9 @@ export const ProgressStep = ({
         )}
 
         {!allCompleted &&
-          completedSteps.has(currentStep) &&
-          currentStep < steps.length - 1 && (
+          currentStep &&
+          completedIds.has(currentId) &&
+          activeIndex < normalizedSteps.length - 1 && (
             <NextButton
               onClick={goToNextStep}
               aria-label="Ir al siguiente paso"

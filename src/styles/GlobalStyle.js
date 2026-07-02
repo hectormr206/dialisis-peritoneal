@@ -16,6 +16,18 @@ export const GlobalStyle = createGlobalStyle`
     --color-accent: #3b82f6;
     --color-warning: #dc2626;
     --color-success: #16a34a;
+    /* Tokens for UrgentWarningCallout (R4.4, R6.1) — a tinted-background
+       treatment, deliberately different from the accent-left-border
+       "informational callout" pattern (e.g. MigrationNotice) so the two
+       are visually distinct, not just differently colored. Both pairs
+       measured with the WCAG relative-luminance formula (same method used
+       for the PR5a nav-label/CompleteButton measurements):
+       #991b1b sobre #fee2e2 (urgent) = 6.80:1; #92400e sobre #fef3c7
+       (caution) = 6.37:1 — ambos superan AA (4.5:1) con margen. */
+    --color-urgent: #991b1b;
+    --color-urgent-bg: #fee2e2;
+    --color-caution: #92400e;
+    --color-caution-bg: #fef3c7;
     --border-color: #e2e8f0;
     --shadow-light: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     --shadow-medium: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
@@ -38,7 +50,11 @@ export const GlobalStyle = createGlobalStyle`
     
     /* Dimensiones responsive */
     --header-height: clamp(60px, 15vw, 80px);
-    --footer-height: clamp(60px, 15vw, 80px);
+    /* Piso subido de 60px a 64px (PR5a): la barra de navegación ahora
+       muestra etiquetas de texto visibles bajo cada ícono (antes eran
+       sr-only), y necesita espacio vertical extra para 2 líneas de texto
+       sin recortar contenido — R4.2, R6.3. */
+    --footer-height: clamp(64px, 16vw, 84px);
     --border-radius: 0.5rem;
     --max-width-container: 1200px;
   }
@@ -214,6 +230,17 @@ export const GlobalStyle = createGlobalStyle`
          sobre #1e293b = 7.61:1 y sobre --body-background #0f172a = 9.29:1,
          ambos cumplen AA (mínimo 4.5:1) con margen. */
       --color-actived: #34d399;
+      /* Dark-mode variants for the urgent/caution callout tokens (R6.1) —
+         light text on a dark tinted background instead of dark text on a
+         light one. Measured: #fca5a5 sobre #450a0a (urgent) = 8.51:1;
+         #fcd34d sobre #451a03 (caution) = 10.39:1 — ambos superan AA con
+         mucho margen. Also verified against --body-card (#1e293b), in case
+         a component reuses these tokens outside the tinted-bg box: urgent
+         7.71:1, caution 10.15:1 — still AA-compliant either way. */
+      --color-urgent: #fca5a5;
+      --color-urgent-bg: #450a0a;
+      --color-caution: #fcd34d;
+      --color-caution-bg: #451a03;
     }
   }
 
