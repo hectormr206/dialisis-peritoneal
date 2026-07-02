@@ -114,9 +114,15 @@ export const CardComponent = styled.div`
     }
   }
 
-  /* Botones dentro de cards */
+  /* Botones dentro de cards. Actualmente sin uso real (ningún <button>
+     se renderiza hoy dentro de un Card), pero se corrige el mismo patrón
+     de fondo/texto que el resto de la app para que un futuro botón
+     agregado aquí no reintroduzca la falla de contraste AA. */
   button {
-    background: var(--color-accent);
+    /* #1d4ed8 (no var(--color-accent)) porque texto blanco sobre
+       var(--color-accent) mide solo 3.68:1 y falla WCAG AA. Texto blanco
+       sobre #1d4ed8 = 6.70:1, cumple AA (mínimo 4.5:1). */
+    background: #1d4ed8;
     color: white;
     padding: var(--spacing-sm) var(--spacing-lg);
     border-radius: var(--border-radius);
@@ -124,7 +130,11 @@ export const CardComponent = styled.div`
     transition: background 0.2s ease;
 
     &:hover {
-      background: var(--color-actived);
+      /* #047857 fijo (no var(--color-actived)): en modo oscuro el token
+         cambia a #34d399, cuyo contraste con texto blanco (1.92:1) falla
+         AA. #047857 con texto blanco = 5.48:1 y no varía por
+         color-scheme — mismo patrón que HomeLink/CompleteButton. */
+      background: #047857;
     }
 
     &:focus-visible {

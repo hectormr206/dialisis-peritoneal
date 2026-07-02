@@ -160,12 +160,16 @@ export const StepNumber = styled.div`
   font-size: var(--font-size-lg);
   flex-shrink: 0;
 
+  /* isActive usa #1d4ed8 fijo (no var(--color-accent)): texto blanco
+     sobre var(--color-accent) mide solo 3.68:1 y falla WCAG AA; sobre
+     #1d4ed8 mide 6.70:1 y cumple AA (mínimo 4.5:1) — mismo patrón que
+     HomeLink/NextButton/skip-link. */
   background: ${(props) =>
     props.isCompleted
-      ? "var(--color-actived)"
+      ? 'var(--color-actived)'
       : props.isActive
-      ? "var(--color-accent)"
-      : "var(--color-secondary)"};
+      ? '#1d4ed8'
+      : 'var(--color-secondary)'};
 
   color: white;
   transition: all 0.3s ease;
@@ -357,7 +361,11 @@ export const CompleteButton = styled(ButtonBase)`
 `;
 
 export const NextButton = styled(ButtonBase)`
-  background: var(--color-accent);
+  /* #1d4ed8 (no var(--color-accent)) — mismo patrón que HomeLink en
+     NoMatch.js y el skip-link: texto blanco sobre var(--color-accent)
+     mide solo 3.68:1 y falla WCAG AA; sobre #1d4ed8 mide 6.70:1 y
+     cumple AA (mínimo 4.5:1). */
+  background: #1d4ed8;
   color: white;
 
   &:hover {
@@ -365,7 +373,7 @@ export const NextButton = styled(ButtonBase)`
   }
 
   &:focus {
-    outline-color: var(--color-accent);
+    outline-color: #1d4ed8;
   }
 `;
 

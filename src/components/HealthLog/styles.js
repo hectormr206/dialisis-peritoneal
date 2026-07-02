@@ -62,13 +62,21 @@ export const SaveButton = styled.button`
   min-height: 48px;
   padding: var(--spacing-sm) var(--spacing-xl);
   border-radius: var(--border-radius);
-  background: var(--color-accent);
+  /* #1d4ed8 (no var(--color-accent)) porque texto blanco sobre
+     var(--color-accent) mide solo 3.68:1 y falla WCAG AA. Texto blanco
+     sobre #1d4ed8 = 6.70:1, cumple AA (mínimo 4.5:1) — mismo patrón que
+     HomeLink en NoMatch.js y el skip-link. */
+  background: #1d4ed8;
   color: white;
   font-weight: 600;
   font-size: var(--font-size-base);
 
   &:hover {
-    background: var(--color-primary);
+    /* #047857 fijo (no var(--color-actived)) — mismo motivo que
+       CompleteButton/HomeLink: en modo oscuro el token cambia a #34d399,
+       cuyo contraste con texto blanco (1.92:1) falla AA. #047857 con texto
+       blanco = 5.48:1 y no varía por color-scheme. */
+    background: #047857;
   }
 
   @media (max-width: 480px) {
