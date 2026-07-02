@@ -136,6 +136,9 @@ module.exports = (env, argv) => {
     output: {
       path: path.resolve(__dirname, 'dist'),
       filename: '[name].[contenthash].js',
+      // Absolute asset URLs so nested SPA routes (/cuidados/higiene) resolve
+      // scripts from the root instead of the current path segment
+      publicPath: '/',
       clean: true
     },
     devServer: {
