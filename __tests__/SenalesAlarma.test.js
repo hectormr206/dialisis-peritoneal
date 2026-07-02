@@ -1,13 +1,16 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import { RouteList } from '../src/routes/RouteList'
 
 const renderSenalesAlarma = () =>
   render(
-    <MemoryRouter initialEntries={['/cuidados/senales-de-alarma']}>
-      <RouteList />
-    </MemoryRouter>
+    <HelmetProvider>
+      <MemoryRouter initialEntries={['/cuidados/senales-de-alarma']}>
+        <RouteList />
+      </MemoryRouter>
+    </HelmetProvider>
   )
 
 // SenalesAlarma: real content page at /cuidados/senales-de-alarma (PR7) —

@@ -1,13 +1,16 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import { RouteList } from '../src/routes/RouteList'
 
 const renderLiquidos = () =>
   render(
-    <MemoryRouter initialEntries={['/alimentacion/liquidos']}>
-      <RouteList />
-    </MemoryRouter>
+    <HelmetProvider>
+      <MemoryRouter initialEntries={['/alimentacion/liquidos']}>
+        <RouteList />
+      </MemoryRouter>
+    </HelmetProvider>
   )
 
 // A fluid-volume number would violate R5.5's hard rule for this page (no

@@ -1,13 +1,16 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import { RouteList } from '../src/routes/RouteList'
 
 const renderHigiene = () =>
   render(
-    <MemoryRouter initialEntries={['/cuidados/higiene']}>
-      <RouteList />
-    </MemoryRouter>
+    <HelmetProvider>
+      <MemoryRouter initialEntries={['/cuidados/higiene']}>
+        <RouteList />
+      </MemoryRouter>
+    </HelmetProvider>
   )
 
 // Higiene: real content page at /cuidados/higiene (PR6) — R5.1, R5.7.

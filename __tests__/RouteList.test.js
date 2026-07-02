@@ -1,13 +1,16 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import { RouteList } from '../src/routes/RouteList'
 
 const renderAt = (path) =>
   render(
-    <MemoryRouter initialEntries={[path]}>
-      <RouteList />
-    </MemoryRouter>
+    <HelmetProvider>
+      <MemoryRouter initialEntries={[path]}>
+        <RouteList />
+      </MemoryRouter>
+    </HelmetProvider>
   )
 
 // Every route in this suite renders through Layout, whose <main id="main-content">

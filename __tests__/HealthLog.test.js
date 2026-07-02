@@ -2,14 +2,17 @@ import React from 'react'
 import { render, screen, within } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import { MemoryRouter } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import { RouteList } from '../src/routes/RouteList'
 import { STORAGE_KEY } from '../src/utils/healthLog'
 
 const renderRegistro = () =>
   render(
-    <MemoryRouter initialEntries={['/registro']}>
-      <RouteList />
-    </MemoryRouter>
+    <HelmetProvider>
+      <MemoryRouter initialEntries={['/registro']}>
+        <RouteList />
+      </MemoryRouter>
+    </HelmetProvider>
   )
 
 const seedEntries = (entries) => {

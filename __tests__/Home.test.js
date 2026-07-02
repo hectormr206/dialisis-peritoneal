@@ -1,13 +1,16 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
 import { MemoryRouter } from 'react-router-dom'
+import { HelmetProvider } from 'react-helmet-async'
 import { Home } from '../src/pages/Home'
 
 const renderHome = () =>
   render(
-    <MemoryRouter>
-      <Home />
-    </MemoryRouter>
+    <HelmetProvider>
+      <MemoryRouter>
+        <Home />
+      </MemoryRouter>
+    </HelmetProvider>
   )
 
 // Home becomes a hub with 3 distinct grouped sections; daily schedules stay
