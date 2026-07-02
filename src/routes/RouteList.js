@@ -8,6 +8,7 @@ import { ProcedimientosIndex } from '../pages/ProcedimientosIndex'
 import { CuidadosIndex } from '../pages/CuidadosIndex'
 import { AlimentacionIndex } from '../pages/AlimentacionIndex'
 import { Higiene } from '../pages/Higiene'
+import { SenalesAlarma } from '../pages/SenalesAlarma'
 import { TopicComingSoon } from '../pages/TopicComingSoon'
 import { NoMatch } from '../pages/NoMatch'
 
@@ -27,15 +28,7 @@ export const RouteList = () => (
 
     <Route path='/cuidados' element={<CuidadosIndex />} />
     <Route path='/cuidados/higiene' element={<Higiene />} />
-    <Route
-      path='/cuidados/senales-de-alarma'
-      element={
-        <TopicComingSoon
-          title='Señales de alarma'
-          description='Qué observar y cuándo buscar ayuda.'
-        />
-      }
-    />
+    <Route path='/cuidados/senales-de-alarma' element={<SenalesAlarma />} />
 
     <Route path='/alimentacion' element={<AlimentacionIndex />} />
     <Route

@@ -41,7 +41,6 @@ describe('RouteList', () => {
   })
 
   it.each([
-    '/cuidados/senales-de-alarma',
     '/alimentacion/liquidos',
     '/alimentacion/nutricion'
   ])('renders the topic placeholder at %s under Layout', (path) => {
@@ -55,6 +54,15 @@ describe('RouteList', () => {
     expect(screen.getByRole('main')).toBeInTheDocument()
     expect(
       screen.getByRole('heading', { name: 'Higiene', level: 1 })
+    ).toBeInTheDocument()
+    expect(screen.queryByText(/preparando esta guía/)).not.toBeInTheDocument()
+  })
+
+  it('renders the real Señales de alarma content page at /cuidados/senales-de-alarma under Layout', () => {
+    renderAt('/cuidados/senales-de-alarma')
+    expect(screen.getByRole('main')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: 'Señales de alarma', level: 1 })
     ).toBeInTheDocument()
     expect(screen.queryByText(/preparando esta guía/)).not.toBeInTheDocument()
   })
