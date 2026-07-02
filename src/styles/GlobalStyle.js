@@ -155,6 +155,20 @@ export const GlobalStyle = createGlobalStyle`
     overflow-x: hidden;
     display: flex;
     flex-direction: column;
+    /* Establishes #app as the containing block for every position: absolute
+       descendant that has no closer positioned ancestor (skip-link, the
+       sr-only thead in EscalationTable's mobile reflow, etc.). Without
+       this, those elements resolve their containing block to the true
+       document root instead of #app: containing-block resolution follows
+       the position property, not overflow, so #app's overflow-x: hidden
+       (which computes overflow-y: auto per the CSS Overflow spec's
+       one-axis-visible interop rule) does NOT scope them, and their layout
+       box leaks past #app's own clipped/scrolled height straight into
+       document.documentElement.scrollHeight, reproduced on
+       /cuidados/senales-de-alarma at narrow widths, where the reflowed
+       table hid its thead via the sr-only pattern and it silently added
+       ~500px of invisible phantom height below the visible page. */
+    position: relative;
   }
 
   /* Utilidades para accesibilidad */
@@ -170,11 +184,19 @@ export const GlobalStyle = createGlobalStyle`
     border: 0;
   }
 
-  /* Skip link para navegación por teclado */
+  /* Skip link para navegación por teclado. position: fixed (no absolute)
+     a propósito: su containing block queda siempre anclado al viewport
+     sin importar la cadena de ancestros (evita el bug de phantom-height
+     documentado sobre #app sin depender de que #app tenga
+     position: relative). transform: translateY(-200%) lo saca de la
+     pantalla en vez de un top negativo: no depende de ningún alto fijo
+     ni se ve afectado por scroll/overflow de ancestros, y sigue siendo el
+     primer elemento enfocable del documento con Tab. */
   .skip-link {
-    position: absolute;
-    top: -40px;
+    position: fixed;
+    top: 0;
     left: 6px;
+    transform: translateY(-200%);
     /* #1d4ed8 (no var(--color-accent)) sobre blanco de fondo: texto blanco
        sobre #1d4ed8 = 6.70:1, cumple WCAG AA (mínimo 4.5:1). Usar
        var(--color-accent) aquí daría solo 3.68:1 y fallaría AA. */
@@ -185,9 +207,13 @@ export const GlobalStyle = createGlobalStyle`
     z-index: 9999;
     border-radius: 4px;
     font-weight: 600;
+    transition: transform 0.15s ease;
 
-    &:focus {
-      top: 6px;
+    &:focus,
+    &:focus-visible {
+      transform: translateY(6px);
+      outline: 2px solid white;
+      outline-offset: 2px;
     }
   }
 
