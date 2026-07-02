@@ -32,10 +32,18 @@ export const ProgressStep = ({
   title = "Lista de verificación",
 }) => {
   // Dual-mode step identity (R3.4, gate-review item #2): schema-based steps
-  // already carry a stable `id` (see src/content/); legacy pages
-  // (WoundHealing, WaterRecycling) don't migrate until PR4 and have no
-  // `id` field — fall back to the array index so both keep working through
-  // the same ID-based rendering/persistence path.
+  // already carry a stable `id` (see src/content/). The `step.id ?? index`
+  // fallback below exists so any step array WITHOUT an `id` field (e.g. a
+  // hand-authored/legacy shape) still renders and persists progress via the
+  // same ID-based path instead of throwing.
+  //
+  // As of PR4b (accessible-redesign), all 3 procedure pages (GeneralCleaning,
+  // WoundHealing, WaterRecycling) are migrated to the content schema and
+  // always pass steps with real `id`s — there is no first-party consumer of
+  // this fallback anymore. Kept intentionally as defensive code for
+  // corrupt/unknown data rather than removed; do not delete the "legacy
+  // (index-fallback) mode" test coverage in __tests__/ProgressStep.test.js
+  // that exercises this path.
   const normalizedSteps = steps.map((step, index) => ({
     ...step,
     id: step.id ?? String(index),
