@@ -41,7 +41,6 @@ describe('RouteList', () => {
   })
 
   it.each([
-    '/alimentacion/liquidos',
     '/alimentacion/nutricion'
   ])('renders the topic placeholder at %s under Layout', (path) => {
     renderAt(path)
@@ -63,6 +62,15 @@ describe('RouteList', () => {
     expect(screen.getByRole('main')).toBeInTheDocument()
     expect(
       screen.getByRole('heading', { name: 'Señales de alarma', level: 1 })
+    ).toBeInTheDocument()
+    expect(screen.queryByText(/preparando esta guía/)).not.toBeInTheDocument()
+  })
+
+  it('renders the real Líquidos content page at /alimentacion/liquidos under Layout', () => {
+    renderAt('/alimentacion/liquidos')
+    expect(screen.getByRole('main')).toBeInTheDocument()
+    expect(
+      screen.getByRole('heading', { name: 'Líquidos', level: 1 })
     ).toBeInTheDocument()
     expect(screen.queryByText(/preparando esta guía/)).not.toBeInTheDocument()
   })

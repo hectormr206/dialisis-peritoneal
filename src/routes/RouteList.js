@@ -9,6 +9,7 @@ import { CuidadosIndex } from '../pages/CuidadosIndex'
 import { AlimentacionIndex } from '../pages/AlimentacionIndex'
 import { Higiene } from '../pages/Higiene'
 import { SenalesAlarma } from '../pages/SenalesAlarma'
+import { Liquidos } from '../pages/Liquidos'
 import { TopicComingSoon } from '../pages/TopicComingSoon'
 import { NoMatch } from '../pages/NoMatch'
 
@@ -31,15 +32,7 @@ export const RouteList = () => (
     <Route path='/cuidados/senales-de-alarma' element={<SenalesAlarma />} />
 
     <Route path='/alimentacion' element={<AlimentacionIndex />} />
-    <Route
-      path='/alimentacion/liquidos'
-      element={
-        <TopicComingSoon
-          title='Líquidos'
-          description='Qué tomar en cuenta sobre líquidos e ingresos.'
-        />
-      }
-    />
+    <Route path='/alimentacion/liquidos' element={<Liquidos />} />
     <Route
       path='/alimentacion/nutricion'
       element={
