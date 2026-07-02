@@ -41,10 +41,15 @@ module.exports = (env, argv) => {
       // icons) when building the precache manifest.
       //
       // Caching strategy:
-      // - Precache: JS/CSS bundles + index.html + manifest/icons (the app
-      //   shell). Poster images are small enough to be inlined as base64 by
-      //   url-loader (see the asset rule below, limit: 90000) so they ride
-      //   along inside the precached JS — no separate poster entries needed.
+      // - Precache: JS/CSS bundles + index.html + manifest/icons + every
+      //   step poster .jpg (the app shell). Posters used to be inlined as
+      //   base64 by url-loader, which bloated entry.[contenthash].js to
+      //   ~2.13 MiB; the asset rule below now emits them as real files
+      //   (see the module rule's `type: 'asset'` + 4 KiB inline threshold),
+      //   so GenerateSW picks each one up as its own precache entry
+      //   instead — smaller entry bundle to parse on first load, and the
+      //   precache manifest total actually shrank too (no more base64
+      //   overhead) even with 47 extra poster entries.
       // - Runtime, CacheFirst: step videos (`.webm`). These are large
       //   (hundreds of KB to a few MB each) and excluded from precache so
       //   installing the app doesn't force-download every video up front;
@@ -65,10 +70,14 @@ module.exports = (env, argv) => {
         clientsClaim: true,
         skipWaiting: true,
         cleanupOutdatedCaches: true,
-        // entry.[contenthash].js grows past the 2 MiB default cap because
-        // small poster images are inlined into it as base64; raise the cap
-        // instead of excluding the app's own entry bundle from precache.
-        maximumFileSizeToCacheInBytes: 5 * 1024 * 1024,
+        // Posters no longer ride inside entry.[contenthash].js (now a real
+        // file emitted per image, see the asset rule below), so nothing in
+        // the precache set is anywhere near Workbox's 2 MiB default anymore
+        // — the largest entry is vendors.js at ~220 KiB. Kept above the
+        // default (2.5 MiB, not 5 MiB) as a small safety margin for future
+        // dependency/content growth rather than tuning it to today's exact
+        // sizes.
+        maximumFileSizeToCacheInBytes: 2.5 * 1024 * 1024,
         exclude: [
           /\.map$/,
           /^manifest.*\.js$/,
@@ -199,11 +208,21 @@ module.exports = (env, argv) => {
           ]
         },
         {
+          // Webpack 5 Asset Modules replace url-loader here. Previously
+          // every file matching this rule (including every step poster
+          // .jpg, none of which exceeds ~44 KiB) was inlined as base64
+          // under a 90000-byte limit, which is why entry.[contenthash].js
+          // ballooned to ~2.13 MiB — a slow parse on the low-end/older
+          // phones this app targets. `maxSize: 4096` keeps genuinely tiny
+          // assets (small icons/SVGs) inlined to avoid an extra request,
+          // while every poster and video now emits as a real, separately
+          // cacheable file under dist/ (and gets its own Workbox precache
+          // entry instead of riding along inside the JS bundle).
           test: /\.jpg|png|gif|woff|eot|ttf|svg|mp4|webm$/,
-          use: {
-            loader: 'url-loader',
-            options: {
-              limit: 90000
+          type: 'asset',
+          parser: {
+            dataUrlCondition: {
+              maxSize: 4 * 1024
             }
           }
         }
