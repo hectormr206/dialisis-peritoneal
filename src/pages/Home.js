@@ -204,10 +204,22 @@ export const Home = () => {
               </p>
               <ul role="list">
                 <li>
-                  <span>👩‍⚕️ Celia García Mateo</span>
+                  <a
+                    href="https://hectormr.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span aria-hidden="true">👩‍⚕️</span> Celia García Mateo
+                  </a>
                 </li>
                 <li>
-                  <span>👨‍💻 Héctor Martínez Reséndiz</span>
+                  <a
+                    href="https://hectormr.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <span aria-hidden="true">👨‍💻</span> Héctor Martínez Reséndiz
+                  </a>
                 </li>
               </ul>
             </address>
