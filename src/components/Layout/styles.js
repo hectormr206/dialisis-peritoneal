@@ -1,4 +1,19 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
+
+// Identidad de color por sección aplicada al h1 de cada página — mismos
+// tokens que Card/CardLink usan (ver GlobalStyle.js). Opcional: sin
+// section, el título se ve como siempre (--color-primary).
+const sectionTitleStyles = {
+  procedimientos: css`
+    color: var(--section-procedimientos-accent);
+  `,
+  cuidados: css`
+    color: var(--section-cuidados-accent);
+  `,
+  comida: css`
+    color: var(--section-comida-accent);
+  `
+}
 
 export const Content = styled.main`
   min-height: calc(100vh - var(--header-height) - var(--footer-height));
@@ -78,9 +93,5 @@ export const Title = styled.h1`
   /* Efectos de texto para mejor legibilidad */
   text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
 
-  /* Modo oscuro */
-  @media (prefers-color-scheme: dark) {
-    color: var(--color-primary);
-    text-shadow: 0 1px 2px rgba(255, 255, 255, 0.1);
-  }
+  ${(props) => props.$section && sectionTitleStyles[props.$section]}
 `;

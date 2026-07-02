@@ -4,14 +4,17 @@ import { Header } from "../Header";
 import { Content, Title } from "./styles";
 import { Footer } from "../Footer";
 
-export const Layout = ({ children, title, description }) => {
+// section: 'procedimientos' | 'cuidados' | 'comida' — opcional, tiñe el
+// header y el h1 de la página con la identidad de color del grupo al que
+// pertenece (R "más color" del dueño del producto).
+export const Layout = ({ children, title, description, section }) => {
   return (
     <>
       <Helmet>
         {title && <title>{title} | Diálisis peritoneal</title>}
         {description && <meta name="description" content={description} />}
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <meta name="theme-color" content="#3b82f6" />
+        <meta name="theme-color" content="#1d4ed8" />
         <meta name="robots" content="index, follow" />
         <meta
           name="author"
@@ -34,9 +37,9 @@ export const Layout = ({ children, title, description }) => {
         />
       </Helmet>
 
-      <Header role="banner">
+      <Header role="banner" section={section}>
         {title && (
-          <Title id="page-title" tabIndex="-1">
+          <Title id="page-title" tabIndex="-1" $section={section}>
             {title}
           </Title>
         )}
