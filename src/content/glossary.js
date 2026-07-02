@@ -1,8 +1,9 @@
 // glossary: clinical/brand term definitions for the tap-to-expand glossary
 // primitive (R4.3). Seed entries added in PR3 (exsept, mupirocina); expanded
 // in PR5b (heparina, peritonitis) alongside the TermTooltip component itself.
-// PR6 adds sitioSalida/cateter/clorhexidina for the hygiene deep-dive page —
-// populated further as PR7-9 add their own real medical-content pages.
+// PR6 adds sitioSalida/cateter/clorhexidina for the hygiene deep-dive page.
+// PR7 adds efluente/hiporexia for the warning-signs + escalation page —
+// populated further as PR8-9 add their own real medical-content pages.
 //
 // Shape: { [termKey]: { term, plainDefinition } }
 
@@ -41,5 +42,14 @@ export const glossary = {
     term: 'Clorhexidina',
     plainDefinition:
       'Un antiséptico (un líquido que ayuda a evitar infecciones) que se usa para limpiar el sitio de salida de tu catéter. Tu clínica te indica cómo y cuándo usarlo.'
+  },
+  efluente: {
+    term: 'Efluente (líquido turbio)',
+    plainDefinition:
+      'El líquido de diálisis que sale de tu abdomen después de un intercambio. Si sale turbio (nublado) o de un color distinto al habitual, puede ser señal de peritonitis. No esperes: llama a tu clínica de inmediato.'
+  },
+  hiporexia: {
+    term: 'Hiporexia',
+    plainDefinition: 'Tener poco apetito o ganas de comer.'
   }
 }
