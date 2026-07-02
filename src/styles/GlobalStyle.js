@@ -209,6 +209,11 @@ export const GlobalStyle = createGlobalStyle`
       --color-secondary: #94a3b8;
       --color-tertiary: #64748b;
       --border-color: #334155;
+      /* --color-actived (#047857) sobre --body-card/--body-footer (#1e293b)
+         mide solo 2.67:1 en modo oscuro, falla WCAG AA. #34d399 (emerald-400)
+         sobre #1e293b = 7.61:1 y sobre --body-background #0f172a = 9.29:1,
+         ambos cumplen AA (mínimo 4.5:1) con margen. */
+      --color-actived: #34d399;
     }
   }
 
