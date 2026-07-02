@@ -31,23 +31,62 @@ export const GlobalStyle = createGlobalStyle`
     --border-color: #e2e8f0;
     --shadow-light: 0 1px 3px 0 rgb(0 0 0 / 0.1), 0 1px 2px -1px rgb(0 0 0 / 0.1);
     --shadow-medium: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-    
-    /* Tipografía escalable y responsive */
+
+    /* Identidad de color por sección (feedback del dueño del producto: la
+       app se sentía monocromática). Cada familia queda a cargo de un solo
+       grupo de contenido — Procedimientos (azul), Cuidados (verde),
+       Comida y líquidos (ámbar) — y nunca se reutiliza para advertencias:
+       UrgentWarningCallout conserva su semántica roja/ámbar propia
+       (--color-urgent*/--color-caution*), independiente de estos tokens.
+       Contraste texto-sobre-fondo verificado con la fórmula de luminancia
+       relativa de WCAG (mismo método usado en el resto del archivo):
+       #1d4ed8 sobre #eff6ff = 6.16:1; #047857 sobre #ecfdf5 = 5.21:1;
+       #b45309 sobre #fffbeb = 4.84:1 — los tres superan AA (4.5:1) para
+       texto normal. --color-secondary (#64748b) NO se usa como color de
+       texto sobre estos fondos porque cae por debajo de AA sobre el tono
+       procedimientos (4.37:1, falla) — los componentes que tiñen su fondo
+       con estos tokens deben usar --color-primary para su texto de cuerpo. */
+    --section-procedimientos-bg: #eff6ff;
+    --section-procedimientos-border: #bfdbfe;
+    --section-procedimientos-accent: #1d4ed8;
+    --section-cuidados-bg: #ecfdf5;
+    --section-cuidados-border: #a7f3d0;
+    --section-cuidados-accent: #047857;
+    --section-comida-bg: #fffbeb;
+    --section-comida-border: #fde68a;
+    --section-comida-accent: #b45309;
+
+    /* Tipografía escalable y responsive. Piso subido de 16px a 17px en
+       --font-size-base (y el resto de la escala proporcionalmente) para
+       usuarios de edad avanzada con problemas de visión — feedback directo
+       del dueño del producto tras ver la app en uso real. */
     --font-family-primary: 'Noto Sans JP', system-ui, -apple-system, sans-serif;
-    --font-size-base: clamp(16px, 4vw, 18px);
-    --font-size-sm: clamp(14px, 3.5vw, 16px);
-    --font-size-lg: clamp(18px, 4.5vw, 20px);
-    --font-size-xl: clamp(20px, 5vw, 24px);
-    --font-size-2xl: clamp(24px, 6vw, 32px);
-    
-    /* Espaciado responsivo */
+    --font-size-base: clamp(17px, 4vw, 20px);
+    --font-size-sm: clamp(15px, 3.5vw, 17px);
+    --font-size-lg: clamp(19px, 4.5vw, 22px);
+    --font-size-xl: clamp(22px, 5vw, 26px);
+    --font-size-2xl: clamp(26px, 6vw, 34px);
+
+    /* Espaciado responsivo (histórico, aún en uso en la mayoría de
+       componentes) */
     --spacing-xs: clamp(0.25rem, 1vw, 0.5rem);
     --spacing-sm: clamp(0.5rem, 2vw, 0.75rem);
     --spacing-md: clamp(0.75rem, 3vw, 1rem);
     --spacing-lg: clamp(1rem, 4vw, 1.5rem);
     --spacing-xl: clamp(1.5rem, 5vw, 2rem);
     --spacing-2xl: clamp(2rem, 6vw, 3rem);
-    
+
+    /* Escala de espaciado fija (no fluida) para unificar el padding/gap de
+       tarjetas — la queja #1 del dueño del producto fue espaciado
+       inconsistente entre Card/CardLink/PageContainer, cada uno con su
+       propio clamp ligeramente distinto. Estos tokens son el valor único
+       que Card, CardLink, PageContainer, Home y las páginas índice usan a
+       partir de ahora — ver sus archivos de estilos para el detalle. */
+    --space-2: 8px;
+    --space-3: 12px;
+    --space-4: 16px;
+    --space-6: 24px;
+
     /* Dimensiones responsive */
     --header-height: clamp(60px, 15vw, 80px);
     /* Piso subido de 60px a 64px (PR5a): la barra de navegación ahora
@@ -105,10 +144,12 @@ export const GlobalStyle = createGlobalStyle`
     outline: 0;
     cursor: pointer;
     font-family: inherit;
-    
-    /* Área de toque mínima para móviles */
-    min-height: 44px;
-    min-width: 44px;
+
+    /* Área de toque mínima para móviles — 48px (subido de 44px, piso
+       recomendado para usuarios de edad avanzada con menor precisión
+       motriz) */
+    min-height: 48px;
+    min-width: 48px;
     
     /* Estados de interacción */
     &:focus-visible {
@@ -217,10 +258,12 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
 
-  /* Breakpoints para responsive design */
+  /* Breakpoints para responsive design. Los pisos de font-size-base nunca
+     bajan del nuevo mínimo elderly-friendly (17px) — antes el breakpoint
+     móvil fijaba 16px, por debajo del piso del clamp. */
   @media (max-width: 480px) {
     :root {
-      --font-size-base: 16px;
+      --font-size-base: 17px;
       --spacing-md: 0.75rem;
       --spacing-lg: 1rem;
     }
@@ -228,45 +271,15 @@ export const GlobalStyle = createGlobalStyle`
 
   @media (min-width: 768px) {
     :root {
-      --font-size-base: 18px;
+      --font-size-base: 19px;
     }
   }
 
   @media (min-width: 1024px) {
     :root {
-      --font-size-base: 18px;
+      --font-size-base: 20px;
       --spacing-lg: 1.5rem;
       --spacing-xl: 2rem;
-    }
-  }
-
-  /* Mejoras para modo oscuro (respeta preferencias del sistema) */
-  @media (prefers-color-scheme: dark) {
-    :root {
-      --body-background: #0f172a;
-      --body-header: #1e293b;
-      --body-footer: #1e293b;
-      --body-card: #1e293b;
-      --color-primary: #f1f5f9;
-      --color-secondary: #94a3b8;
-      --color-tertiary: #64748b;
-      --border-color: #334155;
-      /* --color-actived (#047857) sobre --body-card/--body-footer (#1e293b)
-         mide solo 2.67:1 en modo oscuro, falla WCAG AA. #34d399 (emerald-400)
-         sobre #1e293b = 7.61:1 y sobre --body-background #0f172a = 9.29:1,
-         ambos cumplen AA (mínimo 4.5:1) con margen. */
-      --color-actived: #34d399;
-      /* Dark-mode variants for the urgent/caution callout tokens (R6.1) —
-         light text on a dark tinted background instead of dark text on a
-         light one. Measured: #fca5a5 sobre #450a0a (urgent) = 8.51:1;
-         #fcd34d sobre #451a03 (caution) = 10.39:1 — ambos superan AA con
-         mucho margen. Also verified against --body-card (#1e293b), in case
-         a component reuses these tokens outside the tinted-bg box: urgent
-         7.71:1, caution 10.15:1 — still AA-compliant either way. */
-      --color-urgent: #fca5a5;
-      --color-urgent-bg: #450a0a;
-      --color-caution: #fcd34d;
-      --color-caution-bg: #451a03;
     }
   }
 
