@@ -10,6 +10,9 @@ import { NoMatch } from '../pages/NoMatch'
 export const AppRoutes = () => {
   return (
     <BrowserRouter>
+      <a href='#main-content' className='skip-link'>
+        Ir al contenido principal
+      </a>
       <NavBar />
       <Routes>
         <Route path='/' element={<Home />} />

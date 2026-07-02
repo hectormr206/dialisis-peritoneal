@@ -80,7 +80,9 @@ export const NavLink = styled(NavLinkRouter)`
   /* Estado activo con mejor contraste - React Router v6 */
   &.active {
     color: var(--color-actived);
-    background: rgba(5, 150, 105, 0.1);
+    /* rgb(4, 120, 87) = #047857, el nuevo valor de --color-actived (antes
+       rgba(5, 150, 105, 0.1) quedó desalineado tras oscurecer el token) */
+    background: rgba(4, 120, 87, 0.1);
     font-weight: 600;
 
     &::after {
