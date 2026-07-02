@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { fadeIn } from '../../styles/animation'
 
 export const Nav = styled.nav`
   position: fixed;
@@ -85,26 +84,27 @@ export const NavLink = styled(Link)`
     background: rgba(59, 130, 246, 0.1);
   }
 
-  /* Estado activo con mejor contraste - coincidencia por prefijo, no exacta */
+  /* Estado activo con mejor contraste - coincidencia por prefijo, no exacta.
+     El fondo de la píldora ya es la señal de "activo" — no hace falta un
+     punto extra debajo de la etiqueta (quitado: quedaba pegado al texto y
+     no aportaba nada que la propia píldora no dijera ya). Cada pestaña usa
+     el tinte de su sección (data-section, ver NavBar/index.js); Inicio y
+     Cuidados comparten el verde de siempre porque #047857 ya es
+     --section-cuidados-accent. */
   &.active {
     color: var(--color-actived);
-    /* rgb(4, 120, 87) = #047857, el nuevo valor de --color-actived (antes
-       rgba(5, 150, 105, 0.1) quedó desalineado tras oscurecer el token) */
     background: rgba(4, 120, 87, 0.1);
     font-weight: 600;
+  }
 
-    &::after {
-      content: "";
-      position: absolute;
-      bottom: 2px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 4px;
-      height: 4px;
-      background: var(--color-actived);
-      border-radius: 50%;
-      ${fadeIn({ time: '0.3s' })};
-    }
+  &.active[data-section='procedimientos'] {
+    color: var(--section-procedimientos-accent);
+    background: rgba(29, 78, 216, 0.12);
+  }
+
+  &.active[data-section='comida'] {
+    color: var(--section-comida-accent);
+    background: rgba(180, 83, 9, 0.12);
   }
 
   /* Iconos con mejor espaciado */
@@ -119,10 +119,10 @@ export const NavLink = styled(Link)`
     transform: scale(1.1);
   }
 
-  /* Responsive para pantallas pequeñas */
+  /* Responsive para pantallas pequeñas. Sin min-height propio: hereda el
+     piso de 48px de la regla base (subido de 44px) — R6.3. */
   @media (max-width: 480px) {
     padding: var(--spacing-xs);
-    min-height: 44px;
 
     svg {
       width: 22px !important;
@@ -161,9 +161,12 @@ export const NavLink = styled(Link)`
 
 export const NavLabel = styled.span`
   /* Etiqueta corta y visible bajo el ícono (antes sr-only) — navegación
-     por ícono + palabra para usuarios de baja alfabetización — R4.2. */
+     por ícono + palabra para usuarios de baja alfabetización — R4.2.
+     Piso subido de 9px a 10px (legibilidad para usuarios de edad avanzada);
+     "Comida y líquidos" (la etiqueta más larga) sigue cabiendo en 2 líneas
+     a 360px de ancho gracias a overflow-wrap + hyphens abajo. */
   display: block;
-  font-size: clamp(9px, 2.4vw, 11px);
+  font-size: clamp(10px, 2.6vw, 12px);
   line-height: 1.15;
   text-align: center;
   width: 100%;

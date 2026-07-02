@@ -26,6 +26,7 @@ const NAV_ITEMS = [
     label: 'Procedimientos',
     ariaLabel: 'Procedimientos - Aseo, curación y diálisis',
     Icon: MdChecklist,
+    section: 'procedimientos',
     prefixes: [
       '/procedimientos',
       '/aseo-general',
@@ -38,6 +39,7 @@ const NAV_ITEMS = [
     label: 'Cuidados',
     ariaLabel: 'Cuidados - Higiene y señales de alarma',
     Icon: MdHealthAndSafety,
+    section: 'cuidados',
     prefixes: ['/cuidados']
   },
   {
@@ -45,6 +47,7 @@ const NAV_ITEMS = [
     label: 'Comida y líquidos',
     ariaLabel: 'Comida y líquidos',
     Icon: MdRestaurant,
+    section: 'comida',
     // '/registro' (the daily weight/fluid log, PR11) is a top-level route
     // like the legacy procedure routes above, but conceptually belongs to
     // this group — included here for the same active-tab-continuity reason.
@@ -66,7 +69,7 @@ export const NavBar = () => {
 
   return (
     <Nav role='navigation' aria-label='Navegación principal'>
-      {NAV_ITEMS.map(({ to, label, ariaLabel, Icon, prefixes }) => {
+      {NAV_ITEMS.map(({ to, label, ariaLabel, Icon, section, prefixes }) => {
         const isActive = isPrefixActive(pathname, prefixes)
 
         return (
@@ -77,6 +80,7 @@ export const NavBar = () => {
             aria-current={isActive ? 'page' : undefined}
             aria-label={ariaLabel}
             title={label}
+            data-section={section}
           >
             <Icon size='28px' aria-hidden='true' />
             <NavLabel>{label}</NavLabel>
