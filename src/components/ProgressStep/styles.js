@@ -36,8 +36,8 @@ export const MigrationNoticeText = styled.p`
 
 export const MigrationNoticeDismiss = styled.button`
   flex-shrink: 0;
-  min-height: 44px;
-  min-width: 44px;
+  min-height: 48px; /* Área de toque accesible — subida de 44 a 48px */
+  min-width: 48px;
   border-radius: 50%;
   color: var(--color-secondary);
   font-size: var(--font-size-base);
@@ -340,24 +340,19 @@ const ButtonBase = styled.button`
   @media (max-width: 480px) {
     padding: var(--spacing-sm);
     font-size: var(--font-size-sm);
-    min-height: 44px;
+    min-height: 48px; /* Área de toque accesible — subida de 44 a 48px */
   }
 `;
 
 export const CompleteButton = styled(ButtonBase)`
   /* #047857 fijo (no var(--color-actived)) — mismo patrón que HomeLink en
-     NoMatch.js (PR1). En modo oscuro el token cambia a #34d399 (necesario
-     para texto legible sobre --body-card), y texto blanco sobre #34d399
-     mide solo 1.92:1, muy por debajo de AA. Texto blanco sobre #047857 =
-     5.48:1 y no varía por color-scheme. Carried as a known follow-up risk
-     through PR1/PR2/PR3/PR4a/PR4b, fixed here in PR5a — R6.1. */
+     NoMatch.js. Texto blanco sobre #047857 = 5.48:1, cumple AA. */
   background: #047857;
   color: white;
 
   &:hover {
-    /* #065f46 fijo, mismo motivo: var(--color-success) (#16a34a) con texto
-       blanco mide solo 3.30:1 y falla AA; #065f46 con texto blanco = 7.68:1
-       y no varía por color-scheme. */
+    /* #065f46 fijo: var(--color-success) (#16a34a) con texto blanco mide
+       solo 3.30:1 y falla AA; #065f46 con texto blanco = 7.68:1, cumple AA. */
     background: #065f46;
   }
 
@@ -494,7 +489,7 @@ export const ConfirmButton = styled.button`
   font-size: var(--font-size-base);
   cursor: pointer;
   transition: all 0.2s ease;
-  min-height: 44px;
+  min-height: 48px; /* Área de toque accesible — subida de 44 a 48px */
 
   &:hover {
     background: #b91c1c;
@@ -521,7 +516,7 @@ export const CancelButton = styled.button`
   font-size: var(--font-size-base);
   cursor: pointer;
   transition: all 0.2s ease;
-  min-height: 44px;
+  min-height: 48px; /* Área de toque accesible — subida de 44 a 48px */
 
   &:hover {
     background: var(--color-primary);
