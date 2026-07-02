@@ -335,15 +335,24 @@ const ButtonBase = styled.button`
 `;
 
 export const CompleteButton = styled(ButtonBase)`
-  background: var(--color-actived);
+  /* #047857 fijo (no var(--color-actived)) — mismo patrón que HomeLink en
+     NoMatch.js (PR1). En modo oscuro el token cambia a #34d399 (necesario
+     para texto legible sobre --body-card), y texto blanco sobre #34d399
+     mide solo 1.92:1, muy por debajo de AA. Texto blanco sobre #047857 =
+     5.48:1 y no varía por color-scheme. Carried as a known follow-up risk
+     through PR1/PR2/PR3/PR4a/PR4b, fixed here in PR5a — R6.1. */
+  background: #047857;
   color: white;
 
   &:hover {
-    background: var(--color-success);
+    /* #065f46 fijo, mismo motivo: var(--color-success) (#16a34a) con texto
+       blanco mide solo 3.30:1 y falla AA; #065f46 con texto blanco = 7.68:1
+       y no varía por color-scheme. */
+    background: #065f46;
   }
 
   &:focus {
-    outline-color: var(--color-actived);
+    outline-color: #047857;
   }
 `;
 
