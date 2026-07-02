@@ -29,7 +29,7 @@ describe('TopicPage', () => {
     )
 
     expect(
-      screen.getByRole('heading', { name: 'Peritonitis', level: 1 })
+      screen.getByRole('heading', { name: 'Peritonitis', level: 2 })
     ).toBeInTheDocument()
     expect(screen.getByText('Qué cubre esta página.')).toBeInTheDocument()
     expect(screen.getByText('Señales de alarma')).toBeInTheDocument()

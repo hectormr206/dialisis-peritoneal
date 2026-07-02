@@ -21,6 +21,13 @@ import {
 //
 // No real medical content ships in this PR — this is the reusable shell
 // only; PR6-9 pass real `sections`/`sourceIds`.
+//
+// Heading levels: the page's own <h1> always belongs to Layout (every page
+// in this app follows that convention — see CuidadosIndex, ProcedimientosIndex,
+// TopicComingSoon, ProgressStep's StepTitle). TopicPage is always composed
+// inside Layout, so `title` renders as <h2> here (not <h1>, fixed in PR6 —
+// the PR5b version rendered <h1>, which produced two identical <h1>s once a
+// real page wrapped it in Layout) and each section heading renders as <h3>.
 export const TopicPage = ({ title, intro, sections = [], sourceIds = [] }) => {
   const allSourceIds = [
     ...sourceIds,
@@ -31,7 +38,7 @@ export const TopicPage = ({ title, intro, sections = [], sourceIds = [] }) => {
   return (
     <PageContainer>
       <TopicHeader>
-        <h1>{title}</h1>
+        <h2>{title}</h2>
         {intro && <TopicIntro>{intro}</TopicIntro>}
       </TopicHeader>
 

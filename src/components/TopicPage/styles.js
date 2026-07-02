@@ -3,7 +3,7 @@ import styled from 'styled-components'
 export const TopicHeader = styled.header`
   margin-bottom: var(--spacing-lg);
 
-  h1 {
+  h2 {
     font-size: var(--font-size-2xl);
     font-weight: 700;
     color: var(--color-primary);
@@ -21,7 +21,7 @@ export const TopicSection = styled.section`
   margin-bottom: var(--spacing-xl);
 `
 
-export const SectionHeading = styled.h2`
+export const SectionHeading = styled.h3`
   font-size: var(--font-size-xl);
   font-weight: 700;
   color: var(--color-primary);
