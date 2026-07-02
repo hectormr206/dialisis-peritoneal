@@ -75,7 +75,7 @@ export const Home = () => {
         <HubSection aria-labelledby="hub-alimentacion-heading">
           <Card section="comida">
             <h2 id="hub-alimentacion-heading">🍽️ Comida y líquidos</h2>
-            <p>Líquidos, ingresos y alimentación saludable.</p>
+            <p>Qué comer y cuánto líquido tomar.</p>
           </Card>
           <CardLinkGrid aria-label="Lista de temas de alimentación">
             {alimentacionLinks.map((link) => (

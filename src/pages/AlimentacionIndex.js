@@ -15,7 +15,7 @@ export const AlimentacionIndex = () => (
       <Card section='comida'>
         <section aria-labelledby='alimentacion-heading'>
           <h2 id='alimentacion-heading'>🍽️ Comida y líquidos</h2>
-          <p>Líquidos, ingresos y alimentación saludable para tu diálisis.</p>
+          <p>Qué comer y cuánto líquido tomar cada día.</p>
         </section>
       </Card>
       <CardLinkGrid aria-label='Lista de temas de alimentación'>

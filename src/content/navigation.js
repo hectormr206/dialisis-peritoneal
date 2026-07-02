@@ -70,7 +70,7 @@ export const alimentacionLinks = [
   {
     to: '/alimentacion/liquidos',
     title: 'Líquidos',
-    description: 'Qué tomar en cuenta sobre líquidos e ingresos.',
+    description: 'Cuánto líquido tomar y qué vigilar.',
     icon: GiWaterDrop,
     section: 'comida'
   },
