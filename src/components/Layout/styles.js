@@ -15,11 +15,15 @@ const sectionTitleStyles = {
   `
 }
 
+/* Every padding shorthand below reserves bottom clearance for the fixed
+   bottom nav (plus notched-phone safe area) — otherwise the last card on
+   long pages hides behind the nav. Media-query shorthands would override a
+   single padding-bottom declaration, so the clearance rides inside each. */
 export const Content = styled.main`
   min-height: calc(100vh - var(--header-height) - var(--footer-height));
   overflow-y: auto;
   overflow-x: hidden;
-  padding: var(--spacing-sm) 0;
+  padding: var(--spacing-sm) 0 calc(var(--footer-height) + var(--spacing-lg) + env(safe-area-inset-bottom, 0px)) 0;
   margin: 0 auto;
   width: 100%;
   max-width: 100vw;
@@ -42,7 +46,7 @@ export const Content = styled.main`
 
   /* Espaciado responsive */
   @media (max-width: 480px) {
-    padding: var(--spacing-xs) var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-xs) calc(var(--footer-height) + var(--spacing-lg) + env(safe-area-inset-bottom, 0px)) var(--spacing-xs);
     min-height: calc(100vh - var(--header-height) - var(--footer-height));
 
     & > * {
@@ -53,15 +57,15 @@ export const Content = styled.main`
   }
 
   @media (min-width: 481px) and (max-width: 768px) {
-    padding: var(--spacing-sm) var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-sm) calc(var(--footer-height) + var(--spacing-lg) + env(safe-area-inset-bottom, 0px)) var(--spacing-sm);
   }
 
   @media (min-width: 769px) {
-    padding: var(--spacing-md) var(--spacing-lg);
+    padding: var(--spacing-md) var(--spacing-lg) calc(var(--footer-height) + var(--spacing-lg) + env(safe-area-inset-bottom, 0px)) var(--spacing-lg);
   }
 
   @media (min-width: 1024px) {
-    padding: var(--spacing-lg) var(--spacing-xl);
+    padding: var(--spacing-lg) var(--spacing-xl) calc(var(--footer-height) + var(--spacing-lg) + env(safe-area-inset-bottom, 0px)) var(--spacing-xl);
   }
 `;
 
